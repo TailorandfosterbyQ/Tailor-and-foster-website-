@@ -14,8 +14,10 @@ const languages: { code: Language; label: string }[] = [
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
+  const servicesRef = useRef<HTMLDivElement>(null);
   const { language, setLanguage, t } = useLanguage();
   const location = useLocation();
 
@@ -23,6 +25,9 @@ const Header = () => {
     const handler = (e: MouseEvent) => {
       if (langRef.current && !langRef.current.contains(e.target as Node)) {
         setLangOpen(false);
+      }
+      if (servicesRef.current && !servicesRef.current.contains(e.target as Node)) {
+        setServicesOpen(false);
       }
     };
     document.addEventListener('mousedown', handler);
@@ -40,7 +45,12 @@ const Header = () => {
   const navItems = [
     { label: t("nav.home"), href: "/" },
     { label: t("nav.about"), href: "/about" },
-    { label: t("nav.services"), href: "/services" },
+  ];
+
+  const serviceItems = [
+    { label: t("offer.growth.title"), href: "/services/growth" },
+    { label: t("offer.downsizing.title"), href: "/services/downsizing" },
+    { label: t("offer.lease.title"), href: "/services/lease" },
   ];
 
   const isActive = (href: string) => location.pathname === href;
@@ -74,6 +84,39 @@ const Header = () => {
               {item.label}
             </Link>
           ))}
+
+          {/* Services dropdown */}
+          <div ref={servicesRef} className="relative">
+            <button
+              onClick={() => setServicesOpen(!servicesOpen)}
+              className={`flex items-center gap-1 font-logo tracking-[0.15em] uppercase font-semibold transition-colors duration-300 text-[11px] ${
+                location.pathname.startsWith('/services')
+                  ? 'text-primary'
+                  : 'text-primary/60 hover:text-primary'
+              }`}
+            >
+              {t("nav.services")}
+              <ChevronDown size={12} className={`transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {servicesOpen && (
+              <div className="absolute left-0 top-full mt-3 bg-white border border-border rounded-xl shadow-xl py-2 min-w-[220px] overflow-hidden">
+                {serviceItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    onClick={() => setServicesOpen(false)}
+                    className={`block px-5 py-2.5 text-[12px] font-medium transition-colors duration-150 ${
+                      location.pathname === item.href
+                        ? 'bg-primary/5 text-primary'
+                        : 'text-foreground/70 hover:bg-primary/5 hover:text-primary'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
           <Link
             to="/#contact"
             className="ml-4 border border-primary/80 rounded-full font-logo font-semibold tracking-[0.12em] uppercase text-primary px-4 py-2 hover:bg-primary hover:text-white transition-colors duration-300 text-[10px] whitespace-nowrap"
