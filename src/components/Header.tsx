@@ -70,7 +70,7 @@ const Header = () => {
           />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-8">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -154,7 +154,7 @@ const Header = () => {
         </nav>
 
         <button
-          className="md:hidden text-primary"
+          className="lg:hidden text-primary"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -163,7 +163,7 @@ const Header = () => {
       </div>
 
       {mobileOpen && (
-        <nav className="md:hidden bg-white border-t border-primary/10 px-6 pb-6">
+        <nav className="lg:hidden bg-white border-t border-primary/10 px-6 pb-6">
           {navItems.map((item) => (
             <Link
               key={item.href}
