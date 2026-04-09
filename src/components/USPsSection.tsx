@@ -23,15 +23,15 @@ const USPsSection = () => {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            <p className="text-sm font-medium uppercase tracking-[0.22em] text-background/50">
+            <p className="text-sm font-medium uppercase tracking-[0.22em] text-primary-foreground/50">
               {t("usps.label")}
             </p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl text-background">
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl text-primary-foreground">
               {t("usps.title")}
             </h2>
           </motion.div>
 
-          <div className="grid gap-0 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-background/10">
+          <div className="grid gap-0 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-primary-foreground/10">
             {usps.map((usp, i) => {
               const Icon = usp.icon;
               return (
@@ -44,14 +44,14 @@ const USPsSection = () => {
                   className="relative px-8 py-8 first:pl-0 last:pr-0"
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-background/10 text-background/70">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/10 text-primary-foreground/70">
                       <Icon size={18} />
                     </div>
-                    <h3 className="text-lg font-semibold tracking-tight text-background">
+                    <h3 className="text-lg font-semibold tracking-tight text-primary-foreground">
                       {t(`usps.${usp.key}.title`)}
                     </h3>
                   </div>
-                  <p className="text-base leading-7 text-background/60">
+                  <p className="text-base leading-7 text-primary-foreground/60">
                     {t(`usps.${usp.key}.text`)}
                   </p>
                 </motion.div>
