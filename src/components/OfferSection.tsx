@@ -1,75 +1,69 @@
-import { TrendingUp, TrendingDown, FileText } from 'lucide-react';
+import { TrendingUp, TrendingDown, FileText, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/i18n/LanguageContext';
 
 const offers = [
-  { icon: TrendingUp, key: "growth" },
-  { icon: TrendingDown, key: "downsizing" },
-  { icon: FileText, key: "lease" },
+  { icon: TrendingUp, key: "growth", color: "bg-emerald-50 text-emerald-700 border-emerald-200" },
+  { icon: TrendingDown, key: "downsizing", color: "bg-amber-50 text-amber-700 border-amber-200" },
+  { icon: FileText, key: "lease", color: "bg-sky-50 text-sky-700 border-sky-200" },
 ];
 
 const OfferSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="offer" className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12 overflow-hidden">
-      <motion.div
-        className="max-w-3xl"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      >
-        <p className="text-sm font-medium uppercase tracking-[0.22em] text-primary">
-          {t("offer.label")}
-        </p>
-        <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl text-foreground">
-          {t("offer.title")}
-        </h2>
-      </motion.div>
+    <section id="offer" className="mx-auto max-w-7xl px-6 py-28 sm:px-8 lg:px-12 overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        {/* Left sticky intro */}
+        <motion.div
+          className="lg:col-span-4 lg:sticky lg:top-32"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <p className="text-sm font-medium uppercase tracking-[0.22em] text-primary">
+            {t("offer.label")}
+          </p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl text-foreground">
+            {t("offer.title")}
+          </h2>
+          <div className="mt-6 h-px w-16 bg-primary/30" />
+        </motion.div>
 
-      <div className="mt-14 grid gap-5 md:grid-cols-3">
-        {offers.map((offer, i) => {
-          const Icon = offer.icon;
-          return (
-            <motion.div
-              key={offer.key}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ delay: i * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -8, transition: { type: "spring", stiffness: 400, damping: 17 } }}
-              className="group relative rounded-3xl border border-border bg-card p-8 shadow-sm overflow-hidden cursor-default"
-            >
-              <motion.div
-                className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-primary/60 to-primary/0 origin-left"
-                initial={{ scaleX: 0 }}
-                whileHover={{ scaleX: 1 }}
-                transition={{ duration: 0.4 }}
-              />
-              <motion.div
-                className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary"
-                whileHover={{ backgroundColor: "hsl(var(--primary))", color: "#fff", scale: 1.1 }}
-                transition={{ duration: 0.25 }}
-              >
-                <Icon size={20} />
-              </motion.div>
-              <h3 className="text-lg font-semibold tracking-tight text-foreground">
-                {t(`offer.${offer.key}.title`)}
-              </h3>
-              <p className="mt-3 text-base leading-7 text-muted-foreground">
-                {t(`offer.${offer.key}.text`)}
-              </p>
+        {/* Right stacked cards */}
+        <div className="lg:col-span-8 space-y-6">
+          {offers.map((offer, i) => {
+            const Icon = offer.icon;
+            return (
               <motion.a
+                key={offer.key}
                 href="/services"
-                className="mt-5 inline-block text-sm font-medium text-primary hover:underline"
-                whileHover={{ x: 4 }}
+                initial={{ opacity: 0, x: 60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ delay: i * 0.12, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ x: 8, transition: { type: "spring", stiffness: 400, damping: 17 } }}
+                className="group flex items-start gap-6 rounded-2xl border border-border bg-card p-8 cursor-pointer block"
               >
-                Learn more →
+                <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border ${offer.color}`}>
+                  <Icon size={24} />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xl font-semibold tracking-tight text-foreground group-hover:text-primary transition-colors">
+                      {t(`offer.${offer.key}.title`)}
+                    </h3>
+                    <ArrowUpRight size={20} className="text-muted-foreground opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
+                  </div>
+                  <p className="mt-2 text-base leading-7 text-muted-foreground">
+                    {t(`offer.${offer.key}.text`)}
+                  </p>
+                </div>
               </motion.a>
-            </motion.div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </section>
   );
