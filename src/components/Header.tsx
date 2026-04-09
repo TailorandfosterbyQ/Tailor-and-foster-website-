@@ -45,7 +45,12 @@ const Header = () => {
   const navItems = [
     { label: t("nav.home"), href: "/" },
     { label: t("nav.about"), href: "/about" },
-    { label: t("nav.services"), href: "/services" },
+  ];
+
+  const serviceItems = [
+    { label: t("offer.growth.title"), href: "/services/growth" },
+    { label: t("offer.downsizing.title"), href: "/services/downsizing" },
+    { label: t("offer.lease.title"), href: "/services/lease" },
   ];
 
   const isActive = (href: string) => location.pathname === href;
