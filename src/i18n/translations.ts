@@ -22,7 +22,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "usps.independent.title": "100% Independent",
     "usps.independent.text": "Decisions remain yours; we have no predetermined supply routes.",
     "usps.disruption.title": "Minimal Disruption",
-    "usps.disruption.text": "We control the time diverted away from your core business.",
+    "usps.disruption.text": "We understand your time is your most valuable asset. We focus on minimizing and controlling the time diverted away from your core business operations.",
     "usps.senior.title": "Senior Oversight",
     "usps.senior.text": "A guaranteed continuous senior presence throughout your project.",
 
