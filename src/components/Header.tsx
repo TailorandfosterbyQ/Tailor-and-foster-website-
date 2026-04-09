@@ -47,7 +47,7 @@ const Header = () => {
 
   return (
     <header
-      className={`bg-header text-header-foreground sticky top-0 z-50 transition-shadow duration-300 ${
+      className={`bg-white text-foreground sticky top-0 z-50 transition-shadow duration-300 ${
         scrolled ? 'shadow-md' : ''
       }`}
     >
