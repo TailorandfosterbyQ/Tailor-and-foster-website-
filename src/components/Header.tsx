@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Menu, X, ChevronDown, Globe } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import tfLogo from "@/assets/tf-logo-white.png";
+import tfLogo from "@/assets/tf-logo-blue.png";
 import { useLanguage } from "@/i18n/LanguageContext";
 import type { Language } from "@/i18n/translations";
 
@@ -47,7 +47,7 @@ const Header = () => {
 
   return (
     <header
-      className={`bg-header text-header-foreground sticky top-0 z-50 transition-shadow duration-300 ${
+      className={`bg-white text-foreground sticky top-0 z-50 transition-shadow duration-300 ${
         scrolled ? 'shadow-md' : ''
       }`}
     >
@@ -56,7 +56,7 @@ const Header = () => {
           <img
             src={tfLogo}
             alt="Tailor & Foster"
-            className="h-12 sm:h-14 object-contain"
+            className="h-8 sm:h-9 object-contain"
           />
         </Link>
 
@@ -67,8 +67,8 @@ const Header = () => {
               to={item.href}
               className={`font-logo tracking-[0.15em] uppercase font-semibold transition-colors duration-300 text-[11px] ${
                 isActive(item.href)
-                  ? 'text-header-foreground'
-                  : 'text-header-foreground/60 hover:text-header-foreground'
+                  ? 'text-primary'
+                  : 'text-primary/60 hover:text-primary'
               }`}
             >
               {item.label}
@@ -76,30 +76,30 @@ const Header = () => {
           ))}
           <Link
             to="/#contact"
-            className="ml-4 border border-header-foreground/80 rounded-full font-logo font-semibold tracking-[0.15em] uppercase text-header-foreground px-6 py-2.5 hover:bg-header-foreground hover:text-header transition-colors duration-300 text-[11px]"
+            className="ml-4 border border-primary/80 rounded-full font-logo font-semibold tracking-[0.15em] uppercase text-primary px-6 py-2.5 hover:bg-primary hover:text-white transition-colors duration-300 text-[11px]"
           >
             {t("nav.letsTalk")}
           </Link>
 
-          <div ref={langRef} className="relative ml-4 border-l border-header-foreground/15 pl-4">
+          <div ref={langRef} className="relative ml-4 border-l border-primary/15 pl-4">
             <button
               onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-1.5 text-[11px] font-semibold tracking-wider text-header-foreground/50 hover:text-header-foreground transition-colors duration-200 px-2 py-1.5 rounded"
+              className="flex items-center gap-1.5 text-[11px] font-semibold tracking-wider text-primary/50 hover:text-primary transition-colors duration-200 px-2 py-1.5 rounded"
             >
               <Globe size={13} />
               {currentLabel}
               <ChevronDown size={11} className={`transition-transform duration-200 ${langOpen ? 'rotate-180' : ''}`} />
             </button>
             {langOpen && (
-              <div className="absolute right-0 top-full mt-2 bg-header border border-header-foreground/10 rounded-lg shadow-xl py-1 min-w-[80px] overflow-hidden">
+              <div className="absolute right-0 top-full mt-2 bg-white border border-primary/10 rounded-lg shadow-xl py-1 min-w-[80px] overflow-hidden">
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
                     onClick={() => { setLanguage(lang.code); setLangOpen(false); }}
                     className={`block w-full text-left px-4 py-2 text-[11px] font-semibold tracking-wider transition-colors duration-150 ${
                       language === lang.code
-                        ? 'bg-header-foreground/10 text-header-foreground'
-                        : 'text-header-foreground/40 hover:bg-header-foreground/5 hover:text-header-foreground'
+                        ? 'bg-primary/10 text-primary'
+                        : 'text-primary/40 hover:bg-primary/5 hover:text-primary'
                     }`}
                   >
                     {lang.label}
@@ -111,7 +111,7 @@ const Header = () => {
         </nav>
 
         <button
-          className="md:hidden text-header-foreground"
+          className="md:hidden text-primary"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -120,7 +120,7 @@ const Header = () => {
       </div>
 
       {mobileOpen && (
-        <nav className="md:hidden bg-header border-t border-header-foreground/10 px-6 pb-6">
+        <nav className="md:hidden bg-white border-t border-primary/10 px-6 pb-6">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -128,8 +128,8 @@ const Header = () => {
               onClick={() => setMobileOpen(false)}
               className={`block py-3 font-logo text-sm tracking-[0.15em] uppercase font-semibold transition-colors ${
                 isActive(item.href)
-                  ? 'text-header-foreground'
-                  : 'text-header-foreground/70 hover:text-header-foreground'
+                  ? 'text-primary'
+                  : 'text-primary/70 hover:text-primary'
               }`}
             >
               {item.label}
@@ -138,21 +138,21 @@ const Header = () => {
           <Link
             to="/#contact"
             onClick={() => setMobileOpen(false)}
-            className="inline-block mt-3 border border-header-foreground/80 rounded-full font-logo text-sm font-semibold tracking-[0.15em] uppercase text-header-foreground px-6 py-2.5 hover:bg-header-foreground hover:text-header transition-colors"
+            className="inline-block mt-3 border border-primary/80 rounded-full font-logo text-sm font-semibold tracking-[0.15em] uppercase text-primary px-6 py-2.5 hover:bg-primary hover:text-white transition-colors"
           >
             {t("nav.letsTalk")}
           </Link>
 
-          <div className="flex items-center gap-2 mt-4 pt-4 border-t border-header-foreground/10">
-            <Globe size={14} className="text-header-foreground/40" />
+          <div className="flex items-center gap-2 mt-4 pt-4 border-t border-primary/10">
+            <Globe size={14} className="text-primary/40" />
             {languages.map((lang) => (
               <button
                 key={lang.code}
                 onClick={() => setLanguage(lang.code)}
                 className={`text-sm font-semibold tracking-wider px-3 py-1.5 rounded transition-colors duration-200 ${
                   language === lang.code
-                    ? 'bg-header-foreground/10 text-header-foreground'
-                    : 'text-header-foreground/40 hover:text-header-foreground'
+                    ? 'bg-primary/10 text-primary'
+                    : 'text-primary/40 hover:text-primary'
                 }`}
               >
                 {lang.label}
