@@ -58,10 +58,10 @@ const Header = () => {
   return (
     <header
       className={`text-foreground sticky top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-md' : 'bg-transparent'
+        scrolled ? 'bg-white/95 backdrop-blur-sm shadow-md' : 'bg-transparent'
       }`}
     >
-      <div className="mx-auto max-w-7xl flex items-center justify-between h-24 px-6 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-7xl flex items-center justify-between px-6 sm:px-8 lg:px-12 py-2">
         <Link to="/" className="flex items-center gap-0 group shrink-0 mr-8">
           <img
             src={tfLogo}
