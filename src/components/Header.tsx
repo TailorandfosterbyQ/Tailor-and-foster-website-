@@ -66,7 +66,7 @@ const Header = () => {
           <img
             src={tfLogo}
             alt="Tailor & Foster"
-            className="h-20 sm:h-24 object-contain"
+            className={`object-contain transition-all duration-300 ${scrolled ? 'h-14 sm:h-16' : 'h-20 sm:h-24'}`}
           />
         </Link>
 
