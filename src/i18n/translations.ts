@@ -25,6 +25,8 @@ export const translations: Record<Language, Record<string, string>> = {
     "usps.disruption.text": "We understand your time is your most valuable asset. We focus on minimizing and controlling the time diverted away from your core business operations.",
     "usps.senior.title": "Senior Oversight",
     "usps.senior.text": "A guaranteed continuous senior presence throughout your project.",
+    "usps.financial.title": "Financial Return",
+    "usps.financial.text": "Full insight into the overall lifetime cost of your office.",
 
     // Offer
     "offer.label": "Our services",
@@ -140,6 +142,8 @@ export const translations: Record<Language, Record<string, string>> = {
     "usps.disruption.text": "Wij beperken de tijd die wordt afgeleid van uw kernactiviteiten.",
     "usps.senior.title": "Senior begeleiding",
     "usps.senior.text": "Een gegarandeerde continue senior aanwezigheid gedurende uw hele project.",
+    "usps.financial.title": "Financieel rendement",
+    "usps.financial.text": "Volledig inzicht in de totale levensduurkosten van uw kantoor.",
 
     // Offer
     "offer.label": "Ons aanbod",
@@ -255,6 +259,8 @@ export const translations: Record<Language, Record<string, string>> = {
     "usps.disruption.text": "Nous contrôlons le temps détourné de votre activité principale.",
     "usps.senior.title": "Supervision senior",
     "usps.senior.text": "Une présence senior continue et garantie tout au long de votre projet.",
+    "usps.financial.title": "Rendement financier",
+    "usps.financial.text": "Une vision complète du coût total de votre bureau sur toute sa durée de vie.",
 
     // Offer
     "offer.label": "Nos services",
