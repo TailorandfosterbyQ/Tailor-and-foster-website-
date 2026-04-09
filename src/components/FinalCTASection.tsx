@@ -16,11 +16,11 @@ const FinalCTASection = () => {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <motion.h2
-              className="text-4xl font-semibold tracking-tight sm:text-5xl text-background"
+              className="text-4xl font-semibold tracking-tight sm:text-5xl text-white"
             >
               {t("finalCta.title")}
             </motion.h2>
-            <p className="mt-6 text-lg leading-8 text-background/60">
+            <p className="mt-6 text-lg leading-8 text-white/70">
               {t("finalCta.text")}
             </p>
           </motion.div>
@@ -33,7 +33,7 @@ const FinalCTASection = () => {
           >
             <motion.a
               href="mailto:info@tailorandfoster.com"
-              className="inline-flex items-center gap-3 rounded-full bg-background px-8 py-4 text-base font-medium text-foreground shadow-lg group"
+              className="inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-base font-medium text-primary shadow-lg group"
               whileHover={{ y: -3, boxShadow: "0 20px 40px -12px rgba(255,255,255,0.15)" }}
               whileTap={{ scale: 0.97 }}
             >
