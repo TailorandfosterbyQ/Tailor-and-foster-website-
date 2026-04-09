@@ -11,7 +11,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "nav.letsTalk": "Start Your Opportunity Scan",
 
     // Hero
-    "hero.title": "Workspace Advisory for Evolving Businesses.",
+    "hero.title": "Workspace Advisory  for Evolving Businesses.",
     "hero.subtitle": "Is your organization growing, considering downsizing, or facing a lease end? We provide 100% independent real estate advice to protect your time and budget.",
     "hero.cta.primary": "Start Your Opportunity Scan",
     "hero.cta.secondary": "Learn More",
