@@ -1,4 +1,4 @@
-import { Shield, Clock, UserCheck } from 'lucide-react';
+import { Shield, Clock, UserCheck, DollarSign } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/i18n/LanguageContext';
 
@@ -6,6 +6,7 @@ const usps = [
   { icon: Shield, key: "independent", accent: "from-blue-500/20 to-cyan-500/20" },
   { icon: Clock, key: "disruption", accent: "from-amber-500/20 to-orange-500/20" },
   { icon: UserCheck, key: "senior", accent: "from-emerald-500/20 to-teal-500/20" },
+  { icon: DollarSign, key: "financial", accent: "from-violet-500/20 to-purple-500/20" },
 ];
 
 const USPsSection = () => {
@@ -31,7 +32,7 @@ const USPsSection = () => {
             </h2>
           </motion.div>
 
-          <div className="grid gap-0 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-primary-foreground/10">
+          <div className="grid gap-0 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-primary-foreground/10">
             {usps.map((usp, i) => {
               const Icon = usp.icon;
               return (
