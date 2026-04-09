@@ -51,7 +51,7 @@ const HeroSection = () => {
         >
           <motion.a
             href="#contact"
-            className="rounded-full bg-white px-7 py-3.5 text-sm font-medium text-header shadow-lg"
+            className="rounded-full bg-white px-7 py-3.5 text-sm font-medium text-primary shadow-lg hover:shadow-xl"
             whileHover={{ y: -3, scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -60,7 +60,7 @@ const HeroSection = () => {
           </motion.a>
           <motion.a
             href="#usps"
-            className="rounded-full border border-white/30 px-7 py-3.5 text-sm font-medium text-white"
+            className="rounded-full border-2 border-white/60 bg-white/10 backdrop-blur-sm px-7 py-3.5 text-sm font-medium text-white"
             whileHover={{ y: -3, backgroundColor: "rgba(255,255,255,0.1)" }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
