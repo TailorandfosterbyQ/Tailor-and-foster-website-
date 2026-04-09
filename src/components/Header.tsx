@@ -14,8 +14,10 @@ const languages: { code: Language; label: string }[] = [
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
+  const servicesRef = useRef<HTMLDivElement>(null);
   const { language, setLanguage, t } = useLanguage();
   const location = useLocation();
 
