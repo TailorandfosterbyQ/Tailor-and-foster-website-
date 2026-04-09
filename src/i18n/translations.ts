@@ -30,7 +30,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "offer.label": "Our services",
     "offer.title": "Solutions for every stage of your workspace journey.",
     "offer.growth.title": "Growth Strategies",
-    "offer.growth.text": "Expanding your team? We find, negotiate, and deliver the workspace that supports your ambitions — without the stress.",
+    "offer.growth.text": "Expanding your team? We find, negotiate, and deliver the workspace that supports your ambitions without the stress.",
     "offer.downsizing.title": "Downsizing Solutions",
     "offer.downsizing.text": "Optimizing your footprint while maintaining culture and productivity. Smart transitions, controlled costs.",
     "offer.lease.title": "Lease Management",
