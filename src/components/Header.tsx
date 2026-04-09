@@ -76,7 +76,7 @@ const Header = () => {
           ))}
           <Link
             to="/#contact"
-            className="ml-4 border border-primary/80 rounded-full font-logo font-semibold tracking-[0.15em] uppercase text-primary px-6 py-2.5 hover:bg-primary hover:text-white transition-colors duration-300 text-[11px]"
+            className="ml-4 border border-primary/80 rounded-full font-logo font-semibold tracking-[0.12em] uppercase text-primary px-4 py-2 hover:bg-primary hover:text-white transition-colors duration-300 text-[10px] whitespace-nowrap"
           >
             {t("nav.letsTalk")}
           </Link>
