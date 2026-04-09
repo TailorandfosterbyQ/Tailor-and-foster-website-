@@ -73,7 +73,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.growth.step3.text": "From fit-out coordination to move management, we oversee every detail so your team can focus on what they do best.",
     "services.growth.forWhom.label": "Is this for you?",
     "services.growth.forWhom.title": "Built for businesses on the rise",
-    "services.growth.forWhom.text": "Whether you're hiring 10 people or 200, opening a second office or consolidating into a larger HQ if growth is driving your workspace decisions, this service is for you.",
+    "services.growth.forWhom.text": "Whether you're hiring 10 people or 200, opening a second office or consolidating into a larger HQ. If growth is driving your workspace decisions, this service is for you.",
 
     // Services page — Downsizing
     "services.downsizing.hero.label": "Downsizing Solutions",
