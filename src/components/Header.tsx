@@ -124,7 +124,7 @@ const Header = () => {
             {t("nav.letsTalk")}
           </Link>
 
-          <div ref={langRef} className="relative ml-4 border-l border-primary/15 pl-4">
+          <div ref={langRef} className="relative ml-3 border-l border-primary/15 pl-3">
             <button
               onClick={() => setLangOpen(!langOpen)}
               className="flex items-center gap-1.5 text-[11px] font-semibold tracking-wider text-primary/50 hover:text-primary transition-colors duration-200 px-2 py-1.5 rounded"
