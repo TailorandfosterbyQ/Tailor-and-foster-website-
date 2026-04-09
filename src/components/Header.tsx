@@ -84,6 +84,39 @@ const Header = () => {
               {item.label}
             </Link>
           ))}
+
+          {/* Services dropdown */}
+          <div ref={servicesRef} className="relative">
+            <button
+              onClick={() => setServicesOpen(!servicesOpen)}
+              className={`flex items-center gap-1 font-logo tracking-[0.15em] uppercase font-semibold transition-colors duration-300 text-[11px] ${
+                location.pathname.startsWith('/services')
+                  ? 'text-primary'
+                  : 'text-primary/60 hover:text-primary'
+              }`}
+            >
+              {t("nav.services")}
+              <ChevronDown size={12} className={`transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {servicesOpen && (
+              <div className="absolute left-0 top-full mt-3 bg-white border border-border rounded-xl shadow-xl py-2 min-w-[220px] overflow-hidden">
+                {serviceItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    onClick={() => setServicesOpen(false)}
+                    className={`block px-5 py-2.5 text-[12px] font-medium transition-colors duration-150 ${
+                      location.pathname === item.href
+                        ? 'bg-primary/5 text-primary'
+                        : 'text-foreground/70 hover:bg-primary/5 hover:text-primary'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
           <Link
             to="/#contact"
             className="ml-4 border border-primary/80 rounded-full font-logo font-semibold tracking-[0.12em] uppercase text-primary px-4 py-2 hover:bg-primary hover:text-white transition-colors duration-300 text-[10px] whitespace-nowrap"
