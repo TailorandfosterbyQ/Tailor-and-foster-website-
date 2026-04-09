@@ -9,14 +9,39 @@ const clientList = [
   "Vandemoortele", "Volkswagen International", "Yara",
 ];
 
+const row1 = clientList.slice(0, 13);
+const row2 = clientList.slice(13);
+
+const MarqueeRow = ({ items, reverse = false }: { items: string[]; reverse?: boolean }) => {
+  const doubled = [...items, ...items];
+  return (
+    <div className="relative overflow-hidden py-3">
+      <motion.div
+        className="flex gap-4 whitespace-nowrap"
+        animate={{ x: reverse ? ["0%", "-50%"] : ["-50%", "0%"] }}
+        transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+      >
+        {doubled.map((client, i) => (
+          <span
+            key={`${client}-${i}`}
+            className="inline-flex items-center rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium tracking-wide text-foreground/70 hover:text-foreground hover:border-primary/30 transition-colors"
+          >
+            {client}
+          </span>
+        ))}
+      </motion.div>
+    </div>
+  );
+};
+
 const SocialProofSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="references" className="bg-secondary/50 py-24 lg:py-32 overflow-hidden">
+    <section id="references" className="py-28 lg:py-36 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-14"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -29,30 +54,12 @@ const SocialProofSection = () => {
             {t("social.title")}
           </h2>
         </motion.div>
+      </div>
 
-        <motion.div
-          className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          {clientList.map((client, i) => (
-            <motion.div
-              key={client}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.03, duration: 0.4 }}
-              whileHover={{ scale: 1.05, backgroundColor: "hsl(var(--card))" }}
-              className="flex items-center justify-center rounded-xl border border-border bg-card/50 px-3 py-4 text-center"
-            >
-              <span className="text-xs font-medium tracking-wide text-muted-foreground">
-                {client}
-              </span>
-            </motion.div>
-          ))}
-        </motion.div>
+      {/* Full-bleed marquee */}
+      <div className="space-y-2">
+        <MarqueeRow items={row1} />
+        <MarqueeRow items={row2} reverse />
       </div>
     </section>
   );
