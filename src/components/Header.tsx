@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Menu, X, ChevronDown, Globe } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import tfLogo from "@/assets/tf-logo.png";
+import tfLogo from "@/assets/tf-logo-white.png";
 import { useLanguage } from "@/i18n/LanguageContext";
 import type { Language } from "@/i18n/translations";
 
