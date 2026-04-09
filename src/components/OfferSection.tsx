@@ -38,7 +38,7 @@ const OfferSection = () => {
             return (
               <motion.a
                 key={offer.key}
-                href="/services"
+                href={`/services/${offer.key}`}
                 initial={{ opacity: 0, x: 60 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
