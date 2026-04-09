@@ -6,7 +6,7 @@ const FinalCTASection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="contact" className="relative overflow-hidden bg-foreground text-background">
+    <section id="contact" className="relative overflow-hidden bg-primary text-white">
       <div className="mx-auto max-w-7xl px-6 py-28 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
