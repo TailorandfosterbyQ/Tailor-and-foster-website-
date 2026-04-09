@@ -1,10 +1,9 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import ExpertiseSection from "@/components/ExpertiseSection";
-import ProcessSection from "@/components/ProcessSection";
-import SituationsSection from "@/components/SituationsSection";
-import ReferencesSection from "@/components/ReferencesSection";
-import ContactSection from "@/components/ContactSection";
+import USPsSection from "@/components/USPsSection";
+import OfferSection from "@/components/OfferSection";
+import SocialProofSection from "@/components/SocialProofSection";
+import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -12,11 +11,10 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
       <HeroSection />
-      <ExpertiseSection />
-      <SituationsSection />
-      <ProcessSection />
-      <ReferencesSection />
-      <ContactSection />
+      <USPsSection />
+      <OfferSection />
+      <SocialProofSection />
+      <FinalCTASection />
       <Footer />
     </div>
   );

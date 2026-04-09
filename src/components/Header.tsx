@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Menu, X, ChevronDown, Globe } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import tfLogo from "@/assets/tf-logo.png";
-import tfEmblem from "@/assets/tf-emblem-new.png";
 import { useLanguage } from "@/i18n/LanguageContext";
 import type { Language } from "@/i18n/translations";
 
@@ -17,6 +17,7 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
   const { language, setLanguage, t } = useLanguage();
+  const location = useLocation();
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -37,11 +38,12 @@ const Header = () => {
   const currentLabel = languages.find(l => l.code === language)?.label || 'EN';
 
   const navItems = [
-    { label: t("nav.services"), href: "#expertise" },
-    { label: t("nav.process"), href: "#process" },
-    { label: t("nav.references"), href: "#references" },
-    { label: t("nav.contact"), href: "#contact" },
+    { label: t("nav.home"), href: "/" },
+    { label: t("nav.about"), href: "/about" },
+    { label: t("nav.services"), href: "/services" },
   ];
+
+  const isActive = (href: string) => location.pathname === href;
 
   return (
     <header
@@ -50,34 +52,35 @@ const Header = () => {
       }`}
     >
       <div className="mx-auto max-w-7xl flex items-center justify-between h-20 px-6 sm:px-8 lg:px-12">
-        {/* Logo */}
-        <a href="#" className="flex items-center gap-0 group shrink-0 mr-8">
+        <Link to="/" className="flex items-center gap-0 group shrink-0 mr-8">
           <img
             src={tfLogo}
             alt="Tailor & Foster"
             className="h-6 sm:h-7 object-contain"
           />
-        </a>
+        </Link>
 
-        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.href}
-              href={item.href}
-              className="font-logo tracking-[0.15em] uppercase font-semibold text-header-foreground/60 hover:text-header-foreground transition-colors duration-300 text-[11px]"
+              to={item.href}
+              className={`font-logo tracking-[0.15em] uppercase font-semibold transition-colors duration-300 text-[11px] ${
+                isActive(item.href)
+                  ? 'text-header-foreground'
+                  : 'text-header-foreground/60 hover:text-header-foreground'
+              }`}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
-          <a
-            href="#contact"
+          <Link
+            to="/#contact"
             className="ml-4 border border-header-foreground/80 rounded-full font-logo font-semibold tracking-[0.15em] uppercase text-header-foreground px-6 py-2.5 hover:bg-header-foreground hover:text-header transition-colors duration-300 text-[11px]"
           >
             {t("nav.letsTalk")}
-          </a>
+          </Link>
 
-          {/* Language dropdown */}
           <div ref={langRef} className="relative ml-4 border-l border-header-foreground/15 pl-4">
             <button
               onClick={() => setLangOpen(!langOpen)}
@@ -119,24 +122,27 @@ const Header = () => {
       {mobileOpen && (
         <nav className="md:hidden bg-header border-t border-header-foreground/10 px-6 pb-6">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.href}
-              href={item.href}
+              to={item.href}
               onClick={() => setMobileOpen(false)}
-              className="block py-3 font-logo text-sm tracking-[0.15em] uppercase font-semibold text-header-foreground/70 hover:text-header-foreground transition-colors"
+              className={`block py-3 font-logo text-sm tracking-[0.15em] uppercase font-semibold transition-colors ${
+                isActive(item.href)
+                  ? 'text-header-foreground'
+                  : 'text-header-foreground/70 hover:text-header-foreground'
+              }`}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
-          <a
-            href="#contact"
+          <Link
+            to="/#contact"
             onClick={() => setMobileOpen(false)}
             className="inline-block mt-3 border border-header-foreground/80 rounded-full font-logo text-sm font-semibold tracking-[0.15em] uppercase text-header-foreground px-6 py-2.5 hover:bg-header-foreground hover:text-header transition-colors"
           >
             {t("nav.letsTalk")}
-          </a>
+          </Link>
 
-          {/* Mobile language selector */}
           <div className="flex items-center gap-2 mt-4 pt-4 border-t border-header-foreground/10">
             <Globe size={14} className="text-header-foreground/40" />
             {languages.map((lang) => (
