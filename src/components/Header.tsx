@@ -66,7 +66,7 @@ const Header = () => {
           <img
             src={tfLogo}
             alt="Tailor & Foster"
-            className="h-14 sm:h-16 object-contain"
+            className="h-20 sm:h-24 object-contain"
           />
         </Link>
 
