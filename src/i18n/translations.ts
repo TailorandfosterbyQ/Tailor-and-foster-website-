@@ -8,7 +8,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "nav.services": "Services",
     "nav.references": "References",
     "nav.contact": "Contact",
-    "nav.letsTalk": "Start Your Opportunity Scan",
+    "nav.letsTalk": "Opportunity Scan",
 
     // Hero
     "hero.title": "Workspace Advisory  for Evolving Businesses.",
@@ -123,7 +123,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "nav.services": "Diensten",
     "nav.references": "Referenties",
     "nav.contact": "Contact",
-    "nav.letsTalk": "Start uw Opportunity Scan",
+    "nav.letsTalk": "Opportunity Scan",
 
     // Hero
     "hero.title": "Werkplekadvies op maat van groeiende bedrijven.",
@@ -238,7 +238,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "nav.services": "Services",
     "nav.references": "Références",
     "nav.contact": "Contact",
-    "nav.letsTalk": "Démarrez votre Opportunity Scan",
+    "nav.letsTalk": "Opportunity Scan",
 
     // Hero
     "hero.title": "Conseil en espace de travail adapté aux entreprises en évolution.",
