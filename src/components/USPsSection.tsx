@@ -14,7 +14,7 @@ const USPsSection = () => {
   return (
     <section id="usps" className="relative overflow-hidden">
       {/* Full-width dark band for contrast */}
-      <div className="bg-foreground text-background">
+      <div className="bg-primary text-primary-foreground">
         <div className="mx-auto max-w-7xl px-6 py-28 sm:px-8 lg:px-12">
           <motion.div
             className="mb-20"
