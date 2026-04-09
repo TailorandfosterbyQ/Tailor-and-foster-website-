@@ -82,14 +82,14 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.downsizing.process.label": "Our approach",
     "services.downsizing.process.title": "A smarter footprint, not a smaller ambition.",
     "services.downsizing.step1.title": "Utilisation & Cost Audit",
-    "services.downsizing.step1.text": "We analyse how your current space is actually used — identifying underutilised areas, hidden costs, and quick-win savings.",
+    "services.downsizing.step1.text": "We analyse how your current space is actually used. Identifying underutilized areas, hidden costs, and quick-win savings.",
     "services.downsizing.step2.title": "Scenario Modelling",
     "services.downsizing.step2.text": "Stay and sublease? Move to a smaller location? Go hybrid? We model every option with hard numbers so you can decide with confidence.",
     "services.downsizing.step3.title": "Controlled Execution",
-    "services.downsizing.step3.text": "We manage lease exits, sublease negotiations, and space reconfigurations — minimising disruption to your daily operations.",
+    "services.downsizing.step3.text": "We manage lease exits, sublease negotiations, and space reconfigurations minimizing disruption to your daily operations.",
     "services.downsizing.forWhom.label": "Is this for you?",
     "services.downsizing.forWhom.title": "For organisations rethinking their footprint",
-    "services.downsizing.forWhom.text": "Post-merger integration, shift to hybrid work, or simply paying for space you no longer need — if your workspace has outgrown (or under-grown) your reality, we can help.",
+    "services.downsizing.forWhom.text": "Post-merger integration, shift to hybrid work, or simply paying for space you no longer need. If your workspace has outgrown (or under-grown) your reality, we can help.",
 
     // Services page — Lease
     "services.lease.hero.label": "Lease Management",
