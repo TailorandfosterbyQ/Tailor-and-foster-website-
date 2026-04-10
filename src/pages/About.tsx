@@ -17,7 +17,7 @@ const figures = [
 ];
 
 const ValueTabs = () => {
-  const [active, setActive] = useState(0);
+  const [hovered, setHovered] = useState<number | null>(null);
   const { t } = useLanguage();
 
   return (
@@ -33,15 +33,16 @@ const ValueTabs = () => {
         {valueKeys.map((key, i) => (
           <button
             key={key}
-            onClick={() => setActive(i)}
+            onMouseEnter={() => setHovered(i)}
+            onMouseLeave={() => setHovered(null)}
             className={`relative px-4 py-2.5 text-sm font-medium transition-colors duration-200 ${
-              active === i
+              hovered === i
                 ? 'text-primary'
                 : 'text-muted-foreground hover:text-foreground'
             }`}
           >
             {t(`about.values.${key}`)}
-            {active === i && (
+            {hovered === i && (
               <motion.div
                 layoutId="value-tab-indicator"
                 className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
@@ -55,16 +56,18 @@ const ValueTabs = () => {
       {/* Content panel */}
       <div className="relative mt-6 min-h-[80px]">
         <AnimatePresence mode="wait">
-          <motion.p
-            key={active}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="text-base leading-7 text-muted-foreground"
-          >
-            {t(`about.values.${valueKeys[active]}.desc`)}
-          </motion.p>
+          {hovered !== null && (
+            <motion.p
+              key={hovered}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              className="text-base leading-7 text-muted-foreground"
+            >
+              {t(`about.values.${valueKeys[hovered]}.desc`)}
+            </motion.p>
+          )}
         </AnimatePresence>
       </div>
     </motion.div>
