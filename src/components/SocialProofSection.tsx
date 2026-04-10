@@ -1,33 +1,69 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/i18n/LanguageContext';
 
-const clientList = [
-  "Abbott", "Adecco", "Baker McKenzie", "Coca Cola", "Cochlear", "Danone",
-  "Deloitte", "Deutsche Telekom", "Eastman", "Eaton", "Ericsson", "EY",
-  "G4S", "Hasbro", "Hilti", "Hudson", "Johnson", "Levi Strauss",
-  "Marsh", "Panasonic", "Smith & Nephew", "TomTom",
-  "Vandemoortele", "Volkswagen International", "Yara",
+const clients = [
+  { name: "Abbott", logo: "https://logo.clearbit.com/abbott.com" },
+  { name: "Adecco", logo: "https://logo.clearbit.com/adecco.com" },
+  { name: "Baker McKenzie", logo: "https://logo.clearbit.com/bakermckenzie.com" },
+  { name: "Coca Cola", logo: "https://logo.clearbit.com/coca-cola.com" },
+  { name: "Cochlear", logo: "https://logo.clearbit.com/cochlear.com" },
+  { name: "Danone", logo: "https://logo.clearbit.com/danone.com" },
+  { name: "Deloitte", logo: "https://logo.clearbit.com/deloitte.com" },
+  { name: "Deutsche Telekom", logo: "https://logo.clearbit.com/telekom.com" },
+  { name: "Eastman", logo: "https://logo.clearbit.com/eastman.com" },
+  { name: "Eaton", logo: "https://logo.clearbit.com/eaton.com" },
+  { name: "Ericsson", logo: "https://logo.clearbit.com/ericsson.com" },
+  { name: "EY", logo: "https://logo.clearbit.com/ey.com" },
+  { name: "G4S", logo: "https://logo.clearbit.com/g4s.com" },
+  { name: "Hasbro", logo: "https://logo.clearbit.com/hasbro.com" },
+  { name: "Hilti", logo: "https://logo.clearbit.com/hilti.com" },
+  { name: "Hudson", logo: "https://logo.clearbit.com/hudson.com" },
+  { name: "Johnson", logo: "https://logo.clearbit.com/jnj.com" },
+  { name: "Levi Strauss", logo: "https://logo.clearbit.com/levistrauss.com" },
+  { name: "Marsh", logo: "https://logo.clearbit.com/marsh.com" },
+  { name: "Panasonic", logo: "https://logo.clearbit.com/panasonic.com" },
+  { name: "Smith & Nephew", logo: "https://logo.clearbit.com/smith-nephew.com" },
+  { name: "TomTom", logo: "https://logo.clearbit.com/tomtom.com" },
+  { name: "Vandemoortele", logo: "https://logo.clearbit.com/vandemoortele.com" },
+  { name: "Volkswagen", logo: "https://logo.clearbit.com/volkswagen.com" },
+  { name: "Yara", logo: "https://logo.clearbit.com/yara.com" },
 ];
 
-const row1 = clientList.slice(0, 13);
-const row2 = clientList.slice(13);
+const row1 = clients.slice(0, 13);
+const row2 = clients.slice(13);
 
-const MarqueeRow = ({ items, reverse = false }: { items: string[]; reverse?: boolean }) => {
+type Client = { name: string; logo: string };
+
+const MarqueeRow = ({ items, reverse = false }: { items: Client[]; reverse?: boolean }) => {
   const doubled = [...items, ...items];
   return (
-    <div className="relative overflow-hidden py-3">
+    <div className="relative overflow-hidden py-4">
       <motion.div
-        className="flex gap-4 whitespace-nowrap"
+        className="flex gap-8 whitespace-nowrap items-center"
         animate={{ x: reverse ? ["0%", "-50%"] : ["-50%", "0%"] }}
-        transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
       >
         {doubled.map((client, i) => (
-          <span
-            key={`${client}-${i}`}
-            className="inline-flex items-center rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium tracking-wide text-foreground/70 hover:text-foreground hover:border-primary/30 transition-colors"
+          <div
+            key={`${client.name}-${i}`}
+            className="inline-flex items-center justify-center rounded-xl border border-border bg-card px-6 py-4 min-w-[160px] h-[72px] hover:border-primary/30 hover:shadow-sm transition-all grayscale hover:grayscale-0"
           >
-            {client}
-          </span>
+            <img
+              src={client.logo}
+              alt={client.name}
+              className="h-8 max-w-[120px] object-contain"
+              loading="lazy"
+              onError={(e) => {
+                // Fallback to text if logo fails to load
+                const target = e.currentTarget;
+                target.style.display = 'none';
+                const span = document.createElement('span');
+                span.className = 'text-sm font-medium tracking-wide text-foreground/70';
+                span.textContent = client.name;
+                target.parentElement?.appendChild(span);
+              }}
+            />
+          </div>
         ))}
       </motion.div>
     </div>
@@ -56,8 +92,7 @@ const SocialProofSection = () => {
         </motion.div>
       </div>
 
-      {/* Full-bleed marquee */}
-      <div className="space-y-2">
+      <div className="space-y-3">
         <MarqueeRow items={row1} />
         <MarqueeRow items={row2} reverse />
       </div>
