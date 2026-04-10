@@ -4,7 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Award, CheckCircle } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import teamPhoto from '@/assets/team-photo.jpg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const valueKeys = [
   "independence", "intentionality", "tailored", "strategic", "execution", "longterm"
@@ -76,6 +77,16 @@ const ValueTabs = () => {
 
 const About = () => {
   const { t } = useLanguage();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const el = document.querySelector(location.hash);
+        el?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  }, [location.hash]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
