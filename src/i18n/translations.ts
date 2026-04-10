@@ -62,7 +62,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "about.values.strategic": "Strategic Thinking",
     "about.values.strategic.desc": "We look beyond space. Our work sits at the intersection of business, culture, and performance.",
     "about.values.execution": "Seamless Execution",
-    "about.values.execution.desc": "Ideas only matter when realised. We ensure every strategy is translated into environments that work — in practice, not just on paper.",
+    "about.values.execution.desc": "Ideas only matter when realized. We ensure every strategy is translated into environments that work in practice, not just on paper.",
     "about.values.longterm": "Long-term Value",
     "about.values.longterm.desc": "We design for what's next. Our focus is on creating workplaces that remain relevant as organisations evolve.",
     "about.figures.label": "Key figures",
