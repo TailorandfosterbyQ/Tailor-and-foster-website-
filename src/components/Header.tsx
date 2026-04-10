@@ -15,9 +15,11 @@ const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
   const { language, setLanguage, t } = useLanguage();
   const location = useLocation();
 
@@ -28,6 +30,9 @@ const Header = () => {
       }
       if (servicesRef.current && !servicesRef.current.contains(e.target as Node)) {
         setServicesOpen(false);
+      }
+      if (aboutRef.current && !aboutRef.current.contains(e.target as Node)) {
+        setAboutOpen(false);
       }
     };
     document.addEventListener('mousedown', handler);
@@ -44,7 +49,13 @@ const Header = () => {
 
   const navItems = [
     { label: t("nav.home"), href: "/" },
-    { label: t("nav.about"), href: "/about" },
+  ];
+
+  const aboutItems = [
+    { label: t("about.whatwedo.label"), href: "/about#whatwedo" },
+    { label: t("about.mission.label"), href: "/about#mission" },
+    { label: t("about.figures.label"), href: "/about#figures" },
+    { label: t("about.team.label"), href: "/about#team" },
   ];
 
   const serviceItems = [
@@ -84,6 +95,35 @@ const Header = () => {
               {item.label}
             </Link>
           ))}
+
+          {/* About Us dropdown */}
+          <div ref={aboutRef} className="relative">
+            <button
+              onClick={() => setAboutOpen(!aboutOpen)}
+              className={`flex items-center gap-1 font-logo tracking-[0.15em] uppercase font-semibold transition-colors duration-300 text-[11px] ${
+                location.pathname === '/about'
+                  ? 'text-primary'
+                  : 'text-primary/60 hover:text-primary'
+              }`}
+            >
+              {t("nav.about")}
+              <ChevronDown size={12} className={`transition-transform duration-200 ${aboutOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {aboutOpen && (
+              <div className="absolute left-0 top-full mt-3 bg-white border border-border rounded-xl shadow-xl py-2 min-w-[220px] overflow-hidden">
+                {aboutItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    onClick={() => setAboutOpen(false)}
+                    className="block px-5 py-2.5 text-[12px] font-medium transition-colors duration-150 text-foreground/70 hover:bg-primary/5 hover:text-primary"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
 
           {/* Services dropdown */}
           <div ref={servicesRef} className="relative">
