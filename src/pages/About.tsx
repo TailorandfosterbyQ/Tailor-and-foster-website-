@@ -1,9 +1,15 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Award, CheckCircle } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import teamPhoto from '@/assets/team-photo.jpg';
+import { useState } from 'react';
+import teamPhoto from '@/assets/team-photo.jpg';
+
+const valueKeys = [
+  "independence", "intentionality", "tailored", "strategic", "execution", "longterm"
+] as const;
 
 const figures = [
   { icon: MapPin, key: "cities" },
@@ -58,6 +64,12 @@ const About = () => {
             <p className="mt-6 text-base leading-7 text-muted-foreground">
               {t("about.mission.text")}
             </p>
+            {/* Interactive Values */}
+            <div className="mt-10 flex flex-wrap gap-3">
+              {valueKeys.map((key, i) => (
+                <ValueChip key={key} valueKey={key} index={i} />
+              ))}
+            </div>
           </motion.div>
           <motion.img
             src={teamPhoto}
