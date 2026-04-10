@@ -103,6 +103,30 @@ const About = () => {
         </div>
       </section>
 
+      {/* What We Do */}
+      <section className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <p className="text-sm font-medium uppercase tracking-[0.22em] text-primary mb-4">
+            {t("about.whatwedo.label")}
+          </p>
+          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl text-foreground font-serif max-w-3xl">
+            {t("about.whatwedo.title")}
+          </h2>
+          <div className="mt-8 max-w-3xl space-y-5">
+            <p className="text-base leading-7 text-muted-foreground">{t("about.whatwedo.p1")}</p>
+            <p className="text-base leading-7 text-foreground font-medium">{t("about.whatwedo.p2")}</p>
+            <p className="text-base leading-7 text-muted-foreground">{t("about.whatwedo.p3")}</p>
+            <p className="text-base leading-7 text-muted-foreground">{t("about.whatwedo.p4")}</p>
+            <p className="text-base leading-7 text-foreground font-medium italic">{t("about.whatwedo.p5")}</p>
+          </div>
+        </motion.div>
+      </section>
+
       {/* Mission */}
       <section className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">

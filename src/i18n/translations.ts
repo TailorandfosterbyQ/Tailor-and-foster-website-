@@ -80,6 +80,13 @@ export const translations: Record<Language, Record<string, string>> = {
     "about.team.label": "Our team",
     "about.team.title": "People buy from people.",
     "about.team.text": "Our consultants bring senior-level experience to every engagement. Authentic, hands-on, and always accessible.",
+    "about.whatwedo.label": "What we do",
+    "about.whatwedo.title": "The workplace as a strategic question.",
+    "about.whatwedo.p1": "Most organisations don't question their workplace. They adapt to it, work around it, until changes in how people work start to expose its limitations. Teams become hybrid, culture becomes less visible, and performance less consistent. At that point, the office is no longer just a place. It becomes a strategic question.",
+    "about.whatwedo.p2": "At Tailor & Foster, we approach it as such.",
+    "about.whatwedo.p3": "We see the workplace as a strategic asset — one that directly influences how people collaborate, how decisions are made, and how organisations perform. When defined with clarity and intent, it does more than accommodate a business. It helps attract and retain talent, reinforces culture in a tangible way, and supports consistent performance.",
+    "about.whatwedo.p4": "Our role is to bring structure to that process. We analyse how organisations work, define what the workplace needs to enable, and translate that into a clear strategy and execution. From initial insight to final realisation, we guide the full trajectory with independent advice and a tailored approach.",
+    "about.whatwedo.p5": "Because a workplace should not be something you adapt to. It should be something that works for you.",
 
     // Services page — Growth
     "services.growth.hero.label": "Growth Strategies",
@@ -217,6 +224,13 @@ export const translations: Record<Language, Record<string, string>> = {
     "about.team.label": "Ons team",
     "about.team.title": "Mensen kopen van mensen.",
     "about.team.text": "Onze consultants brengen senior-level ervaring mee bij elke opdracht. Authentiek, hands-on en altijd bereikbaar.",
+    "about.whatwedo.label": "Wat wij doen",
+    "about.whatwedo.title": "De werkplek als strategische vraag.",
+    "about.whatwedo.p1": "De meeste organisaties stellen hun werkplek niet in vraag. Ze passen zich aan, werken eromheen, tot veranderingen in de manier van werken de beperkingen blootleggen. Teams worden hybride, cultuur wordt minder zichtbaar en prestaties minder consistent. Op dat moment is het kantoor niet langer alleen een plek. Het wordt een strategische vraag.",
+    "about.whatwedo.p2": "Bij Tailor & Foster benaderen we het als zodanig.",
+    "about.whatwedo.p3": "Wij zien de werkplek als een strategisch instrument — dat rechtstreeks beïnvloedt hoe mensen samenwerken, hoe beslissingen worden genomen en hoe organisaties presteren. Wanneer het met helderheid en intentie wordt gedefinieerd, doet het meer dan een bedrijf huisvesten. Het helpt talent aan te trekken en te behouden, versterkt cultuur op een tastbare manier en ondersteunt consistente prestaties.",
+    "about.whatwedo.p4": "Onze rol is om structuur te brengen in dat proces. We analyseren hoe organisaties werken, definiëren wat de werkplek moet mogelijk maken en vertalen dat naar een heldere strategie en uitvoering. Van eerste inzicht tot finale realisatie begeleiden we het volledige traject met onafhankelijk advies en een aanpak op maat.",
+    "about.whatwedo.p5": "Want een werkplek mag niet iets zijn waaraan je je aanpast. Het moet iets zijn dat voor jou werkt.",
 
     // Services page — Growth
     "services.growth.hero.label": "Groeistrategieën",
@@ -354,6 +368,13 @@ export const translations: Record<Language, Record<string, string>> = {
     "about.team.label": "Notre équipe",
     "about.team.title": "Les gens achètent aux gens.",
     "about.team.text": "Nos consultants apportent une expérience de niveau senior à chaque mission. Authentiques, impliqués et toujours accessibles.",
+    "about.whatwedo.label": "Ce que nous faisons",
+    "about.whatwedo.title": "Le lieu de travail comme question stratégique.",
+    "about.whatwedo.p1": "La plupart des organisations ne remettent pas en question leur lieu de travail. Elles s'y adaptent, contournent ses limites, jusqu'à ce que les changements dans la façon de travailler en exposent les faiblesses. Les équipes deviennent hybrides, la culture moins visible, et la performance moins constante. À ce stade, le bureau n'est plus simplement un lieu. Il devient une question stratégique.",
+    "about.whatwedo.p2": "Chez Tailor & Foster, nous l'abordons comme tel.",
+    "about.whatwedo.p3": "Nous voyons le lieu de travail comme un actif stratégique — qui influence directement la façon dont les gens collaborent, dont les décisions sont prises et dont les organisations performent. Défini avec clarté et intention, il fait plus qu'accueillir une entreprise. Il aide à attirer et retenir les talents, renforce la culture de manière tangible et soutient une performance constante.",
+    "about.whatwedo.p4": "Notre rôle est d'apporter de la structure à ce processus. Nous analysons comment les organisations fonctionnent, définissons ce que le lieu de travail doit permettre, et traduisons cela en une stratégie claire et une exécution. Du premier constat à la réalisation finale, nous guidons l'ensemble du parcours avec des conseils indépendants et une approche sur mesure.",
+    "about.whatwedo.p5": "Parce qu'un lieu de travail ne devrait pas être quelque chose auquel on s'adapte. Il devrait être quelque chose qui travaille pour vous.",
 
     // Services page — Growth
     "services.growth.hero.label": "Stratégies de croissance",
