@@ -5,7 +5,6 @@ import { MapPin, Award, CheckCircle } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import teamPhoto from '@/assets/team-photo.jpg';
 import { useState } from 'react';
-import teamPhoto from '@/assets/team-photo.jpg';
 
 const valueKeys = [
   "independence", "intentionality", "tailored", "strategic", "execution", "longterm"
