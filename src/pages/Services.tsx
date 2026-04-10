@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Search, Map, Users, ArrowRight, TrendingUp, TrendingDown, FileText } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -165,15 +165,19 @@ const Services = () => {
             <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
               {t(`services.${serviceType}.forWhom.title`)}
             </h2>
-            <motion.a
-              href="mailto:info@tailorandfoster.com"
-              className="mt-10 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-medium text-primary shadow-lg group"
+            <motion.div
               whileHover={{ y: -3, boxShadow: "0 20px 40px -12px rgba(0,0,0,0.25)" }}
               whileTap={{ scale: 0.97 }}
+              className="mt-10"
             >
-              {t("services.cta")}
-              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-            </motion.a>
+              <Link
+                to="/opportunity-scan"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-medium text-primary shadow-lg group"
+              >
+                {t("services.cta")}
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>
