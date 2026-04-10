@@ -2,37 +2,62 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/i18n/LanguageContext';
 
 const clients = [
-  { name: "Abbott", logo: "https://logo.clearbit.com/abbott.com" },
-  { name: "Adecco", logo: "https://logo.clearbit.com/adecco.com" },
-  { name: "Baker McKenzie", logo: "https://logo.clearbit.com/bakermckenzie.com" },
-  { name: "Coca Cola", logo: "https://logo.clearbit.com/coca-cola.com" },
-  { name: "Cochlear", logo: "https://logo.clearbit.com/cochlear.com" },
-  { name: "Danone", logo: "https://logo.clearbit.com/danone.com" },
-  { name: "Deloitte", logo: "https://logo.clearbit.com/deloitte.com" },
-  { name: "Deutsche Telekom", logo: "https://logo.clearbit.com/telekom.com" },
-  { name: "Eastman", logo: "https://logo.clearbit.com/eastman.com" },
-  { name: "Eaton", logo: "https://logo.clearbit.com/eaton.com" },
-  { name: "Ericsson", logo: "https://logo.clearbit.com/ericsson.com" },
-  { name: "EY", logo: "https://logo.clearbit.com/ey.com" },
-  { name: "G4S", logo: "https://logo.clearbit.com/g4s.com" },
-  { name: "Hasbro", logo: "https://logo.clearbit.com/hasbro.com" },
-  { name: "Hilti", logo: "https://logo.clearbit.com/hilti.com" },
-  { name: "Hudson", logo: "https://logo.clearbit.com/hudson.com" },
-  { name: "Johnson", logo: "https://logo.clearbit.com/jnj.com" },
-  { name: "Levi Strauss", logo: "https://logo.clearbit.com/levistrauss.com" },
-  { name: "Marsh", logo: "https://logo.clearbit.com/marsh.com" },
-  { name: "Panasonic", logo: "https://logo.clearbit.com/panasonic.com" },
-  { name: "Smith & Nephew", logo: "https://logo.clearbit.com/smith-nephew.com" },
-  { name: "TomTom", logo: "https://logo.clearbit.com/tomtom.com" },
-  { name: "Vandemoortele", logo: "https://logo.clearbit.com/vandemoortele.com" },
-  { name: "Volkswagen", logo: "https://logo.clearbit.com/volkswagen.com" },
-  { name: "Yara", logo: "https://logo.clearbit.com/yara.com" },
+  { name: "Abbott", domain: "abbott.com" },
+  { name: "Adecco", domain: "adecco.com" },
+  { name: "Baker McKenzie", domain: "bakermckenzie.com" },
+  { name: "Coca-Cola", domain: "coca-cola.com" },
+  { name: "Cochlear", domain: "cochlear.com" },
+  { name: "Danone", domain: "danone.com" },
+  { name: "Deloitte", domain: "deloitte.com" },
+  { name: "Deutsche Telekom", domain: "telekom.com" },
+  { name: "Eastman", domain: "eastman.com" },
+  { name: "Eaton", domain: "eaton.com" },
+  { name: "Ericsson", domain: "ericsson.com" },
+  { name: "EY", domain: "ey.com" },
+  { name: "G4S", domain: "g4s.com" },
+  { name: "Hasbro", domain: "hasbro.com" },
+  { name: "Hilti", domain: "hilti.com" },
+  { name: "Hudson", domain: "hudson.com" },
+  { name: "Johnson & Johnson", domain: "jnj.com" },
+  { name: "Levi Strauss", domain: "levistrauss.com" },
+  { name: "Marsh", domain: "marsh.com" },
+  { name: "Panasonic", domain: "panasonic.com" },
+  { name: "Smith & Nephew", domain: "smith-nephew.com" },
+  { name: "TomTom", domain: "tomtom.com" },
+  { name: "Vandemoortele", domain: "vandemoortele.com" },
+  { name: "Volkswagen", domain: "volkswagen.com" },
+  { name: "Yara", domain: "yara.com" },
 ];
 
 const row1 = clients.slice(0, 13);
 const row2 = clients.slice(13);
 
-type Client = { name: string; logo: string };
+type Client = { name: string; domain: string };
+
+const ClientLogo = ({ client }: { client: Client }) => {
+  return (
+    <div className="inline-flex items-center justify-center rounded-xl border border-border bg-card px-6 py-4 min-w-[160px] h-[72px] hover:border-primary/30 hover:shadow-sm transition-all">
+      <img
+        src={`https://img.logo.dev/${client.domain}?token=pk_a8CO5GPaRUWVLT6JMzEO4w&size=120&format=png`}
+        alt={client.name}
+        className="h-8 max-w-[120px] object-contain opacity-60 hover:opacity-100 transition-opacity"
+        loading="lazy"
+        onError={(e) => {
+          const target = e.currentTarget;
+          target.style.display = 'none';
+          if (target.nextElementSibling) {
+            (target.nextElementSibling as HTMLElement).style.display = 'flex';
+          }
+        }}
+      />
+      <span
+        className="text-sm font-semibold tracking-wide text-foreground/50 hidden items-center"
+      >
+        {client.name}
+      </span>
+    </div>
+  );
+};
 
 const MarqueeRow = ({ items, reverse = false }: { items: Client[]; reverse?: boolean }) => {
   const doubled = [...items, ...items];
@@ -44,26 +69,7 @@ const MarqueeRow = ({ items, reverse = false }: { items: Client[]; reverse?: boo
         transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
       >
         {doubled.map((client, i) => (
-          <div
-            key={`${client.name}-${i}`}
-            className="inline-flex items-center justify-center rounded-xl border border-border bg-card px-6 py-4 min-w-[160px] h-[72px] hover:border-primary/30 hover:shadow-sm transition-all grayscale hover:grayscale-0"
-          >
-            <img
-              src={client.logo}
-              alt={client.name}
-              className="h-8 max-w-[120px] object-contain"
-              loading="lazy"
-              onError={(e) => {
-                // Fallback to text if logo fails to load
-                const target = e.currentTarget;
-                target.style.display = 'none';
-                const span = document.createElement('span');
-                span.className = 'text-sm font-medium tracking-wide text-foreground/70';
-                span.textContent = client.name;
-                target.parentElement?.appendChild(span);
-              }}
-            />
-          </div>
+          <ClientLogo key={`${client.name}-${i}`} client={client} />
         ))}
       </motion.div>
     </div>
