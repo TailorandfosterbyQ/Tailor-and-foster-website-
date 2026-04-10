@@ -163,7 +163,7 @@ const About = () => {
       </section>
 
       {/* Key Figures */}
-      <section className="bg-secondary/50 py-24">
+      <section id="figures" className="bg-secondary/50 py-24 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <motion.p
             className="text-sm font-medium uppercase tracking-[0.22em] text-primary mb-12 text-center"
@@ -200,7 +200,7 @@ const About = () => {
       </section>
 
       {/* Team */}
-      <section className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12">
+      <section id="team" className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12 scroll-mt-24">
         <motion.div
           className="max-w-2xl"
           initial={{ opacity: 0, y: 30 }}

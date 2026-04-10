@@ -220,6 +220,21 @@ const Header = () => {
           ))}
           <div className="py-2">
             <span className="block py-3 font-logo text-sm tracking-[0.15em] uppercase font-semibold text-primary/40">
+              {t("nav.about")}
+            </span>
+            {aboutItems.map((item) => (
+              <Link
+                key={item.href}
+                to={item.href}
+                onClick={() => setMobileOpen(false)}
+                className="block py-2 pl-4 font-logo text-sm tracking-[0.1em] font-medium transition-colors text-primary/60 hover:text-primary"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+          <div className="py-2">
+            <span className="block py-3 font-logo text-sm tracking-[0.15em] uppercase font-semibold text-primary/40">
               {t("nav.services")}
             </span>
             {serviceItems.map((item) => (
