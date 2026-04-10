@@ -1,6 +1,6 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Header from "@/components/Header";
-import { Link } from 'react-router-dom';
+import Footer from "@/components/Footer";
 import { motion } from 'framer-motion';
 import { Search, Map, Users, ArrowRight, TrendingUp, TrendingDown, FileText } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
