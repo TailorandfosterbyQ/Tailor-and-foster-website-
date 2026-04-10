@@ -16,47 +16,57 @@ const figures = [
   { icon: CheckCircle, key: "projects" },
 ];
 
-const ValueChip = ({ valueKey, index }: { valueKey: string; index: number }) => {
-  const [open, setOpen] = useState(false);
+const ValueTabs = () => {
+  const [active, setActive] = useState(0);
   const { t } = useLanguage();
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 12 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.08, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      className="relative"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="mt-12"
     >
-      <button
-        className={`px-4 py-2 rounded-full text-sm font-medium border transition-colors duration-200 ${
-          open
-            ? 'bg-primary text-primary-foreground border-primary'
-            : 'bg-card text-foreground border-border hover:border-primary/50'
-        }`}
-      >
-        {t(`about.values.${valueKey}`)}
-      </button>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, y: 8, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 8, scale: 0.96 }}
-            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute left-0 top-full mt-2 z-30 w-72 rounded-xl border border-border bg-card p-4 shadow-lg"
+      {/* Tab bar */}
+      <div className="flex flex-wrap gap-x-1 gap-y-1 border-b border-border">
+        {valueKeys.map((key, i) => (
+          <button
+            key={key}
+            onClick={() => setActive(i)}
+            className={`relative px-4 py-2.5 text-sm font-medium transition-colors duration-200 ${
+              active === i
+                ? 'text-primary'
+                : 'text-muted-foreground hover:text-foreground'
+            }`}
           >
-            <p className="text-sm font-semibold text-foreground mb-1">
-              {t(`about.values.${valueKey}`)}
-            </p>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              {t(`about.values.${valueKey}.desc`)}
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {t(`about.values.${key}`)}
+            {active === i && (
+              <motion.div
+                layoutId="value-tab-indicator"
+                className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+              />
+            )}
+          </button>
+        ))}
+      </div>
+
+      {/* Content panel */}
+      <div className="relative mt-6 min-h-[80px]">
+        <AnimatePresence mode="wait">
+          <motion.p
+            key={active}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="text-base leading-7 text-muted-foreground"
+          >
+            {t(`about.values.${valueKeys[active]}.desc`)}
+          </motion.p>
+        </AnimatePresence>
+      </div>
     </motion.div>
   );
 };
@@ -108,12 +118,7 @@ const About = () => {
             <p className="mt-6 text-base leading-7 text-muted-foreground">
               {t("about.mission.text")}
             </p>
-            {/* Interactive Values */}
-            <div className="mt-10 flex flex-wrap gap-3">
-              {valueKeys.map((key, i) => (
-                <ValueChip key={key} valueKey={key} index={i} />
-              ))}
-            </div>
+            <ValueTabs />
           </motion.div>
           <motion.img
             src={teamPhoto}
