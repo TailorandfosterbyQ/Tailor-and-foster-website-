@@ -54,7 +54,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "about.mission.title": "We operate as one team.",
     "about.mission.text": "To help organisations align space, culture, and performance by delivering independent, tailored workplace strategies that drive long-term value.",
     "about.values.independence": "Independence",
-    "about.values.independence.desc": "We advise without bias. Every recommendation is shaped by what serves the client best — not by predefined solutions or external interests.",
+    "about.values.independence.desc": "We advise without bias. Every recommendation is shaped by what serves the client best not by predefined solutions or external interests.",
     "about.values.intentionality": "Intentionality",
     "about.values.intentionality.desc": "Nothing is accidental. Every decision, from strategy to design, is made with clarity of purpose and measurable impact.",
     "about.values.tailored": "Tailored Excellence",
