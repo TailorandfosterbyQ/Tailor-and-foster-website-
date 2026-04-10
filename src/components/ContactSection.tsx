@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/i18n/LanguageContext';
 
@@ -33,9 +34,7 @@ const ContactSection = () => {
           >
             {t("contact.title")}
           </motion.h2>
-          <motion.a
-            href="mailto:info@tailorandfoster.com"
-            className="mt-10 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-medium text-primary shadow-lg group"
+          <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -43,9 +42,14 @@ const ContactSection = () => {
             whileHover={{ y: -3, boxShadow: "0 20px 40px -12px rgba(0,0,0,0.25)" }}
             whileTap={{ scale: 0.97 }}
           >
-            {t("contact.cta")}
-            <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-          </motion.a>
+            <Link
+              to="/opportunity-scan"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-medium text-primary shadow-lg group"
+            >
+              {t("contact.cta")}
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>

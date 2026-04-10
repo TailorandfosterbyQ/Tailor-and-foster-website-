@@ -1,4 +1,5 @@
 import { ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import heroWorkspace from '@/assets/hero-workspace.jpg';
@@ -49,15 +50,14 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="mt-12 flex flex-wrap gap-4"
         >
-          <motion.a
-            href="#contact"
-            className="rounded-full bg-white px-7 py-3.5 text-sm font-medium text-primary shadow-lg hover:shadow-xl"
-            whileHover={{ y: -3, scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
-          >
-            {t("hero.cta.primary")}
-          </motion.a>
+          <motion.div whileHover={{ y: -3, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
+            <Link
+              to="/opportunity-scan"
+              className="rounded-full bg-white px-7 py-3.5 text-sm font-medium text-primary shadow-lg hover:shadow-xl inline-block"
+            >
+              {t("hero.cta.primary")}
+            </Link>
+          </motion.div>
           <motion.a
             href="#usps"
             className="rounded-full border-2 border-white/60 bg-white/10 backdrop-blur-sm px-7 py-3.5 text-sm font-medium text-white"

@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/i18n/LanguageContext';
 
@@ -31,15 +32,18 @@ const FinalCTASection = () => {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           >
-            <motion.a
-              href="mailto:info@tailorandfoster.com"
-              className="inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-base font-medium text-primary shadow-lg group"
+            <motion.div
               whileHover={{ y: -3, boxShadow: "0 20px 40px -12px rgba(255,255,255,0.15)" }}
               whileTap={{ scale: 0.97 }}
             >
-              {t("finalCta.button")}
-              <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-            </motion.a>
+              <Link
+                to="/opportunity-scan"
+                className="inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-base font-medium text-primary shadow-lg group"
+              >
+                {t("finalCta.button")}
+                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </div>
