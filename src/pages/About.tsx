@@ -104,7 +104,7 @@ const About = () => {
       </section>
 
       {/* What We Do */}
-      <section className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12">
+      <section id="whatwedo" className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12 scroll-mt-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -128,7 +128,7 @@ const About = () => {
       </section>
 
       {/* Mission */}
-      <section className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12">
+      <section id="mission" className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12 scroll-mt-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
