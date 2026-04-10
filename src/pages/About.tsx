@@ -4,7 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Award, CheckCircle } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import teamPhoto from '@/assets/team-photo.jpg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const valueKeys = [
   "independence", "intentionality", "tailored", "strategic", "execution", "longterm"
@@ -76,6 +77,16 @@ const ValueTabs = () => {
 
 const About = () => {
   const { t } = useLanguage();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const el = document.querySelector(location.hash);
+        el?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  }, [location.hash]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -104,7 +115,7 @@ const About = () => {
       </section>
 
       {/* What We Do */}
-      <section className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12">
+      <section id="whatwedo" className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12 scroll-mt-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -128,7 +139,7 @@ const About = () => {
       </section>
 
       {/* Mission */}
-      <section className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12">
+      <section id="mission" className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12 scroll-mt-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -163,7 +174,7 @@ const About = () => {
       </section>
 
       {/* Key Figures */}
-      <section className="bg-secondary/50 py-24">
+      <section id="figures" className="bg-secondary/50 py-24 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <motion.p
             className="text-sm font-medium uppercase tracking-[0.22em] text-primary mb-12 text-center"
@@ -200,7 +211,7 @@ const About = () => {
       </section>
 
       {/* Team */}
-      <section className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12">
+      <section id="team" className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12 scroll-mt-24">
         <motion.div
           className="max-w-2xl"
           initial={{ opacity: 0, y: 30 }}
