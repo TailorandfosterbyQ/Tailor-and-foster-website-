@@ -7,6 +7,7 @@ import { LanguageProvider } from "@/i18n/LanguageContext";
 import Index from "./pages/Index.tsx";
 import About from "./pages/About.tsx";
 import Services from "./pages/Services.tsx";
+import ServicesOverview from "./pages/ServicesOverview.tsx";
 import OpportunityScan from "./pages/OpportunityScan.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
@@ -23,7 +24,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/services/:type" element={<Services />} />
-          <Route path="/services" element={<Services />} />
+          <Route path="/services" element={<ServicesOverview />} />
           <Route path="/opportunity-scan" element={<OpportunityScan />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
