@@ -16,6 +16,51 @@ const figures = [
   { icon: CheckCircle, key: "projects" },
 ];
 
+const ValueChip = ({ valueKey, index }: { valueKey: string; index: number }) => {
+  const [open, setOpen] = useState(false);
+  const { t } = useLanguage();
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.08, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      <button
+        className={`px-4 py-2 rounded-full text-sm font-medium border transition-colors duration-200 ${
+          open
+            ? 'bg-primary text-primary-foreground border-primary'
+            : 'bg-card text-foreground border-border hover:border-primary/50'
+        }`}
+      >
+        {t(`about.values.${valueKey}`)}
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: 8, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 8, scale: 0.96 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute left-0 top-full mt-2 z-30 w-72 rounded-xl border border-border bg-card p-4 shadow-lg"
+          >
+            <p className="text-sm font-semibold text-foreground mb-1">
+              {t(`about.values.${valueKey}`)}
+            </p>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              {t(`about.values.${valueKey}.desc`)}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
+
 const About = () => {
   const { t } = useLanguage();
 
