@@ -139,6 +139,11 @@ export const translations: Record<Language, Record<string, string>> = {
     // Services generic
     "services.cta": "Request a Consultation",
 
+    // Opportunity Scan
+    "opportunityScan.hero.title": "Opportunity Scan",
+    "opportunityScan.hero.text": "We offer a free Opportunity Scan, in which we analyse your current office fit-out and estimate cost optimisation opportunities. The scan can also include some initial insights on the required office space, budget and timeline.",
+    "opportunityScan.hero.cta": "Feel free to select your preferred day and time for a call below.",
+
     // Footer
     "footer.rights": "All rights reserved.",
     "footer.privacy": "Privacy Policy",
@@ -283,6 +288,11 @@ export const translations: Record<Language, Record<string, string>> = {
     // Services generic
     "services.cta": "Vraag een consultatie aan",
 
+    // Opportunity Scan
+    "opportunityScan.hero.title": "Opportunity Scan",
+    "opportunityScan.hero.text": "Wij bieden een gratis Opportunity Scan aan, waarbij we uw huidige kantoorinrichting analyseren en mogelijkheden voor kostenoptimalisatie inschatten. De scan kan ook eerste inzichten bevatten over de benodigde kantoorruimte, het budget en de tijdlijn.",
+    "opportunityScan.hero.cta": "Selecteer hieronder uw gewenste dag en tijdstip voor een gesprek.",
+
     // Footer
     "footer.rights": "Alle rechten voorbehouden.",
     "footer.privacy": "Privacybeleid",
@@ -426,6 +436,11 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Services generic
     "services.cta": "Demander une consultation",
+
+    // Opportunity Scan
+    "opportunityScan.hero.title": "Opportunity Scan",
+    "opportunityScan.hero.text": "Nous proposons un Opportunity Scan gratuit, dans lequel nous analysons l'aménagement actuel de vos bureaux et estimons les opportunités d'optimisation des coûts. Le scan peut également inclure des premières indications sur l'espace de bureau nécessaire, le budget et le calendrier.",
+    "opportunityScan.hero.cta": "N'hésitez pas à sélectionner ci-dessous le jour et l'heure qui vous conviennent pour un appel.",
 
     // Footer
     "footer.rights": "Tous droits réservés.",
