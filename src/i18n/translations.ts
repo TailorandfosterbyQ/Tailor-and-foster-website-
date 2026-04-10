@@ -16,6 +16,14 @@ export const translations: Record<Language, Record<string, string>> = {
     "hero.cta.primary": "Start Your Opportunity Scan",
     "hero.cta.secondary": "Learn More",
 
+    // What We Do
+    "whatwedo.label": "What we do",
+    "whatwedo.title": "The workplace is no longer just a place. It's a question.",
+    "whatwedo.p1": "Most organisations don't question their workplace. They adapt to it, work around it, until something shifts. Teams become hybrid, culture becomes harder to define, and performance less consistent. The office is no longer just a place. It becomes a question.",
+    "whatwedo.p2": "At Tailor & Foster, we start there. We see the workplace not as space, but as a strategic asset. One that shapes how people connect, how ideas move, and how decisions are made. When designed with intent, it does more than house a company. It attracts people through purpose, sustains them by supporting focus and belonging, strengthens culture by making it tangible, and enhances performance by design.",
+    "whatwedo.p3": "That's why we approach every project differently. We listen before we define, question before we design, and align space with how organisations truly work. From strategy to realisation, we guide the entire journey with independence and precision.",
+    "whatwedo.p4": "Because a workplace should not be an afterthought. It should be a reflection of who you are — and a driver of how you perform.",
+
     // USPs
     "usps.label": "Why choose us",
     "usps.title": "What sets us apart",
@@ -145,6 +153,14 @@ export const translations: Record<Language, Record<string, string>> = {
     "hero.cta.primary": "Start uw Opportunity Scan",
     "hero.cta.secondary": "Meer weten",
 
+    // What We Do
+    "whatwedo.label": "Wat wij doen",
+    "whatwedo.title": "De werkplek is niet langer alleen een plek. Het is een vraag.",
+    "whatwedo.p1": "De meeste organisaties stellen hun werkplek niet in vraag. Ze passen zich aan, werken eromheen, tot er iets verandert. Teams worden hybride, cultuur wordt moeilijker te definiëren en prestaties minder consistent. Het kantoor is niet langer alleen een plek. Het wordt een vraag.",
+    "whatwedo.p2": "Bij Tailor & Foster beginnen we daar. Wij zien de werkplek niet als ruimte, maar als een strategisch instrument. Eén dat bepaalt hoe mensen verbinden, hoe ideeën bewegen en hoe beslissingen worden genomen. Wanneer het met intentie is ontworpen, doet het meer dan een bedrijf huisvesten. Het trekt mensen aan door doel, ondersteunt hen door focus en verbondenheid, versterkt cultuur door het tastbaar te maken en verbetert prestaties door ontwerp.",
+    "whatwedo.p3": "Daarom benaderen wij elk project anders. We luisteren voor we definiëren, stellen vragen voor we ontwerpen en stemmen ruimte af op hoe organisaties echt werken. Van strategie tot realisatie begeleiden we het hele traject met onafhankelijkheid en precisie.",
+    "whatwedo.p4": "Want een werkplek mag geen bijzaak zijn. Het moet een weerspiegeling zijn van wie je bent — en een motor van hoe je presteert.",
+
     // USPs
     "usps.label": "Waarom wij",
     "usps.title": "Wat ons onderscheidt",
@@ -273,6 +289,14 @@ export const translations: Record<Language, Record<string, string>> = {
     "hero.subtitle": "Votre organisation est en croissance, envisage de réduire ses effectifs ou fait face à une fin de bail ? Nous offrons des conseils immobiliers 100% indépendants pour protéger votre temps et votre budget.",
     "hero.cta.primary": "Démarrez votre Opportunity Scan",
     "hero.cta.secondary": "En savoir plus",
+
+    // What We Do
+    "whatwedo.label": "Ce que nous faisons",
+    "whatwedo.title": "Le lieu de travail n'est plus simplement un endroit. C'est une question.",
+    "whatwedo.p1": "La plupart des organisations ne remettent pas en question leur lieu de travail. Elles s'y adaptent, contournent les problèmes, jusqu'à ce que quelque chose change. Les équipes deviennent hybrides, la culture devient plus difficile à définir et la performance moins constante. Le bureau n'est plus simplement un endroit. Il devient une question.",
+    "whatwedo.p2": "Chez Tailor & Foster, nous partons de là. Nous voyons le lieu de travail non pas comme un espace, mais comme un actif stratégique. Un actif qui façonne la façon dont les gens se connectent, dont les idées circulent et dont les décisions sont prises. Conçu avec intention, il fait plus qu'héberger une entreprise. Il attire les gens par le sens, les soutient en favorisant la concentration et l'appartenance, renforce la culture en la rendant tangible et améliore la performance par le design.",
+    "whatwedo.p3": "C'est pourquoi nous abordons chaque projet différemment. Nous écoutons avant de définir, questionnons avant de concevoir et alignons l'espace avec la façon dont les organisations fonctionnent réellement. De la stratégie à la réalisation, nous guidons l'ensemble du parcours avec indépendance et précision.",
+    "whatwedo.p4": "Parce qu'un lieu de travail ne devrait pas être une réflexion après coup. Il devrait être le reflet de qui vous êtes — et un moteur de votre performance.",
 
     // USPs
     "usps.label": "Pourquoi nous",
