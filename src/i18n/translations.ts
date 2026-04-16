@@ -192,33 +192,33 @@ export const translations: Record<Language, Record<string, string>> = {
     "nav.letsTalk": "Opportunity Scan",
 
     // Hero
-    "hero.title": "Werkplekadvies op maat van groeiende bedrijven.",
-    "hero.subtitle": "Groeit uw organisatie, overweegt u in te krimpen, of loopt uw huurcontract af? Wij bieden 100% onafhankelijk vastgoedadvies om uw tijd en budget te beschermen.",
+    "hero.title": "Werkplekadvies voor groeiende ondernemingen.",
+    "hero.subtitle": "Groeit uw organisatie, overweegt u te downsizen, of nadert het einde van uw huurcontract? Wij bieden 100% onafhankelijk vastgoedadvies om uw tijd en budget te beschermen.",
     "hero.cta.primary": "Start uw Opportunity Scan",
     "hero.cta.secondary": "Meer weten",
 
     // What We Do
-    "whatwedo.label": "Wat wij doen",
-    "whatwedo.title": "De werkplek is niet langer alleen een plek. Het is een strategische vraag.",
-    "whatwedo.p1": "De meeste organisaties stellen hun werkplek niet in vraag. Ze passen zich aan, werken eromheen, tot veranderingen in de manier van werken de beperkingen blootleggen. Teams worden hybride, cultuur wordt minder zichtbaar en prestaties minder consistent. Op dat moment is het kantoor niet langer alleen een plek. Het wordt een strategische vraag.",
-    "whatwedo.p2": "Bij Tailor & Foster benaderen we het als zodanig. Wij zien de werkplek als een strategisch instrument dat rechtstreeks beïnvloedt hoe mensen samenwerken, hoe beslissingen worden genomen en hoe organisaties presteren. Wanneer het met helderheid en intentie wordt gedefinieerd, doet het meer dan een bedrijf huisvesten. Het helpt talent aan te trekken en te behouden, versterkt cultuur op een tastbare manier en ondersteunt consistente prestaties.",
-    "whatwedo.p3": "Onze rol is om structuur te brengen in dat proces. We analyseren hoe organisaties werken, definiëren wat de werkplek moet mogelijk maken en vertalen dat naar een heldere strategie en uitvoering. Van eerste inzicht tot finale realisatie begeleiden we het volledige traject met onafhankelijk advies en een aanpak op maat.",
-    "whatwedo.p4": "Want een werkplek mag niet iets zijn waaraan je je aanpast. Het moet iets zijn dat voor jou werkt.",
+    "whatwedo.label": "",
+    "whatwedo.title": "De werkplek als strategisch instrument.",
+    "whatwedo.p1": "Het beïnvloedt hoe mensen presteren, hoe cultuur wordt ervaren en hoe organisaties groeien.",
+    "whatwedo.p2": "Bij Tailor & Foster helpen wij werkomgevingen te definiëren en te realiseren die dat ondersteunen — van strategie tot uitvoering.",
+    "whatwedo.p3": "",
+    "whatwedo.p4": "",
 
     // USPs
     "usps.label": "Waarom wij",
     "usps.title": "Wat ons onderscheidt",
     "usps.independent.title": "100% Onafhankelijk",
-    "usps.independent.text": "Beslissingen blijven van u; wij hebben geen vooraf bepaalde leveringsroutes.",
+    "usps.independent.text": "Wij worden niet beïnvloed door vooraf bepaalde leveringsroutes. Ons pad is ons eigen, zodat alle beslissingen bij u blijven.",
     "usps.disruption.title": "Minimale verstoring",
-    "usps.disruption.text": "Wij beperken de tijd die wordt afgeleid van uw kernactiviteiten.",
+    "usps.disruption.text": "Wij begrijpen dat uw tijd uw meest waardevolle bezit is. Wij richten ons op het minimaliseren en beheersen van de tijd die wordt afgeleid van uw kernactiviteiten.",
     "usps.senior.title": "Senior begeleiding",
     "usps.senior.text": "Een gegarandeerde continue senior aanwezigheid gedurende uw hele project.",
     "usps.financial.title": "Financieel rendement",
     "usps.financial.text": "Volledig inzicht in de totale levensduurkosten van uw kantoor.",
 
     // Offer
-    "offer.label": "Ons aanbod",
+    "offer.label": "Onze diensten",
     "offer.title": "Oplossingen voor elke fase van uw werkplektraject.",
     "offer.growth.title": "Groeistrategieën",
     "offer.growth.text": "Breidt uw team uit? Wij vinden, onderhandelen en leveren de werkplek die uw ambities ondersteunt — zonder stress.",
@@ -232,7 +232,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "social.title": "Organisaties die op onze expertise vertrouwen",
 
     // Final CTA
-    "finalCta.title": "Klaar voor een Opportunity Scan?",
+    "finalCta.title": "Wat is uw kantooruitdaging?",
     "finalCta.text": "Laat ons uw huidige werkpleksituatie evalueren en ontdek kansen om tijd en budget te besparen.",
     "finalCta.button": "Start uw Opportunity Scan",
 
