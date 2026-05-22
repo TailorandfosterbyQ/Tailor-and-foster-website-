@@ -214,12 +214,9 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // What We Do
     "whatwedo.label": "",
-    "whatwedo.title": "De werkplek als strategie.",
-    "whatwedo.p1": "De meeste organisaties stellen hun werkplek niet in vraag. Ze passen zich aan, werken eromheen totdat veranderingen in de manier van werken de beperkingen blootleggen. Teams worden hybride, cultuur vervaagt en prestaties worden minder consistent. Op dat moment is het kantoor niet langer alleen een plek. Het wordt een strategische keuze.",
-    "whatwedo.p2": "Bij Tailor & Foster benaderen we het ook zo.",
-    "whatwedo.p3": "Wij zien de werkplek als een strategisch instrument dat rechtstreeks beïnvloedt hoe mensen samenwerken, hoe beslissingen worden genomen en hoe organisaties presteren. Wanneer die werkplek met helderheid en intentie wordt vormgegeven, doet ze meer dan een bedrijf huisvesten. Ze helpt talent aan te trekken en te behouden, maakt cultuur tastbaar en ondersteunt consistente prestaties.",
-    "whatwedo.p4": "Onze rol is om structuur te brengen in dat proces. We analyseren hoe organisaties werken, bepalen wat de werkplek mogelijk moet maken en vertalen dat naar een heldere strategie en concrete uitvoering. Van het eerste inzicht tot de finale realisatie begeleiden we het volledige traject met onafhankelijk advies en een aanpak op maat.",
-    "whatwedo.p5": "Een werplek die voor jou werkt dat is het enige dat telt.",
+    "whatwedo.title": "De werkplek als strategische troef.",
+    "whatwedo.p1": "Ze bepaalt hoe mensen presteren, hoe cultuur wordt beleefd en hoe organisaties groeien.",
+    "whatwedo.p2": "Bij Tailor & Foster helpen we werkomgevingen te definiëren en te realiseren die dat ondersteunen — van strategie tot uitvoering.",
 
     // USPs
     "usps.label": "Waarom wij",
