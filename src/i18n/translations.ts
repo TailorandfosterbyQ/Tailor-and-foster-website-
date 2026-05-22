@@ -24,7 +24,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "whatwedo.label": "",
     "whatwedo.title": "The workplace as a strategic asset.",
     "whatwedo.p1": "It shapes how people perform, how culture is experienced, and how organisations grow.",
-    "whatwedo.p2": "At Tailor & Foster, we help define and realize work environments that support that — from strategy to execution.",
+    "whatwedo.p2": "At Tailor & Foster, we help define and realize work environments that support that from strategy to execution.",
 
     // USPs
     "usps.label": "Why choose us",
@@ -216,7 +216,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "whatwedo.label": "",
     "whatwedo.title": "De werkplek als strategische troef.",
     "whatwedo.p1": "Ze bepaalt hoe mensen presteren, hoe cultuur wordt beleefd en hoe organisaties groeien.",
-    "whatwedo.p2": "Bij Tailor & Foster helpen we werkomgevingen te definiëren en te realiseren die dat ondersteunen — van strategie tot uitvoering.",
+    "whatwedo.p2": "Bij Tailor & Foster helpen we werkomgevingen te definiëren en te realiseren die dat ondersteunen van strategie tot uitvoering.",
 
     // USPs
     "usps.label": "Waarom wij",
@@ -408,7 +408,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "whatwedo.label": "",
     "whatwedo.title": "Le lieu de travail comme atout stratégique.",
     "whatwedo.p1": "Il façonne la performance des personnes, l'expérience de la culture et la croissance des organisations.",
-    "whatwedo.p2": "Chez Tailor & Foster, nous aidons à définir et à concrétiser des environnements de travail qui soutiennent cela — de la stratégie à l'exécution.",
+    "whatwedo.p2": "Chez Tailor & Foster, nous aidons à définir et à concrétiser des environnements de travail qui soutiennent cela de la stratégie à l'exécution.",
 
     // USPs
     "usps.label": "Pourquoi nous",
