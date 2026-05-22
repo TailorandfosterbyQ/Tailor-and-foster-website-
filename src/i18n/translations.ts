@@ -202,6 +202,11 @@ export const translations: Record<Language, Record<string, string>> = {
     "hero.cta.primary": "Start uw Opportunity Scan",
     "hero.cta.secondary": "Meer weten",
 
+    // Trust Bar
+    "trust.since": "Onafhankelijk sinds 1995",
+    "trust.independent": "100% vrij van belangenverstrengeling",
+    "trust.locations": "Brussel & Gent",
+
     // What We Do
     "whatwedo.label": "",
     "whatwedo.title": "De werkplek als strategisch instrument.",
