@@ -6,7 +6,6 @@ const TrustBar = () => {
 
   const items = [
     t('trust.since'),
-    t('trust.independent'),
     t('trust.locations'),
   ];
 
