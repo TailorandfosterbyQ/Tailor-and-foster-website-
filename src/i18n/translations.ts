@@ -16,6 +16,11 @@ export const translations: Record<Language, Record<string, string>> = {
     "hero.cta.primary": "Start Your Opportunity Scan",
     "hero.cta.secondary": "Learn More",
 
+    // Trust Bar
+    "trust.since": "Independent since 1995",
+    "trust.independent": "100% conflict-free advice",
+    "trust.locations": "Brussels & Ghent",
+
     // What We Do
     "whatwedo.label": "",
     "whatwedo.title": "The workplace as a strategic asset.",
@@ -197,6 +202,11 @@ export const translations: Record<Language, Record<string, string>> = {
     "hero.cta.primary": "Start uw Opportunity Scan",
     "hero.cta.secondary": "Meer weten",
 
+    // Trust Bar
+    "trust.since": "Onafhankelijk sinds 1995",
+    "trust.independent": "100% vrij van belangenverstrengeling",
+    "trust.locations": "Brussel & Gent",
+
     // What We Do
     "whatwedo.label": "",
     "whatwedo.title": "De werkplek als strategisch instrument.",
@@ -377,6 +387,11 @@ export const translations: Record<Language, Record<string, string>> = {
     "hero.subtitle": "Votre organisation est en croissance, envisage de réduire ses effectifs ou fait face à une fin de bail ? Nous offrons des conseils immobiliers 100% indépendants pour protéger votre temps et votre budget.",
     "hero.cta.primary": "Démarrez votre Opportunity Scan",
     "hero.cta.secondary": "En savoir plus",
+
+    // Trust Bar
+    "trust.since": "Indépendant depuis 1995",
+    "trust.independent": "Conseil 100% sans conflit d'intérêts",
+    "trust.locations": "Bruxelles & Gand",
 
     // What We Do
     "whatwedo.label": "Ce que nous faisons",
