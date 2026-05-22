@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import TrustBar from "@/components/TrustBar";
 import WhatWeDoSection from "@/components/WhatWeDoSection";
 import USPsSection from "@/components/USPsSection";
 import OfferSection from "@/components/OfferSection";
