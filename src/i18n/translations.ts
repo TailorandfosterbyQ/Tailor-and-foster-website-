@@ -182,6 +182,15 @@ export const translations: Record<Language, Record<string, string>> = {
     "opportunityScan.hero.cta": "Feel free to select your preferred day and time for a call below.",
 
     // Footer
+    "footer.company": "Tailor & Foster",
+    "footer.tagline": "Independent workplace advisory since 1995.",
+    "footer.contact": "Contact",
+    "footer.email": "info@tailorandfoster.com",
+    "footer.phone": "+32 (0)2 320 00 00",
+    "footer.offices": "Offices",
+    "footer.brussels": "Brussels",
+    "footer.ghent": "Ghent",
+    "footer.navigation": "Navigation",
     "footer.rights": "All rights reserved.",
     "footer.privacy": "Privacy Policy",
     "footer.cookies": "Cookie Policy",
@@ -368,6 +377,15 @@ export const translations: Record<Language, Record<string, string>> = {
     "opportunityScan.hero.cta": "Selecteer hieronder uw gewenste dag en tijdstip voor een gesprek.",
 
     // Footer
+    "footer.company": "Tailor & Foster",
+    "footer.tagline": "Onafhankelijk werkplekadvies sinds 1995.",
+    "footer.contact": "Contact",
+    "footer.email": "info@tailorandfoster.com",
+    "footer.phone": "+32 (0)2 320 00 00",
+    "footer.offices": "Kantoren",
+    "footer.brussels": "Brussel",
+    "footer.ghent": "Gent",
+    "footer.navigation": "Navigatie",
     "footer.rights": "Alle rechten voorbehouden.",
     "footer.privacy": "Privacybeleid",
     "footer.cookies": "Cookiebeleid",
@@ -554,6 +572,15 @@ export const translations: Record<Language, Record<string, string>> = {
     "opportunityScan.hero.cta": "N'hésitez pas à sélectionner ci-dessous le jour et l'heure qui vous conviennent pour un appel.",
 
     // Footer
+    "footer.company": "Tailor & Foster",
+    "footer.tagline": "Conseil en espace de travail indépendant depuis 1995.",
+    "footer.contact": "Contact",
+    "footer.email": "info@tailorandfoster.com",
+    "footer.phone": "+32 (0)2 320 00 00",
+    "footer.offices": "Bureaux",
+    "footer.brussels": "Bruxelles",
+    "footer.ghent": "Gand",
+    "footer.navigation": "Navigation",
     "footer.rights": "Tous droits réservés.",
     "footer.privacy": "Politique de confidentialité",
     "footer.cookies": "Politique des cookies",
