@@ -16,6 +16,11 @@ export const translations: Record<Language, Record<string, string>> = {
     "hero.cta.primary": "Start Your Opportunity Scan",
     "hero.cta.secondary": "Learn More",
 
+    // Trust Bar
+    "trust.since": "Independent since 1995",
+    "trust.independent": "100% conflict-free advice",
+    "trust.locations": "Brussels & Ghent",
+
     // What We Do
     "whatwedo.label": "",
     "whatwedo.title": "The workplace as a strategic asset.",
