@@ -29,6 +29,15 @@ const WhatWeDoSection = () => {
           <p className="text-base leading-7 text-muted-foreground">
             {t("whatwedo.p2")}
           </p>
+          <p className="text-base leading-7 text-muted-foreground">
+            {t("whatwedo.p3")}
+          </p>
+          <p className="text-base leading-7 text-muted-foreground">
+            {t("whatwedo.p4")}
+          </p>
+          <p className="text-base leading-7 text-muted-foreground">
+            {t("whatwedo.p5")}
+          </p>
         </motion.div>
       </div>
     </section>

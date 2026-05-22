@@ -22,11 +22,12 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // What We Do
     "whatwedo.label": "",
-    "whatwedo.title": "The workplace as a strategic asset.",
-    "whatwedo.p1": "It shapes how people perform, how culture is experienced, and how organisations grow.",
-    "whatwedo.p2": "At Tailor & Foster, we help define and realize work environments that support that — from strategy to execution.",
-    "whatwedo.p3": "",
-    "whatwedo.p4": "",
+    "whatwedo.title": "The workplace as strategy.",
+    "whatwedo.p1": "Most organisations don't question their workplace. They adapt to it, work around it, until changes in how people work start to expose its limitations. Teams become hybrid, culture fades, and performance becomes less consistent. At that point, the office is no longer just a place. It becomes a strategic choice.",
+    "whatwedo.p2": "At Tailor & Foster, we approach it as such.",
+    "whatwedo.p3": "We see the workplace as a strategic instrument that directly influences how people collaborate, how decisions are made, and how organisations perform. When shaped with clarity and intent, it does more than house a business. It helps attract and retain talent, makes culture tangible, and supports consistent performance.",
+    "whatwedo.p4": "Our role is to bring structure to that process. We analyse how organisations work, define what the workplace needs to enable, and translate that into a clear strategy and concrete execution. From initial insight to final realisation, we guide the full trajectory with independent advice and a tailored approach.",
+    "whatwedo.p5": "A workplace that works for you — that is the only thing that matters.",
 
     // USPs
     "usps.label": "Why choose us",
@@ -216,11 +217,12 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // What We Do
     "whatwedo.label": "",
-    "whatwedo.title": "De werkplek als strategisch instrument.",
-    "whatwedo.p1": "Het beïnvloedt hoe mensen presteren, hoe cultuur wordt ervaren en hoe organisaties groeien.",
-    "whatwedo.p2": "Bij Tailor & Foster helpen wij werkomgevingen te definiëren en te realiseren die dat ondersteunen — van strategie tot uitvoering.",
-    "whatwedo.p3": "",
-    "whatwedo.p4": "",
+    "whatwedo.title": "De werkplek als strategie.",
+    "whatwedo.p1": "De meeste organisaties stellen hun werkplek niet in vraag. Ze passen zich aan, werken eromheen totdat veranderingen in de manier van werken de beperkingen blootleggen. Teams worden hybride, cultuur vervaagt en prestaties worden minder consistent. Op dat moment is het kantoor niet langer alleen een plek. Het wordt een strategische keuze.",
+    "whatwedo.p2": "Bij Tailor & Foster benaderen we het ook zo.",
+    "whatwedo.p3": "Wij zien de werkplek als een strategisch instrument dat rechtstreeks beïnvloedt hoe mensen samenwerken, hoe beslissingen worden genomen en hoe organisaties presteren. Wanneer die werkplek met helderheid en intentie wordt vormgegeven, doet ze meer dan een bedrijf huisvesten. Ze helpt talent aan te trekken en te behouden, maakt cultuur tastbaar en ondersteunt consistente prestaties.",
+    "whatwedo.p4": "Onze rol is om structuur te brengen in dat proces. We analyseren hoe organisaties werken, bepalen wat de werkplek mogelijk moet maken en vertalen dat naar een heldere strategie en concrete uitvoering. Van het eerste inzicht tot de finale realisatie begeleiden we het volledige traject met onafhankelijk advies en een aanpak op maat.",
+    "whatwedo.p5": "Een werplek die voor jou werkt dat is het enige dat telt.",
 
     // USPs
     "usps.label": "Waarom wij",
@@ -409,12 +411,13 @@ export const translations: Record<Language, Record<string, string>> = {
     "trust.locations": "Bruxelles & Gand",
 
     // What We Do
-    "whatwedo.label": "Ce que nous faisons",
-    "whatwedo.title": "Le lieu de travail n'est plus simplement un endroit. C'est une question stratégique.",
-    "whatwedo.p1": "La plupart des organisations ne remettent pas en question leur lieu de travail. Elles s'y adaptent, contournent les problèmes, jusqu'à ce que les évolutions du travail en révèlent les limites. Les équipes deviennent hybrides, la culture devient moins visible et la performance moins constante. À ce stade, le bureau n'est plus simplement un endroit. Il devient une question stratégique.",
-    "whatwedo.p2": "Chez Tailor & Foster, nous l'abordons comme tel. Nous voyons le lieu de travail comme un actif stratégique, qui influence directement la façon dont les gens collaborent, dont les décisions sont prises et dont les organisations performent. Défini avec clarté et intention, il fait plus qu'accueillir une entreprise. Il aide à attirer et retenir les talents, renforce la culture de manière tangible et soutient une performance constante.",
-    "whatwedo.p3": "Notre rôle est d'apporter de la structure à ce processus. Nous analysons comment les organisations fonctionnent, définissons ce que le lieu de travail doit permettre et traduisons cela en une stratégie et une exécution claires. De l'insight initial à la réalisation finale, nous guidons l'ensemble du parcours avec un conseil indépendant et une approche sur mesure.",
-    "whatwedo.p4": "Parce qu'un lieu de travail ne devrait pas être quelque chose auquel on s'adapte. Il devrait être quelque chose qui travaille pour vous.",
+    "whatwedo.label": "",
+    "whatwedo.title": "Le lieu de travail comme stratégie.",
+    "whatwedo.p1": "La plupart des organisations ne remettent pas en question leur lieu de travail. Elles s'y adaptent, contournent ses limites, jusqu'à ce que les changements dans la façon de travailler en exposent les faiblesses. Les équipes deviennent hybrides, la culture s'estompe et la performance devient moins constante. À ce stade, le bureau n'est plus simplement un lieu. Il devient un choix stratégique.",
+    "whatwedo.p2": "Chez Tailor & Foster, nous l'abordons comme tel.",
+    "whatwedo.p3": "Nous voyons le lieu de travail comme un instrument stratégique qui influence directement la façon dont les gens collaborent, dont les décisions sont prises et dont les organisations performent. Défini avec clarté et intention, il fait plus qu'abriter une entreprise. Il aide à attirer et retenir les talents, rend la culture tangible et soutient une performance constante.",
+    "whatwedo.p4": "Notre rôle est d'apporter de la structure à ce processus. Nous analysons comment les organisations fonctionnent, définissons ce que le lieu de travail doit permettre, et traduisons cela en une stratégie claire et une exécution concrète. Du premier constat à la réalisation finale, nous guidons l'ensemble du parcours avec des conseils indépendants et une approche sur mesure.",
+    "whatwedo.p5": "Un lieu de travail qui travaille pour vous — c'est la seule chose qui compte.",
 
     // USPs
     "usps.label": "Pourquoi nous",
