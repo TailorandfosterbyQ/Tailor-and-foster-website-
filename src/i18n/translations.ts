@@ -212,7 +212,6 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Trust Bar
     "trust.since": "Onafhankelijk sinds 1995",
-    "trust.independent": "100% vrij van belangenverstrengeling",
     "trust.locations": "Brussel & Gent",
 
     // What We Do
