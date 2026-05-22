@@ -406,12 +406,9 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // What We Do
     "whatwedo.label": "",
-    "whatwedo.title": "Le lieu de travail comme stratégie.",
-    "whatwedo.p1": "La plupart des organisations ne remettent pas en question leur lieu de travail. Elles s'y adaptent, contournent ses limites, jusqu'à ce que les changements dans la façon de travailler en exposent les faiblesses. Les équipes deviennent hybrides, la culture s'estompe et la performance devient moins constante. À ce stade, le bureau n'est plus simplement un lieu. Il devient un choix stratégique.",
-    "whatwedo.p2": "Chez Tailor & Foster, nous l'abordons comme tel.",
-    "whatwedo.p3": "Nous voyons le lieu de travail comme un instrument stratégique qui influence directement la façon dont les gens collaborent, dont les décisions sont prises et dont les organisations performent. Défini avec clarté et intention, il fait plus qu'abriter une entreprise. Il aide à attirer et retenir les talents, rend la culture tangible et soutient une performance constante.",
-    "whatwedo.p4": "Notre rôle est d'apporter de la structure à ce processus. Nous analysons comment les organisations fonctionnent, définissons ce que le lieu de travail doit permettre, et traduisons cela en une stratégie claire et une exécution concrète. Du premier constat à la réalisation finale, nous guidons l'ensemble du parcours avec des conseils indépendants et une approche sur mesure.",
-    "whatwedo.p5": "Un lieu de travail qui travaille pour vous — c'est la seule chose qui compte.",
+    "whatwedo.title": "Le lieu de travail comme atout stratégique.",
+    "whatwedo.p1": "Il façonne la performance des personnes, l'expérience de la culture et la croissance des organisations.",
+    "whatwedo.p2": "Chez Tailor & Foster, nous aidons à définir et à concrétiser des environnements de travail qui soutiennent cela — de la stratégie à l'exécution.",
 
     // USPs
     "usps.label": "Pourquoi nous",
