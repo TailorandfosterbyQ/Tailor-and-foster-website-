@@ -22,12 +22,9 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // What We Do
     "whatwedo.label": "",
-    "whatwedo.title": "The workplace as strategy.",
-    "whatwedo.p1": "Most organisations don't question their workplace. They adapt to it, work around it, until changes in how people work start to expose its limitations. Teams become hybrid, culture fades, and performance becomes less consistent. At that point, the office is no longer just a place. It becomes a strategic choice.",
-    "whatwedo.p2": "At Tailor & Foster, we approach it as such.",
-    "whatwedo.p3": "We see the workplace as a strategic instrument that directly influences how people collaborate, how decisions are made, and how organisations perform. When shaped with clarity and intent, it does more than house a business. It helps attract and retain talent, makes culture tangible, and supports consistent performance.",
-    "whatwedo.p4": "Our role is to bring structure to that process. We analyse how organisations work, define what the workplace needs to enable, and translate that into a clear strategy and concrete execution. From initial insight to final realisation, we guide the full trajectory with independent advice and a tailored approach.",
-    "whatwedo.p5": "A workplace that works for you — that is the only thing that matters.",
+    "whatwedo.title": "The workplace as a strategic asset.",
+    "whatwedo.p1": "It shapes how people perform, how culture is experienced, and how organisations grow.",
+    "whatwedo.p2": "At Tailor & Foster, we help define and realize work environments that support that — from strategy to execution.",
 
     // USPs
     "usps.label": "Why choose us",
