@@ -12,7 +12,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Hero
     "hero.title": "Workspace Advisory  for Evolving Businesses.",
-    "hero.subtitle": "Is your organization growing, considering downsizing, or facing a lease end? We provide 100% independent real estate advice to protect your time and budget.",
+    "hero.subtitle": "For 30 years, we've helped organisations make smarter workplace decisions — independently, and always in your interest. Whether you're growing, downsizing, or facing a lease end, we guide you from strategy to execution.",
     "hero.cta.primary": "Start Your Opportunity Scan",
     "hero.cta.secondary": "Learn More",
 
