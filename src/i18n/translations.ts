@@ -134,7 +134,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.lease.step1.title": "Early Lease Review",
     "services.lease.step1.text": "We review your lease terms 18–24 months ahead, identifying break options, penalty clauses, and market benchmarks.",
     "services.lease.step2.title": "Market Comparison & Options",
-    "services.lease.step2.text": "We compare renegotiation scenarios with relocation alternatives — giving you a clear view of the financial and operational trade-offs.",
+    "services.lease.step2.text": "We compare renegotiation scenarios with relocation alternatives giving you a clear view of the financial and operational trade-offs.",
     "services.lease.step3.title": "Negotiation & Handover",
     "services.lease.step3.text": "Whether you stay or go, we lead negotiations with landlords and manage the transition end-to-end.",
     "services.lease.forWhom.label": "Is this for you?",
