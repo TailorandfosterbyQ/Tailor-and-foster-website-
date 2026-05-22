@@ -56,7 +56,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "social.title": "Organisations that rely on our expertise",
 
     // Final CTA
-    "finalCta.title": "What is your office challenge ? ",
+    "finalCta.title": "What is your office challenge?",
     "finalCta.text": "Let us evaluate your current workspace setup and uncover opportunities to save time and budget.",
     "finalCta.button": "Start Your Opportunity Scan",
 
