@@ -1,26 +1,66 @@
+import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
 import opportunityScanHero from "@/assets/opportunity-scan-hero.jpg";
-import { Handshake, CalendarCheck, ShieldCheck } from "lucide-react";
-import { useEffect } from "react";
+import { Handshake, CalendarCheck, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "@/hooks/use-toast";
 
-const CALENDLY_URL = "https://calendly.com/bernard-tailorandfoster/opportunity-scan";
+type Topic = "growth" | "downsizing" | "lease" | "interventions" | "other";
 
 const OpportunityScan = () => {
   const { t } = useLanguage();
+  const [form, setForm] = useState({
+    name: "",
+    company: "",
+    email: "",
+    phone: "",
+    topic: "" as Topic | "",
+    message: "",
+  });
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
 
-  useEffect(() => {
-    // Load Calendly widget script
-    const script = document.createElement("script");
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.topic) return;
+    setSubmitting(true);
+    try {
+      const { error } = await supabase.functions.invoke("submit-opportunity-scan", {
+        body: {
+          name: form.name.trim(),
+          company: form.company.trim(),
+          email: form.email.trim(),
+          phone: form.phone.trim(),
+          topic: form.topic,
+          message: form.message.trim(),
+        },
+      });
+      if (error) throw error;
+      setSuccess(true);
+    } catch (err) {
+      console.error(err);
+      toast({
+        title: t("opportunityScan.form.error"),
+        variant: "destructive",
+      });
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -65,7 +105,7 @@ const OpportunityScan = () => {
       </section>
 
       {/* Trust badges */}
-      <section className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12">
+      <section className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12 mt-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -88,8 +128,8 @@ const OpportunityScan = () => {
         </motion.div>
       </section>
 
-      {/* Calendly Embed */}
-      <section className="mx-auto max-w-5xl px-6 pb-16 pt-6 sm:px-8 lg:px-12">
+      {/* Form */}
+      <section className="mx-auto max-w-3xl px-6 pb-20 pt-10 sm:px-8 lg:px-12">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -99,18 +139,108 @@ const OpportunityScan = () => {
         >
           {t("opportunityScan.hero.cta")}
         </motion.p>
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="rounded-3xl border border-border bg-card shadow-lg overflow-hidden"
+          className="rounded-3xl border border-border bg-card p-8 shadow-lg sm:p-10"
         >
-          <div
-            className="calendly-inline-widget"
-            data-url={CALENDLY_URL}
-            style={{ minWidth: "320px", height: "700px" }}
-          />
+          {success ? (
+            <div className="flex flex-col items-center py-10 text-center">
+              <CheckCircle2 size={48} className="text-primary mb-4" />
+              <p className="text-lg text-foreground/90 max-w-md">
+                {t("opportunityScan.form.success")}
+              </p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div className="space-y-2">
+                  <Label htmlFor="name">{t("opportunityScan.form.name")}</Label>
+                  <Input
+                    id="name"
+                    required
+                    maxLength={200}
+                    value={form.name}
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="company">{t("opportunityScan.form.company")}</Label>
+                  <Input
+                    id="company"
+                    required
+                    maxLength={200}
+                    value={form.company}
+                    onChange={(e) => setForm({ ...form, company: e.target.value })}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">{t("opportunityScan.form.email")}</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    required
+                    maxLength={320}
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="phone">{t("opportunityScan.form.phone")}</Label>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    required
+                    maxLength={50}
+                    value={form.phone}
+                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="topic">{t("opportunityScan.form.topic")}</Label>
+                <Select
+                  value={form.topic}
+                  onValueChange={(v) => setForm({ ...form, topic: v as Topic })}
+                >
+                  <SelectTrigger id="topic">
+                    <SelectValue placeholder={t("opportunityScan.form.topic.placeholder")} />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="growth">{t("opportunityScan.form.topic.growth")}</SelectItem>
+                    <SelectItem value="downsizing">{t("opportunityScan.form.topic.downsizing")}</SelectItem>
+                    <SelectItem value="lease">{t("opportunityScan.form.topic.lease")}</SelectItem>
+                    <SelectItem value="interventions">{t("opportunityScan.form.topic.interventions")}</SelectItem>
+                    <SelectItem value="other">{t("opportunityScan.form.topic.other")}</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="message">{t("opportunityScan.form.message")}</Label>
+                <Textarea
+                  id="message"
+                  rows={4}
+                  maxLength={2000}
+                  value={form.message}
+                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+                />
+              </div>
+
+              <Button
+                type="submit"
+                size="lg"
+                className="w-full"
+                disabled={submitting || !form.topic}
+              >
+                {submitting ? t("opportunityScan.form.submitting") : t("opportunityScan.form.submit")}
+              </Button>
+            </form>
+          )}
         </motion.div>
       </section>
 
