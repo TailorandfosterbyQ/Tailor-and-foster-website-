@@ -276,9 +276,12 @@ export const translations: Record<Language, Record<string, string>> = {
     "social.title": "Van scale-ups tot multinationals, al meer dan 30 jaar aan de zijde van organisaties in verandering.",
 
     // Final CTA
-    "finalCta.title": "Wat is uw kantooruitdaging?",
+    "finalCta.title": "Elke werkplekuitdaging is anders — start met een gratis analyse van de uwe.",
     "finalCta.text": "Laat ons uw huidige werkpleksituatie evalueren en ontdek kansen om tijd en budget te besparen.",
     "finalCta.button": "Start uw Opportunity Scan",
+    "finalCta.benefit1": "Vrijblijvend",
+    "finalCta.benefit2": "Binnen 48u reactie",
+    "finalCta.benefit3": "Geen verplichtingen",
 
     // About page
     "about.hero.label": "Over ons",
