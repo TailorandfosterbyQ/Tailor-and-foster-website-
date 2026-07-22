@@ -56,14 +56,6 @@ const OpportunityScan = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="mt-6 max-w-2xl text-base leading-7 text-white/60"
-          >
-            {t("opportunityScan.hero.cta")}
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.45 }}
             className="mt-3 max-w-2xl text-base leading-7 text-white/60"
           >
@@ -98,6 +90,15 @@ const OpportunityScan = () => {
 
       {/* Calendly Embed */}
       <section className="mx-auto max-w-5xl px-6 pb-16 pt-6 sm:px-8 lg:px-12">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-6 text-center text-base leading-7 text-foreground/80"
+        >
+          {t("opportunityScan.hero.cta")}
+        </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
