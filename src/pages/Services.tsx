@@ -118,7 +118,7 @@ const Services = () => {
       </section>
 
       {/* For Whom */}
-      <section className="bg-secondary/50 py-24">
+      <section className="bg-secondary/50 pt-24 pb-12">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="max-w-3xl mx-auto text-center">
             <motion.p
@@ -154,7 +154,7 @@ const Services = () => {
 
       {/* CTA */}
       <section className="bg-background overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-7xl px-6 pt-12 pb-24 sm:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, scale: 0.92, y: 40 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
