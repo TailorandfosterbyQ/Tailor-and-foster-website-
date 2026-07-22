@@ -27,7 +27,7 @@ const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground border-t border-white/10">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 sm:py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-28">
           {/* Company */}
           <div className="sm:col-span-2 lg:col-span-1">
             <h3 className="font-logo text-2xl sm:text-3xl mb-4">
@@ -39,7 +39,7 @@ const Footer = () => {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="lg:pr-8">
             <h4 className="text-[11px] font-semibold tracking-[0.15em] uppercase mb-5 text-primary-foreground/40">
               {t('footer.contact')}
             </h4>
