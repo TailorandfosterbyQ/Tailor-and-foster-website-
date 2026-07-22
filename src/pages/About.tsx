@@ -129,11 +129,16 @@ const About = () => {
             {t("about.whatwedo.title")}
           </h2>
           <div className="mt-8 max-w-3xl space-y-5">
-            <p className="text-base leading-7 text-muted-foreground">{t("about.whatwedo.p1")}</p>
-            <p className="text-base leading-7 text-foreground font-medium">{t("about.whatwedo.p2")}</p>
-            <p className="text-base leading-7 text-muted-foreground">{t("about.whatwedo.p3")}</p>
-            <p className="text-base leading-7 text-muted-foreground">{t("about.whatwedo.p4")}</p>
-            <p className="text-base leading-7 text-foreground font-medium italic">{t("about.whatwedo.p5")}</p>
+            {[
+              { key: "about.whatwedo.p1", className: "text-base leading-7 text-muted-foreground" },
+              { key: "about.whatwedo.p2", className: "text-base leading-7 text-foreground font-medium" },
+              { key: "about.whatwedo.p3", className: "text-base leading-7 text-muted-foreground" },
+              { key: "about.whatwedo.p4", className: "text-base leading-7 text-muted-foreground" },
+              { key: "about.whatwedo.p5", className: "text-base leading-7 text-foreground font-medium italic" },
+            ].map(({ key, className }) => {
+              const text = t(key);
+              return text ? <p key={key} className={className}>{text}</p> : null;
+            })}
           </div>
         </motion.div>
       </section>
