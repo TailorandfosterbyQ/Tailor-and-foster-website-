@@ -40,7 +40,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Offer
     "offer.label": "Our services",
-    "offer.title": "Solutions for every stage of your workspace journey. and everything in between.",
+    "offer.title": "Solutions for every stage of your workspace journey, and everything in between.",
     "offer.growth.title": "Growth Strategies",
     "offer.growth.text": "Expanding your team? We find, negotiate, and deliver the workspace that supports your ambitions without the stress.",
     "offer.downsizing.title": "Downsizing Solutions",
@@ -55,7 +55,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "social.title": "From scale-ups to multinationals, for more than 30 years alongside organisations in transition.",
 
     // Final CTA
-    "finalCta.title": "Every workplace challenge is different. start with a free analysis of yours.",
+    "finalCta.title": "Every workplace challenge is different. Start with a free analysis of yours.",
     "finalCta.text": "Let us evaluate your current workspace setup and uncover opportunities to save time and budget.",
     "finalCta.button": "Start Your Opportunity Scan",
     "finalCta.benefit1": "No obligation",
@@ -261,7 +261,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Offer
     "offer.label": "Onze diensten",
-    "offer.title": "Oplossingen voor elke fase van uw werkplektraject. en alles daartussen.",
+    "offer.title": "Oplossingen voor elke fase van uw werkplektraject, en alles daartussen.",
     "offer.growth.title": "Groeistrategieën",
     "offer.growth.text": "Breidt uw team uit? Wij vinden, onderhandelen en leveren de werkplek die uw ambities ondersteunt zonder stress.",
     "offer.downsizing.title": "Downsizing oplossingen",
@@ -276,7 +276,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "social.title": "Van scale-ups tot multinationals, al meer dan 30 jaar aan de zijde van organisaties in verandering.",
 
     // Final CTA
-    "finalCta.title": "Elke werkplekuitdaging is anders. start met een gratis analyse van de uwe.",
+    "finalCta.title": "Elke werkplekuitdaging is anders. Start met een gratis analyse van de uwe.",
     "finalCta.text": "Laat ons uw huidige werkpleksituatie evalueren en ontdek kansen om tijd en budget te besparen.",
     "finalCta.button": "Start uw Opportunity Scan",
     "finalCta.benefit1": "Vrijblijvend",
@@ -482,7 +482,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Offer
     "offer.label": "Nos services",
-    "offer.title": "Des solutions pour chaque étape de votre parcours workspace. et tout ce qu'il y a entre les deux.",
+    "offer.title": "Des solutions pour chaque étape de votre parcours workspace, et tout ce qu'il y a entre les deux.",
     "offer.growth.title": "Stratégies de croissance",
     "offer.growth.text": "Vous agrandissez votre équipe ? Nous trouvons, négocions et livrons l'espace de travail qui soutient vos ambitions sans stress.",
     "offer.downsizing.title": "Solutions de réduction",
@@ -497,7 +497,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "social.title": "Des scale-ups aux multinationales, depuis plus de 30 ans aux côtés d'organisations en transformation.",
 
     // Final CTA
-    "finalCta.title": "Chaque défi de lieu de travail est différent. commencez par une analyse gratuite du vôtre.",
+    "finalCta.title": "Chaque défi de lieu de travail est différent. Commencez par une analyse gratuite du vôtre.",
     "finalCta.text": "Laissez nous évaluer votre configuration actuelle et découvrir des opportunités d'économiser du temps et du budget.",
     "finalCta.button": "Démarrez votre Opportunity Scan",
     "finalCta.benefit1": "Sans engagement",
