@@ -199,8 +199,9 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Opportunity Scan
     "opportunityScan.hero.title": "Opportunity Scan",
-    "opportunityScan.hero.text": "We offer a free Opportunity Scan, in which we analyse your current office fit out and estimate cost optimisation opportunities. The scan can also include some initial insights on the required office space, budget and timeline.",
+    "opportunityScan.hero.text": "We offer a free Opportunity Scan: we analyse your current office fit out, map cost optimisation opportunities, and give an initial estimate of the required space, budget and timeline.",
     "opportunityScan.hero.cta": "Feel free to select your preferred day and time for a call below.",
+    "opportunityScan.hero.practicalDetail": "The call takes about 30 minutes and can be held by phone, online or at our office. You choose what suits you best.",
 
     // Footer
     "footer.company": "Tailor & Foster",
