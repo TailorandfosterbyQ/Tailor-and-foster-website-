@@ -33,7 +33,7 @@ const Services = () => {
       {/* Hero with image */}
       <section className="relative py-28 lg:py-36 overflow-hidden">
         <img
-          src={servicesHero}
+          src={config.image}
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
           width={1920}
