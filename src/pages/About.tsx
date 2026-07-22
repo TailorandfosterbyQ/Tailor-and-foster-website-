@@ -1,10 +1,10 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { MapPin, Award, CheckCircle } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import teamPhoto from '@/assets/team-photo.jpg';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const valueKeys = [
