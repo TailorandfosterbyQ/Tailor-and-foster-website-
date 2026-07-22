@@ -497,9 +497,12 @@ export const translations: Record<Language, Record<string, string>> = {
     "social.title": "Des scale-ups aux multinationales, depuis plus de 30 ans aux côtés d'organisations en transformation.",
 
     // Final CTA
-    "finalCta.title": "Prêt pour un Opportunity Scan ?",
+    "finalCta.title": "Chaque défi de lieu de travail est différent — commencez par une analyse gratuite du vôtre.",
     "finalCta.text": "Laissez nous évaluer votre configuration actuelle et découvrir des opportunités d'économiser du temps et du budget.",
     "finalCta.button": "Démarrez votre Opportunity Scan",
+    "finalCta.benefit1": "Sans engagement",
+    "finalCta.benefit2": "Réponse sous 48h",
+    "finalCta.benefit3": "Entièrement confidentiel",
 
     // About page
     "about.hero.label": "À propos",
