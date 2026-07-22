@@ -12,7 +12,7 @@ const AboutSection = () => {
           <div className="w-12 h-px bg-accent mx-auto mb-10" />
           <p className="text-lg leading-relaxed text-muted-foreground max-w-2xl mx-auto">
             Tailor & Foster provides expert advice and project management in real estate. 
-            We are not influenced by any predetermined supply route — our path is our own 
+            We are not influenced by any predetermined supply route. Our path is our own 
             and decisions are yours to make.
           </p>
         </div>
