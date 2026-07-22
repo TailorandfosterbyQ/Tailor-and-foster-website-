@@ -56,14 +56,6 @@ const OpportunityScan = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="mt-6 max-w-2xl text-base leading-7 text-white/60"
-          >
-            {t("opportunityScan.hero.cta")}
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.45 }}
             className="mt-3 max-w-2xl text-base leading-7 text-white/60"
           >
