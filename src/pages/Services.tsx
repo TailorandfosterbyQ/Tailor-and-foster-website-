@@ -4,12 +4,14 @@ import Footer from "@/components/Footer";
 import { motion } from 'framer-motion';
 import { Search, Map, Users, ArrowRight, TrendingUp, TrendingDown, FileText } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
-import servicesHero from '@/assets/services-hero.jpg';
+import servicesHeroGrowth from '@/assets/services-hero.jpg';
+import servicesHeroDownsizing from '@/assets/services-hero-downsizing.jpg';
+import servicesHeroLease from '@/assets/services-hero-lease.jpg';
 
 const serviceConfig = {
-  growth: { icon: TrendingUp, accent: "from-emerald-600 to-emerald-800" },
-  downsizing: { icon: TrendingDown, accent: "from-amber-600 to-amber-800" },
-  lease: { icon: FileText, accent: "from-sky-600 to-sky-800" },
+  growth: { icon: TrendingUp, accent: "from-emerald-600 to-emerald-800", image: servicesHeroGrowth },
+  downsizing: { icon: TrendingDown, accent: "from-amber-600 to-amber-800", image: servicesHeroDownsizing },
+  lease: { icon: FileText, accent: "from-sky-600 to-sky-800", image: servicesHeroLease },
 } as const;
 
 type ServiceType = keyof typeof serviceConfig;
@@ -31,7 +33,7 @@ const Services = () => {
       {/* Hero with image */}
       <section className="relative py-28 lg:py-36 overflow-hidden">
         <img
-          src={servicesHero}
+          src={config.image}
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
           width={1920}
