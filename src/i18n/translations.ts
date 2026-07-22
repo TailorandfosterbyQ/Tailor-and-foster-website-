@@ -222,13 +222,13 @@ export const translations: Record<Language, Record<string, string>> = {
     "usps.label": "Waarom wij",
     "usps.title": "Wat ons onderscheidt",
     "usps.independent.title": "100% Onafhankelijk",
-    "usps.independent.text": "Wij ontvangen geen commissies of vergoedingen van leveranciers of aannemers. Elke aanbeveling is uitsluitend in uw belang.",
+    "usps.independent.text": "Geen commissies of vergoedingen van leveranciers. Elke aanbeveling is uitsluitend in uw belang.",
     "usps.disruption.title": "Minimale verstoring",
     "usps.disruption.text": "Wij beheren het project zodat het minimale tijd vraagt van uw kernactiviteiten.",
     "usps.senior.title": "Senior begeleiding",
-    "usps.senior.text": "Eén senior aanspreekpunt, van start tot oplevering.",
+    "usps.senior.text": "Eén senior aanspreekpunt, van start tot oplevering van uw project.",
     "usps.financial.title": "Financieel rendement",
-    "usps.financial.text": "Wij beheren uw budget van begin tot einde, met volledige transparantie, en sturen zo naar keuzes met een lagere totale kost op lange termijn.",
+    "usps.financial.text": "Wij beheren uw budget met volledige transparantie, gericht op de laagst mogelijke totale kost.",
 
     // Offer
     "offer.label": "Onze diensten",
