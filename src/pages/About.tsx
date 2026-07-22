@@ -196,7 +196,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team */}
+      {/* Team - hidden for now, may be revisited later */}
+      {/*
       <section id="team" className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12 scroll-mt-24">
         <motion.div
           className="max-w-2xl"
@@ -216,6 +217,8 @@ const About = () => {
           </p>
         </motion.div>
       </section>
+      */}
+
 
       <Footer />
     </div>
