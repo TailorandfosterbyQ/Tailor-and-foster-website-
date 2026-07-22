@@ -67,7 +67,7 @@ const Footer = () => {
           </div>
 
           {/* Offices */}
-          <div>
+          <div className="lg:pl-8">
             <h4 className="text-[11px] font-semibold tracking-[0.15em] uppercase mb-5 text-primary-foreground/40">
               {t('footer.offices')}
             </h4>
