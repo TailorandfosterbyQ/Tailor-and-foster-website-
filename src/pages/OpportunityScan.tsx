@@ -72,8 +72,32 @@ const OpportunityScan = () => {
         </div>
       </section>
 
+      {/* Trust badges */}
+      <section className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="rounded-2xl border border-border bg-card px-6 py-5 shadow-sm sm:px-10"
+        >
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-10">
+            {[
+              { icon: Handshake, label: t("finalCta.benefit1") },
+              { icon: CalendarCheck, label: t("finalCta.benefit2") },
+              { icon: ShieldCheck, label: t("finalCta.benefit3") },
+            ].map((b, i) => (
+              <div key={i} className="flex items-center gap-2 text-foreground/80">
+                <b.icon size={18} strokeWidth={2} className="text-primary/70" />
+                <span className="text-sm font-medium tracking-wide">{b.label}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
       {/* Calendly Embed */}
-      <section className="mx-auto max-w-5xl px-6 py-16 sm:px-8 lg:px-12">
+      <section className="mx-auto max-w-5xl px-6 pb-16 pt-6 sm:px-8 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -81,22 +105,6 @@ const OpportunityScan = () => {
           transition={{ duration: 0.6 }}
           className="rounded-3xl border border-border bg-card shadow-lg overflow-hidden"
         >
-          {/* Trust badges */}
-          <div className="border-b border-border bg-card/50 px-6 py-5 sm:px-10">
-            <div className="flex flex-wrap justify-center gap-6 sm:gap-10">
-              {[
-                { icon: Handshake, label: t("finalCta.benefit1") },
-                { icon: CalendarCheck, label: t("finalCta.benefit2") },
-                { icon: ShieldCheck, label: t("finalCta.benefit3") },
-              ].map((b, i) => (
-                <div key={i} className="flex items-center gap-2 text-foreground/80">
-                  <b.icon size={18} strokeWidth={2} className="text-primary/70" />
-                  <span className="text-sm font-medium tracking-wide">{b.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
           <div
             className="calendly-inline-widget"
             data-url={CALENDLY_URL}
