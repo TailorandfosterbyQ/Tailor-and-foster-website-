@@ -328,7 +328,7 @@ export const translations: Record<Language, Record<string, string>> = {
     // Services page — Lease
     "services.lease.hero.label": "Leasemanagement",
     "services.lease.hero.title": "Maak van uw huurverval een strategische kans",
-    "services.lease.hero.text": "Een huurverval is meer dan een administratieve deadline het is een kans om te heronderhandelen, te verhuizen of uw werkplek te herdenken.",
+    "services.lease.hero.text": "Een huurverval is meer dan een administratieve deadline, het is een kans om te heronderhandelen, te verhuizen of uw werkplek te herdenken.",
     "services.lease.process.label": "Onze aanpak",
     "services.lease.process.title": "Proactieve huurstrategie, geen last minute paniek.",
     "services.lease.step1.title": "Vroegtijdige Huurreview",
