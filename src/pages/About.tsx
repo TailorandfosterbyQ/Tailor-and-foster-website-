@@ -137,7 +137,7 @@ const About = () => {
             <p className="mt-6 text-base leading-7 text-muted-foreground">
               {t("about.mission.text")}
             </p>
-            <ValueTabs />
+            <ValuesList />
           </motion.div>
           <motion.img
             src={teamPhoto}
