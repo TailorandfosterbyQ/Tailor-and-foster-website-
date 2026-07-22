@@ -1,11 +1,12 @@
-import { TrendingUp, TrendingDown, FileText, ArrowUpRight } from 'lucide-react';
+import { TrendingUp, TrendingDown, FileText, Wrench, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/i18n/LanguageContext';
 
 const offers = [
-  { icon: TrendingUp, key: "growth", color: "bg-emerald-50 text-emerald-700 border-emerald-200" },
-  { icon: TrendingDown, key: "downsizing", color: "bg-amber-50 text-amber-700 border-amber-200" },
-  { icon: FileText, key: "lease", color: "bg-sky-50 text-sky-700 border-sky-200" },
+  { icon: TrendingUp, key: "growth", href: "/services/growth", color: "bg-emerald-50 text-emerald-700 border-emerald-200" },
+  { icon: TrendingDown, key: "downsizing", href: "/services/downsizing", color: "bg-amber-50 text-amber-700 border-amber-200" },
+  { icon: FileText, key: "lease", href: "/services/lease", color: "bg-sky-50 text-sky-700 border-sky-200" },
+  { icon: Wrench, key: "interventions", href: "/services/kleine-interventies", color: "bg-slate-50 text-slate-700 border-slate-200" },
 ];
 
 const OfferSection = () => {
@@ -38,7 +39,7 @@ const OfferSection = () => {
             return (
               <motion.a
                 key={offer.key}
-                href={`/services/${offer.key}`}
+                href={offer.href}
                 initial={{ opacity: 0, x: 60 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-60px" }}

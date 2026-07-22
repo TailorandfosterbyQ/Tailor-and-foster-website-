@@ -62,6 +62,7 @@ const Header = () => {
     { label: t("offer.growth.title"), href: "/services/growth" },
     { label: t("offer.downsizing.title"), href: "/services/downsizing" },
     { label: t("offer.lease.title"), href: "/services/lease" },
+    { label: t("offer.interventions.title"), href: "/services/kleine-interventies" },
   ];
 
   const isActive = (href: string) => location.pathname === href;

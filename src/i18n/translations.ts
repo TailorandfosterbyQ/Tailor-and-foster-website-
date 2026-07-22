@@ -40,13 +40,15 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Offer
     "offer.label": "Our services",
-    "offer.title": "Solutions for every stage of your workspace journey.",
+    "offer.title": "Solutions for every stage of your workspace journey — and everything in between.",
     "offer.growth.title": "Growth Strategies",
     "offer.growth.text": "Expanding your team? We find, negotiate, and deliver the workspace that supports your ambitions without the stress.",
     "offer.downsizing.title": "Downsizing Solutions",
     "offer.downsizing.text": "Optimizing your footprint while maintaining culture and productivity. Smart transitions, controlled costs.",
     "offer.lease.title": "Lease Management",
     "offer.lease.text": "Your lease is expiring? We evaluate your options early so deadlines don't dictate the outcome.",
+    "offer.interventions.title": "Small Interventions",
+    "offer.interventions.text": "A broken installation, a contractor you don't want to chase yourself? We take care of it, quickly and without hassle.",
 
     // Social Proof
     "social.label": "Trusted by",
@@ -140,6 +142,22 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.lease.forWhom.label": "Is this for you?",
     "services.lease.forWhom.title": "For businesses approaching a lease milestone",
     "services.lease.forWhom.text": "Whether your lease expires in 6 months or 2 years, or you've just received a renewal proposal: if a lease decision is coming, now is the time to act.",
+
+    // Services page — Small Interventions
+    "services.interventions.hero.label": "Small Interventions",
+    "services.interventions.hero.title": "Not every problem needs a strategy.",
+    "services.interventions.hero.text": "Sometimes you just need someone to sort it out. We solve short-term, practical issues, from a broken installation to finding and following up with the right contractor.",
+    "services.interventions.process.label": "Our approach",
+    "services.interventions.process.title": "Sorted quickly, without hassle.",
+    "services.interventions.step1.title": "Report & Assessment",
+    "services.interventions.step1.text": "You report the problem, we immediately determine what is needed and who is best placed to solve it.",
+    "services.interventions.step2.title": "Execution & Follow-up",
+    "services.interventions.step2.text": "We contact and coordinate the right contractor or supplier, and follow up until the problem is truly resolved.",
+    "services.interventions.step3.title": "Wrap-up",
+    "services.interventions.step3.text": "We confirm that everything works as it should, and remain available should the problem come back.",
+    "services.interventions.forWhom.label": "Is this for you?",
+    "services.interventions.forWhom.title": "For every small problem that needs solving",
+    "services.interventions.forWhom.text": "A climate installation that breaks down. A contractor who doesn't respond or doesn't deliver what was promised. An office layout that urgently needs adjusting. A supplier who needs following up so a deadline isn't missed. Whether you've worked with us before or are reaching out for the first time: if it's small and needs to be sorted quickly, we take it over.",
 
     // Services Overview
     "servicesOverview.hero.label": "Where we step in",
@@ -240,13 +258,15 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Offer
     "offer.label": "Onze diensten",
-    "offer.title": "Oplossingen voor elke fase van uw werkplektraject.",
+    "offer.title": "Oplossingen voor elke fase van uw werkplektraject — en alles daartussen.",
     "offer.growth.title": "Groeistrategieën",
     "offer.growth.text": "Breidt uw team uit? Wij vinden, onderhandelen en leveren de werkplek die uw ambities ondersteunt zonder stress.",
     "offer.downsizing.title": "Downsizing oplossingen",
     "offer.downsizing.text": "Optimaliseer uw footprint met behoud van cultuur en productiviteit. Slimme transities, gecontroleerde kosten.",
     "offer.lease.title": "Leasemanagement",
     "offer.lease.text": "Loopt uw huurcontract af? Wij evalueren uw opties vroegtijdig zodat deadlines het resultaat niet bepalen.",
+    "offer.interventions.title": "Kleine interventies",
+    "offer.interventions.text": "Een defecte installatie, een aannemer die u niet zelf wil opvolgen? Wij regelen het, snel en zonder gedoe.",
 
     // Social Proof
     "social.label": "Vertrouwd door",
@@ -340,6 +360,22 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.lease.forWhom.label": "Is dit voor u?",
     "services.lease.forWhom.title": "Voor bedrijven die een huurmijlpaal naderen",
     "services.lease.forWhom.text": "Of uw huur nu over 6 maanden afloopt of over 2 jaar, of u net een verlengingsvoorstel ontving: als een huurbeslissing eraan komt, is nu het moment om te handelen.",
+
+    // Services page — Kleine interventies
+    "services.interventions.hero.label": "Kleine interventies",
+    "services.interventions.hero.title": "Niet elk probleem vraagt om een strategie.",
+    "services.interventions.hero.text": "Soms is er gewoon iemand nodig die het regelt. Wij lossen kortlopende, praktische vraagstukken op, van een defecte installatie tot de juiste aannemer vinden en opvolgen.",
+    "services.interventions.process.label": "Onze aanpak",
+    "services.interventions.process.title": "Snel geregeld, zonder gedoe.",
+    "services.interventions.step1.title": "Melding & Aanpak",
+    "services.interventions.step1.text": "U meldt het probleem, wij bepalen meteen wat er nodig is en wie het best geschikt is om het op te lossen.",
+    "services.interventions.step2.title": "Uitvoering & Opvolging",
+    "services.interventions.step2.text": "We contacteren en coördineren de juiste aannemer of leverancier, en volgen op tot het probleem écht is opgelost.",
+    "services.interventions.step3.title": "Afronding",
+    "services.interventions.step3.text": "We bevestigen dat alles werkt zoals het moet, en blijven bereikbaar mocht het probleem terugkeren.",
+    "services.interventions.forWhom.label": "Is dit voor u?",
+    "services.interventions.forWhom.title": "Voor elk klein probleem dat om een oplossing vraagt",
+    "services.interventions.forWhom.text": "Een klimaatinstallatie die uitvalt. Een aannemer die niet reageert of niet levert wat beloofd was. Een kantoorinrichting die dringend aangepast moet worden. Een leverancier die opgevolgd moet worden zodat een deadline niet in gedrang komt. Of u nu al eerder met ons samenwerkte of voor het eerst bij ons aanklopt: als het klein is en snel geregeld moet worden, nemen wij het over.",
 
     // Services Overview
     "servicesOverview.hero.label": "Waar wij instappen",
@@ -440,13 +476,15 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Offer
     "offer.label": "Nos services",
-    "offer.title": "Des solutions pour chaque étape de votre parcours workspace.",
+    "offer.title": "Des solutions pour chaque étape de votre parcours workspace — et tout ce qu'il y a entre les deux.",
     "offer.growth.title": "Stratégies de croissance",
     "offer.growth.text": "Vous agrandissez votre équipe ? Nous trouvons, négocions et livrons l'espace de travail qui soutient vos ambitions sans stress.",
     "offer.downsizing.title": "Solutions de réduction",
     "offer.downsizing.text": "Optimisez votre empreinte tout en maintenant culture et productivité. Des transitions intelligentes, des coûts maîtrisés.",
     "offer.lease.title": "Gestion de bail",
     "offer.lease.text": "Votre bail expire ? Nous évaluons vos options tôt pour que les délais ne dictent pas le résultat.",
+    "offer.interventions.title": "Petites interventions",
+    "offer.interventions.text": "Une installation défectueuse, un entrepreneur que vous ne souhaitez pas suivre vous-même ? Nous nous en occupons, rapidement et sans tracas.",
 
     // Social Proof
     "social.label": "Ils nous font confiance",
@@ -540,6 +578,22 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.lease.forWhom.label": "Est ce pour vous ?",
     "services.lease.forWhom.title": "Pour les entreprises approchant une échéance de bail",
     "services.lease.forWhom.text": "Que votre bail expire dans 6 mois ou dans 2 ans, ou que vous veniez de recevoir une proposition de renouvellement : si une décision de bail approche, c'est le moment d'agir.",
+
+    // Services page — Petites interventions
+    "services.interventions.hero.label": "Petites interventions",
+    "services.interventions.hero.title": "Tout problème n'appelle pas une stratégie.",
+    "services.interventions.hero.text": "Parfois, il faut simplement quelqu'un qui s'en occupe. Nous résolvons des questions pratiques et à court terme, d'une installation défectueuse à la recherche et au suivi du bon entrepreneur.",
+    "services.interventions.process.label": "Notre approche",
+    "services.interventions.process.title": "Réglé rapidement, sans tracas.",
+    "services.interventions.step1.title": "Signalement & Analyse",
+    "services.interventions.step1.text": "Vous signalez le problème, nous déterminons immédiatement ce qui est nécessaire et qui est le mieux placé pour le résoudre.",
+    "services.interventions.step2.title": "Exécution & Suivi",
+    "services.interventions.step2.text": "Nous contactons et coordonnons le bon entrepreneur ou fournisseur, et assurons le suivi jusqu'à ce que le problème soit véritablement résolu.",
+    "services.interventions.step3.title": "Clôture",
+    "services.interventions.step3.text": "Nous confirmons que tout fonctionne comme il se doit, et restons disponibles au cas où le problème réapparaîtrait.",
+    "services.interventions.forWhom.label": "Est ce pour vous ?",
+    "services.interventions.forWhom.title": "Pour chaque petit problème qui demande une solution",
+    "services.interventions.forWhom.text": "Une installation climatique qui tombe en panne. Un entrepreneur qui ne répond pas ou ne livre pas ce qui était promis. Un aménagement de bureau qui doit être adapté d'urgence. Un fournisseur à suivre pour qu'une échéance ne soit pas compromise. Que vous ayez déjà collaboré avec nous ou que vous nous contactiez pour la première fois : si c'est petit et doit être réglé rapidement, nous nous en chargeons.",
 
     // Services Overview
     "servicesOverview.hero.label": "Quand nous intervenons",
