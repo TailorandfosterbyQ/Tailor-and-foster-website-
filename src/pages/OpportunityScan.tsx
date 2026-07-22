@@ -29,11 +29,11 @@ const OpportunityScan = () => {
       {/* Hero */}
       <section className="relative py-28 lg:py-36 overflow-hidden">
         <img
-          src={servicesHero}
+          src={opportunityScanHero}
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
           width={1920}
-          height={800}
+          height={1080}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--primary))]/85 via-[hsl(var(--primary))]/65 to-[hsl(var(--primary))]/35" />
         <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 text-white">
