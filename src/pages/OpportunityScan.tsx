@@ -2,7 +2,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
-import servicesHero from "@/assets/services-hero.jpg";
+import opportunityScanHero from "@/assets/opportunity-scan-hero.jpg";
+import { Handshake, CalendarCheck, ShieldCheck } from "lucide-react";
 import { useEffect } from "react";
 
 const CALENDLY_URL = "https://calendly.com/bernard-tailorandfoster/opportunity-scan";
