@@ -185,8 +185,12 @@ export const translations: Record<Language, Record<string, string>> = {
     "footer.company": "Tailor & Foster",
     "footer.tagline": "Independent workplace advisory since 1995.",
     "footer.contact": "Contact",
-    "footer.email": "info@tailorandfoster.com",
-    "footer.phone": "+32 (0)2 320 00 00",
+    "footer.contact.person1.name": "Quinten Decort",
+    "footer.contact.person1.email": "quinten.decort@tailorandfoster.com",
+    "footer.contact.person1.phone": "+32 486 166 380",
+    "footer.contact.person2.name": "Bernard Decort",
+    "footer.contact.person2.email": "bernard.decort@tailorandfoster.com",
+    "footer.contact.person2.phone": "+32 475 250 387",
     "footer.offices": "Offices",
     "footer.brussels": "Brussels",
     "footer.ghent": "Ghent",
@@ -195,6 +199,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "footer.privacy": "Privacy Policy",
     "footer.cookies": "Cookie Policy",
   },
+
 
   nl: {
     // Nav
@@ -380,8 +385,12 @@ export const translations: Record<Language, Record<string, string>> = {
     "footer.company": "Tailor & Foster",
     "footer.tagline": "Onafhankelijk werkplekadvies sinds 1995.",
     "footer.contact": "Contact",
-    "footer.email": "info@tailorandfoster.com",
-    "footer.phone": "+32 (0)2 320 00 00",
+    "footer.contact.person1.name": "Quinten Decort",
+    "footer.contact.person1.email": "quinten.decort@tailorandfoster.com",
+    "footer.contact.person1.phone": "+32 486 166 380",
+    "footer.contact.person2.name": "Bernard Decort",
+    "footer.contact.person2.email": "bernard.decort@tailorandfoster.com",
+    "footer.contact.person2.phone": "+32 475 250 387",
     "footer.offices": "Kantoren",
     "footer.brussels": "Brussel",
     "footer.ghent": "Gent",
@@ -390,6 +399,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "footer.privacy": "Privacybeleid",
     "footer.cookies": "Cookiebeleid",
   },
+
 
   fr: {
     // Nav
@@ -575,8 +585,12 @@ export const translations: Record<Language, Record<string, string>> = {
     "footer.company": "Tailor & Foster",
     "footer.tagline": "Conseil en espace de travail indépendant depuis 1995.",
     "footer.contact": "Contact",
-    "footer.email": "info@tailorandfoster.com",
-    "footer.phone": "+32 (0)2 320 00 00",
+    "footer.contact.person1.name": "Quinten Decort",
+    "footer.contact.person1.email": "quinten.decort@tailorandfoster.com",
+    "footer.contact.person1.phone": "+32 486 166 380",
+    "footer.contact.person2.name": "Bernard Decort",
+    "footer.contact.person2.email": "bernard.decort@tailorandfoster.com",
+    "footer.contact.person2.phone": "+32 475 250 387",
     "footer.offices": "Bureaux",
     "footer.brussels": "Bruxelles",
     "footer.ghent": "Gand",
@@ -585,4 +599,5 @@ export const translations: Record<Language, Record<string, string>> = {
     "footer.privacy": "Politique de confidentialité",
     "footer.cookies": "Politique des cookies",
   },
+
 };

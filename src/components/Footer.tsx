@@ -11,6 +11,19 @@ const Footer = () => {
     { label: t('nav.letsTalk'), href: '/opportunity-scan' },
   ];
 
+  const contactPeople = [
+    {
+      name: t('footer.contact.person1.name'),
+      email: t('footer.contact.person1.email'),
+      phone: t('footer.contact.person1.phone'),
+    },
+    {
+      name: t('footer.contact.person2.name'),
+      email: t('footer.contact.person2.email'),
+      phone: t('footer.contact.person2.phone'),
+    },
+  ];
+
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 sm:py-20">
@@ -30,23 +43,26 @@ const Footer = () => {
             <h4 className="text-[11px] font-semibold tracking-[0.15em] uppercase mb-5 text-primary-foreground/40">
               {t('footer.contact')}
             </h4>
-            <ul className="space-y-3">
-              <li>
-                <a
-                  href={`mailto:${t('footer.email')}`}
-                  className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-200"
-                >
-                  {t('footer.email')}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`tel:${t('footer.phone').replace(/\s/g, '')}`}
-                  className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-200"
-                >
-                  {t('footer.phone')}
-                </a>
-              </li>
+            <ul className="space-y-5">
+              {contactPeople.map((person) => (
+                <li key={person.email}>
+                  <p className="text-sm font-medium text-primary-foreground">
+                    {person.name}
+                  </p>
+                  <a
+                    href={`mailto:${person.email}`}
+                    className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-200 block"
+                  >
+                    {person.email}
+                  </a>
+                  <a
+                    href={`tel:${person.phone.replace(/\s/g, '')}`}
+                    className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-200 block"
+                  >
+                    {person.phone}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -111,3 +127,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
