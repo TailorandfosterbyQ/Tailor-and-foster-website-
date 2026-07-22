@@ -36,7 +36,7 @@ type Client = { name: string; domain: string };
 
 const ClientLogo = ({ client }: { client: Client }) => {
   return (
-    <div className="inline-flex items-center justify-center rounded-xl border border-border bg-card px-6 py-4 min-w-[160px] h-[72px] hover:border-primary/30 hover:shadow-sm transition-all">
+    <div className="inline-flex items-center justify-center rounded-xl border border-border/70 bg-gradient-to-b from-card to-secondary/40 px-6 py-4 min-w-[160px] h-[72px] shadow-[0_1px_2px_rgba(15,76,130,0.04),0_4px_12px_-4px_rgba(15,76,130,0.08)] hover:border-primary/30 hover:shadow-[0_2px_4px_rgba(15,76,130,0.06),0_8px_20px_-6px_rgba(15,76,130,0.15)] transition-all">
       <img
         src={`https://img.logo.dev/${client.domain}?token=pk_a8CO5GPaRUWVLT6JMzEO4w&size=120&format=png`}
         alt={client.name}
