@@ -30,7 +30,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Company */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <h3 className="font-serif text-2xl sm:text-3xl mb-4">
+            <h3 className="font-logo text-2xl sm:text-3xl mb-4">
               {t('footer.company')}
             </h3>
             <p className="text-sm text-primary-foreground/60 leading-relaxed max-w-xs">
