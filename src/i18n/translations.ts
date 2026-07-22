@@ -55,9 +55,12 @@ export const translations: Record<Language, Record<string, string>> = {
     "social.title": "From scale-ups to multinationals, for more than 30 years alongside organisations in transition.",
 
     // Final CTA
-    "finalCta.title": "What is your office challenge?",
+    "finalCta.title": "Every workplace challenge is different — start with a free analysis of yours.",
     "finalCta.text": "Let us evaluate your current workspace setup and uncover opportunities to save time and budget.",
     "finalCta.button": "Start Your Opportunity Scan",
+    "finalCta.benefit1": "No obligation",
+    "finalCta.benefit2": "Response within 48h",
+    "finalCta.benefit3": "Fully confidential",
 
     // About page
     "about.hero.label": "About us",
@@ -273,9 +276,12 @@ export const translations: Record<Language, Record<string, string>> = {
     "social.title": "Van scale-ups tot multinationals, al meer dan 30 jaar aan de zijde van organisaties in verandering.",
 
     // Final CTA
-    "finalCta.title": "Wat is uw kantooruitdaging?",
+    "finalCta.title": "Elke werkplekuitdaging is anders — start met een gratis analyse van de uwe.",
     "finalCta.text": "Laat ons uw huidige werkpleksituatie evalueren en ontdek kansen om tijd en budget te besparen.",
     "finalCta.button": "Start uw Opportunity Scan",
+    "finalCta.benefit1": "Vrijblijvend",
+    "finalCta.benefit2": "Binnen 48u reactie",
+    "finalCta.benefit3": "Geen verplichtingen",
 
     // About page
     "about.hero.label": "Over ons",
@@ -491,9 +497,12 @@ export const translations: Record<Language, Record<string, string>> = {
     "social.title": "Des scale-ups aux multinationales, depuis plus de 30 ans aux côtés d'organisations en transformation.",
 
     // Final CTA
-    "finalCta.title": "Prêt pour un Opportunity Scan ?",
+    "finalCta.title": "Chaque défi de lieu de travail est différent — commencez par une analyse gratuite du vôtre.",
     "finalCta.text": "Laissez nous évaluer votre configuration actuelle et découvrir des opportunités d'économiser du temps et du budget.",
     "finalCta.button": "Démarrez votre Opportunity Scan",
+    "finalCta.benefit1": "Sans engagement",
+    "finalCta.benefit2": "Réponse sous 48h",
+    "finalCta.benefit3": "Entièrement confidentiel",
 
     // About page
     "about.hero.label": "À propos",

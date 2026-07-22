@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, CalendarCheck, Handshake, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -6,9 +6,15 @@ import { useLanguage } from '@/i18n/LanguageContext';
 const FinalCTASection = () => {
   const { t } = useLanguage();
 
+  const benefits = [
+    { icon: Handshake, label: t("finalCta.benefit1") },
+    { icon: CalendarCheck, label: t("finalCta.benefit2") },
+    { icon: ShieldCheck, label: t("finalCta.benefit3") },
+  ];
+
   return (
     <section id="contact" className="relative overflow-hidden bg-primary text-white">
-      <div className="mx-auto max-w-7xl px-6 py-28 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-7xl px-6 pt-16 pb-10 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -46,6 +52,22 @@ const FinalCTASection = () => {
             </motion.div>
           </motion.div>
         </div>
+
+        {/* Benefits row */}
+        <motion.div
+          className="mt-10 flex flex-wrap justify-center gap-6 sm:gap-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        >
+          {benefits.map((b, i) => (
+            <div key={i} className="flex items-center gap-2 text-white/80">
+              <b.icon size={18} strokeWidth={2} className="text-white/60" />
+              <span className="text-sm font-medium tracking-wide">{b.label}</span>
+            </div>
+          ))}
+        </motion.div>
       </div>
 
       {/* Decorative element */}
