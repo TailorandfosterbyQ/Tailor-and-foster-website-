@@ -1,10 +1,10 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { MapPin, Award, CheckCircle } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import teamPhoto from '@/assets/team-photo.jpg';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const valueKeys = [
@@ -17,8 +17,7 @@ const figures = [
   { icon: CheckCircle, key: "projects" },
 ];
 
-const ValueTabs = () => {
-  const [hovered, setHovered] = useState<number | null>(null);
+const ValuesList = () => {
   const { t } = useLanguage();
 
   return (
@@ -29,47 +28,24 @@ const ValueTabs = () => {
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className="mt-12"
     >
-      {/* Tab bar */}
-      <div className="flex flex-wrap gap-x-1 gap-y-1 border-b border-border">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {valueKeys.map((key, i) => (
-          <button
+          <motion.div
             key={key}
-            onMouseEnter={() => setHovered(i)}
-            onMouseLeave={() => setHovered(null)}
-            className={`relative px-4 py-2.5 text-sm font-medium transition-colors duration-200 ${
-              hovered === i
-                ? 'text-primary'
-                : 'text-muted-foreground hover:text-foreground'
-            }`}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+            className="rounded-xl border border-border bg-card p-5 shadow-sm transition-shadow hover:shadow-md"
           >
-            {t(`about.values.${key}`)}
-            {hovered === i && (
-              <motion.div
-                layoutId="value-tab-indicator"
-                className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
-                transition={{ type: "spring", stiffness: 400, damping: 30 }}
-              />
-            )}
-          </button>
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-primary">
+              {t(`about.values.${key}`)}
+            </h3>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              {t(`about.values.${key}.desc`)}
+            </p>
+          </motion.div>
         ))}
-      </div>
-
-      {/* Content panel */}
-      <div className="relative mt-6 min-h-[80px]">
-        <AnimatePresence mode="wait">
-          {hovered !== null && (
-            <motion.p
-              key={hovered}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="text-base leading-7 text-muted-foreground"
-            >
-              {t(`about.values.${valueKeys[hovered]}.desc`)}
-            </motion.p>
-          )}
-        </AnimatePresence>
       </div>
     </motion.div>
   );
@@ -161,7 +137,7 @@ const About = () => {
             <p className="mt-6 text-base leading-7 text-muted-foreground">
               {t("about.mission.text")}
             </p>
-            <ValueTabs />
+            <ValuesList />
           </motion.div>
           <motion.img
             src={teamPhoto}
