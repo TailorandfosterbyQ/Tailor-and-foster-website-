@@ -162,9 +162,6 @@ const Services = () => {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="rounded-3xl bg-gradient-to-br from-primary via-primary to-[hsl(205,80%,18%)] p-10 sm:p-14 lg:p-20 text-primary-foreground text-center"
           >
-            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-              {t(`services.${serviceType}.forWhom.title`)}
-            </h2>
             <motion.div
               whileHover={{ y: -3, boxShadow: "0 20px 40px -12px rgba(0,0,0,0.25)" }}
               whileTap={{ scale: 0.97 }}
