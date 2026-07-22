@@ -262,7 +262,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "about.values.tailored": "Excellentie op maat",
     "about.values.tailored.desc": "Geen twee organisaties zijn hetzelfde. Wij creëren oplossingen die de identiteit, ambities en werkwijze van elke klant weerspiegelen.",
     "about.values.strategic": "Strategisch denken",
-    "about.values.strategic.desc": "Wij kijken verder dan ruimte. Ons werk bevindt zich op het kruispunt van business, cultuur en prestaties.",
+    "about.values.strategic.desc": "Wij kijken verder dan ruimte alleen. Ons werk bevindt zich op het kruispunt van business, cultuur en prestaties en elke aanbeveling wordt vanuit dat geheel gemaakt.",
     "about.values.execution": "Naadloze uitvoering",
     "about.values.execution.desc": "Ideeën zijn pas waardevol wanneer ze gerealiseerd worden. Wij zorgen ervoor dat elke strategie vertaald wordt naar omgevingen die werken — in de praktijk, niet alleen op papier.",
     "about.values.longterm": "Langetermijnwaarde",
