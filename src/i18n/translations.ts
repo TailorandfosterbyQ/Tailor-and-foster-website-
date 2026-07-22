@@ -40,7 +40,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Offer
     "offer.label": "Our services",
-    "offer.title": "Solutions for every stage of your workspace journey — and everything in between.",
+    "offer.title": "Solutions for every stage of your workspace journey. and everything in between.",
     "offer.growth.title": "Growth Strategies",
     "offer.growth.text": "Expanding your team? We find, negotiate, and deliver the workspace that supports your ambitions without the stress.",
     "offer.downsizing.title": "Downsizing Solutions",
@@ -55,7 +55,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "social.title": "From scale-ups to multinationals, for more than 30 years alongside organisations in transition.",
 
     // Final CTA
-    "finalCta.title": "Every workplace challenge is different — start with a free analysis of yours.",
+    "finalCta.title": "Every workplace challenge is different. start with a free analysis of yours.",
     "finalCta.text": "Let us evaluate your current workspace setup and uncover opportunities to save time and budget.",
     "finalCta.button": "Start Your Opportunity Scan",
     "finalCta.benefit1": "No obligation",
@@ -98,7 +98,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "about.whatwedo.p4": "Our role is to bring structure to that process. We analyse how organisations work, define what the workplace needs to enable, and translate that into a clear strategy and execution. From initial insight to final realisation, we guide the full trajectory with independent advice and a tailored approach.",
     "about.whatwedo.p5": "Because a workplace should not be something you adapt to. It should be something that works for you.",
 
-    // Services page — Growth
+    // Services page. Growth
     "services.growth.hero.label": "Growth Strategies",
     "services.growth.hero.title": "Scaling Your Workspace to Match Your Ambitions",
     "services.growth.hero.text": "Rapid growth shouldn't mean rushed decisions. We help expanding organisations find, negotiate, and transition into workspaces that fuel productivity, not hinder it.",
@@ -114,7 +114,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.growth.forWhom.title": "Built for businesses on the rise",
     "services.growth.forWhom.text": "Whether you're hiring 10 people or 200, opening a second office or consolidating into a larger HQ. If growth is driving your workspace decisions, this service is for you.",
 
-    // Services page — Downsizing
+    // Services page. Downsizing
     "services.downsizing.hero.label": "Downsizing Solutions",
     "services.downsizing.hero.title": "Right Size Your Workspace Without Losing What Matters",
     "services.downsizing.hero.text": "Reducing your footprint doesn't mean reducing your standards. We help you optimise space, renegotiate terms, and maintain the culture your team values.",
@@ -130,7 +130,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.downsizing.forWhom.title": "For organisations rethinking their footprint",
     "services.downsizing.forWhom.text": "Post merger integration, shift to hybrid work, or simply paying for space you no longer need. If your workspace has outgrown (or under grown) your reality, we can help.",
 
-    // Services page — Lease
+    // Services page. Lease
     "services.lease.hero.label": "Lease Management",
     "services.lease.hero.title": "Turn Your Lease Expiry Into a Strategic Opportunity",
     "services.lease.hero.text": "A lease end is more than an administrative deadline it's a chance to renegotiate, relocate, or reimagine your workplace. We make sure you seize it.",
@@ -146,7 +146,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.lease.forWhom.title": "For businesses approaching a lease milestone",
     "services.lease.forWhom.text": "Whether your lease expires in 6 months or 2 years, or you've just received a renewal proposal: if a lease decision is coming, now is the time to act.",
 
-    // Services page — Small Interventions
+    // Services page. Small Interventions
     "services.interventions.hero.label": "Small Interventions",
     "services.interventions.hero.title": "Not every problem needs a strategy.",
     "services.interventions.hero.text": "Sometimes you just need someone to sort it out. We solve short-term, practical issues, from a broken installation to finding and following up with the right contractor.",
@@ -261,7 +261,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Offer
     "offer.label": "Onze diensten",
-    "offer.title": "Oplossingen voor elke fase van uw werkplektraject — en alles daartussen.",
+    "offer.title": "Oplossingen voor elke fase van uw werkplektraject. en alles daartussen.",
     "offer.growth.title": "Groeistrategieën",
     "offer.growth.text": "Breidt uw team uit? Wij vinden, onderhandelen en leveren de werkplek die uw ambities ondersteunt zonder stress.",
     "offer.downsizing.title": "Downsizing oplossingen",
@@ -276,7 +276,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "social.title": "Van scale-ups tot multinationals, al meer dan 30 jaar aan de zijde van organisaties in verandering.",
 
     // Final CTA
-    "finalCta.title": "Elke werkplekuitdaging is anders — start met een gratis analyse van de uwe.",
+    "finalCta.title": "Elke werkplekuitdaging is anders. start met een gratis analyse van de uwe.",
     "finalCta.text": "Laat ons uw huidige werkpleksituatie evalueren en ontdek kansen om tijd en budget te besparen.",
     "finalCta.button": "Start uw Opportunity Scan",
     "finalCta.benefit1": "Vrijblijvend",
@@ -319,7 +319,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "about.whatwedo.p4": "",
     "about.whatwedo.p5": "",
 
-    // Services page — Growth
+    // Services page. Growth
     "services.growth.hero.label": "Groeistrategieën",
     "services.growth.hero.title": "Uw werkplek opschalen naar uw ambities",
     "services.growth.hero.text": "Snelle groei mag geen overhaaste beslissingen betekenen. Wij helpen groeiende organisaties werkplekken te vinden, te onderhandelen en over te stappen die productiviteit stimuleren.",
@@ -335,7 +335,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.growth.forWhom.title": "Gebouwd voor bedrijven in groei",
     "services.growth.forWhom.text": "Of u nu 10 of 200 mensen aanwerft, een tweede kantoor opent of consolideert naar een groter hoofdkantoor als groei uw werkplekbeslissingen aanstuurt, is deze dienst voor u.",
 
-    // Services page — Downsizing
+    // Services page. Downsizing
     "services.downsizing.hero.label": "Downsizing oplossingen",
     "services.downsizing.hero.title": "Optimaliseer uw werkplek zonder te verliezen wat telt",
     "services.downsizing.hero.text": "Uw footprint verkleinen betekent niet uw standaarden verlagen. Wij helpen u ruimte te optimaliseren, voorwaarden te heronderhandelen en de cultuur te behouden die uw team waardeert.",
@@ -351,7 +351,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.downsizing.forWhom.title": "Voor organisaties die hun footprint heroverwegen",
     "services.downsizing.forWhom.text": "Post fusie integratie, verschuiving naar hybride werk, of simpelweg betalen voor ruimte die u niet meer nodig heeft als uw werkplek niet meer past bij uw realiteit, kunnen wij helpen.",
 
-    // Services page — Lease
+    // Services page. Lease
     "services.lease.hero.label": "Leasemanagement",
     "services.lease.hero.title": "Maak van uw huurverval een strategische kans",
     "services.lease.hero.text": "Een huurverval is meer dan een administratieve deadline. Het is een kans om te heronderhandelen, te verhuizen of uw werkplek te herdenken.",
@@ -367,7 +367,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.lease.forWhom.title": "Voor bedrijven die een huurmijlpaal naderen",
     "services.lease.forWhom.text": "Of uw huur nu over 6 maanden afloopt of over 2 jaar, of u net een verlengingsvoorstel ontving: als een huurbeslissing eraan komt, is nu het moment om te handelen.",
 
-    // Services page — Kleine interventies
+    // Services page. Kleine interventies
     "services.interventions.hero.label": "Kleine interventies",
     "services.interventions.hero.title": "Niet elk probleem vraagt om een strategie.",
     "services.interventions.hero.text": "Soms is er gewoon iemand nodig die het regelt. Wij lossen kortlopende, praktische vraagstukken op, van een defecte installatie tot de juiste aannemer vinden en opvolgen.",
@@ -482,7 +482,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Offer
     "offer.label": "Nos services",
-    "offer.title": "Des solutions pour chaque étape de votre parcours workspace — et tout ce qu'il y a entre les deux.",
+    "offer.title": "Des solutions pour chaque étape de votre parcours workspace. et tout ce qu'il y a entre les deux.",
     "offer.growth.title": "Stratégies de croissance",
     "offer.growth.text": "Vous agrandissez votre équipe ? Nous trouvons, négocions et livrons l'espace de travail qui soutient vos ambitions sans stress.",
     "offer.downsizing.title": "Solutions de réduction",
@@ -497,7 +497,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "social.title": "Des scale-ups aux multinationales, depuis plus de 30 ans aux côtés d'organisations en transformation.",
 
     // Final CTA
-    "finalCta.title": "Chaque défi de lieu de travail est différent — commencez par une analyse gratuite du vôtre.",
+    "finalCta.title": "Chaque défi de lieu de travail est différent. commencez par une analyse gratuite du vôtre.",
     "finalCta.text": "Laissez nous évaluer votre configuration actuelle et découvrir des opportunités d'économiser du temps et du budget.",
     "finalCta.button": "Démarrez votre Opportunity Scan",
     "finalCta.benefit1": "Sans engagement",
@@ -540,7 +540,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "about.whatwedo.p4": "Notre rôle est d'apporter de la structure à ce processus. Nous analysons comment les organisations fonctionnent, définissons ce que le lieu de travail doit permettre, et traduisons cela en une stratégie claire et une exécution. Du premier constat à la réalisation finale, nous guidons l'ensemble du parcours avec des conseils indépendants et une approche sur mesure.",
     "about.whatwedo.p5": "Parce qu'un lieu de travail ne devrait pas être quelque chose auquel on s'adapte. Il devrait être quelque chose qui travaille pour vous.",
 
-    // Services page — Growth
+    // Services page. Growth
     "services.growth.hero.label": "Stratégies de croissance",
     "services.growth.hero.title": "Adaptez votre espace de travail à vos ambitions",
     "services.growth.hero.text": "Une croissance rapide ne doit pas signifier des décisions précipitées. Nous aidons les organisations en expansion à trouver, négocier et s'installer dans des espaces qui stimulent la productivité.",
@@ -556,7 +556,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.growth.forWhom.title": "Conçu pour les entreprises en croissance",
     "services.growth.forWhom.text": "Que vous recrutiez 10 ou 200 personnes, ouvriez un second bureau ou consolidiez dans un siège plus grand si la croissance guide vos décisions, ce service est pour vous.",
 
-    // Services page — Downsizing
+    // Services page. Downsizing
     "services.downsizing.hero.label": "Solutions de réduction",
     "services.downsizing.hero.title": "Optimisez votre espace sans perdre l'essentiel",
     "services.downsizing.hero.text": "Réduire votre empreinte ne signifie pas réduire vos standards. Nous vous aidons à optimiser l'espace, renégocier les conditions et préserver la culture que votre équipe valorise.",
@@ -572,7 +572,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.downsizing.forWhom.title": "Pour les organisations repensant leur empreinte",
     "services.downsizing.forWhom.text": "Intégration post fusion, passage au travail hybride, ou simplement payer pour un espace dont vous n'avez plus besoin nous pouvons vous aider.",
 
-    // Services page — Lease
+    // Services page. Lease
     "services.lease.hero.label": "Gestion de bail",
     "services.lease.hero.title": "Transformez votre fin de bail en opportunité stratégique",
     "services.lease.hero.text": "Une fin de bail est plus qu'une échéance administrative c'est une chance de renégocier, de déménager ou de réinventer votre lieu de travail.",
@@ -588,7 +588,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.lease.forWhom.title": "Pour les entreprises approchant une échéance de bail",
     "services.lease.forWhom.text": "Que votre bail expire dans 6 mois ou dans 2 ans, ou que vous veniez de recevoir une proposition de renouvellement : si une décision de bail approche, c'est le moment d'agir.",
 
-    // Services page — Petites interventions
+    // Services page. Petites interventions
     "services.interventions.hero.label": "Petites interventions",
     "services.interventions.hero.title": "Tout problème n'appelle pas une stratégie.",
     "services.interventions.hero.text": "Parfois, il faut simplement quelqu'un qui s'en occupe. Nous résolvons des questions pratiques et à court terme, d'une installation défectueuse à la recherche et au suivi du bon entrepreneur.",
