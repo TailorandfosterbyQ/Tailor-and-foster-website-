@@ -32,7 +32,7 @@ const USPsSection = () => {
             </h2>
           </motion.div>
 
-          <div className="grid gap-0 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-primary-foreground/10">
+          <div className="grid gap-px md:grid-cols-2 lg:grid-cols-4 bg-primary-foreground/10">
             {usps.map((usp, i) => {
               const Icon = usp.icon;
               return (
@@ -42,7 +42,7 @@ const USPsSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                  className="relative px-8 py-8 first:pl-0 last:pr-0"
+                  className="relative bg-primary px-8 py-8"
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/10 text-primary-foreground/70">
