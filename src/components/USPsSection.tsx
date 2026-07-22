@@ -38,10 +38,10 @@ const USPsSection = () => {
               return (
                 <motion.div
                   key={usp.key}
-                  initial={{ opacity: 0, y: 40 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
-                  transition={{ delay: i * 0.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  transition={{ delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   className="relative px-8 py-8 first:pl-0 last:pr-0"
                 >
                   <div className="flex items-center gap-3 mb-4">
