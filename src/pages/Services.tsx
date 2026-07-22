@@ -2,21 +2,21 @@ import { useParams, Link } from 'react-router-dom';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from 'framer-motion';
-import { Search, Map, Users, ArrowRight, TrendingUp, TrendingDown, FileText } from 'lucide-react';
+import { Search, Map, Users, ArrowRight, TrendingUp, TrendingDown, FileText, Wrench, Phone, ClipboardCheck } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import servicesHeroGrowth from '@/assets/services-hero.jpg';
 import servicesHeroDownsizing from '@/assets/services-hero-downsizing.jpg';
 import servicesHeroLease from '@/assets/services-hero-lease.jpg';
+import servicesHeroInterventions from '@/assets/services-hero-interventions.jpg';
 
 const serviceConfig = {
-  growth: { icon: TrendingUp, accent: "from-emerald-600 to-emerald-800", image: servicesHeroGrowth },
-  downsizing: { icon: TrendingDown, accent: "from-amber-600 to-amber-800", image: servicesHeroDownsizing },
-  lease: { icon: FileText, accent: "from-sky-600 to-sky-800", image: servicesHeroLease },
+  growth: { icon: TrendingUp, accent: "from-emerald-600 to-emerald-800", image: servicesHeroGrowth, translationKey: "growth", stepIcons: [Search, Map, Users] },
+  downsizing: { icon: TrendingDown, accent: "from-amber-600 to-amber-800", image: servicesHeroDownsizing, translationKey: "downsizing", stepIcons: [Search, Map, Users] },
+  lease: { icon: FileText, accent: "from-sky-600 to-sky-800", image: servicesHeroLease, translationKey: "lease", stepIcons: [Search, Map, Users] },
+  "kleine-interventies": { icon: Wrench, accent: "from-slate-600 to-slate-800", image: servicesHeroInterventions, translationKey: "interventions", stepIcons: [Phone, Wrench, ClipboardCheck] },
 } as const;
 
 type ServiceType = keyof typeof serviceConfig;
-
-const stepIcons = [Search, Map, Users];
 
 const Services = () => {
   const { t } = useLanguage();
@@ -25,6 +25,8 @@ const Services = () => {
   const serviceType: ServiceType = (type && type in serviceConfig) ? type as ServiceType : 'growth';
   const config = serviceConfig[serviceType];
   const ServiceIcon = config.icon;
+  const tKey = config.translationKey;
+  const stepIcons = config.stepIcons;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
