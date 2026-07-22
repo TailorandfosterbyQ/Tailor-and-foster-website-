@@ -215,8 +215,8 @@ export const translations: Record<Language, Record<string, string>> = {
     // What We Do
     "whatwedo.label": "",
     "whatwedo.title": "De werkplek als strategische troef.",
-    "whatwedo.p1": "Ze bepaalt hoe mensen presteren, hoe cultuur wordt beleefd en hoe organisaties groeien.",
-    "whatwedo.p2": "Bij Tailor & Foster helpen we werkomgevingen te definiëren en te realiseren die dat ondersteunen van strategie tot uitvoering.",
+    "whatwedo.p1": "De werkplek bepaalt hoe mensen presteren, hoe cultuur wordt beleefd en hoe organisaties groeien.",
+    "whatwedo.p2": "Bij Tailor & Foster definiëren en realiseren we werkomgevingen die dat versterken, van strategie tot uitvoering.",
 
     // USPs
     "usps.label": "Waarom wij",
