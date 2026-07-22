@@ -182,7 +182,7 @@ const About = () => {
                     <Icon size={20} />
                   </div>
                   <div className="flex flex-col">
-                    <h3 className="text-base leading-7 text-foreground font-bold">
+                    <h3 className="text-base leading-7 text-foreground font-bold whitespace-nowrap">
                       {t(`about.figures.${fig.key}.title`)}
                     </h3>
                     <p className="text-sm leading-6 text-muted-foreground">
