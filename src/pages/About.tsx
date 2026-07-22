@@ -181,9 +181,14 @@ const About = () => {
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                     <Icon size={20} />
                   </div>
-                  <p className="text-base leading-7 text-foreground font-medium">
-                    {t(`about.figures.${fig.key}`)}
-                  </p>
+                  <div className="flex flex-col">
+                    <h3 className="text-base leading-7 text-foreground font-bold">
+                      {t(`about.figures.${fig.key}.title`)}
+                    </h3>
+                    <p className="text-sm leading-6 text-muted-foreground">
+                      {t(`about.figures.${fig.key}.desc`)}
+                    </p>
+                  </div>
                 </motion.div>
               );
             })}
