@@ -96,8 +96,8 @@ const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                whileHover={{ y: -6, transition: { type: "spring", stiffness: 400, damping: 17 } }}
-                className="rounded-3xl border border-border bg-card p-8 shadow-sm"
+                whileHover={{ y: -8, boxShadow: "0 20px 40px -12px rgba(0,0,0,0.12)", transition: { type: "spring", stiffness: 400, damping: 17 } }}
+                className="rounded-3xl border border-border bg-card p-8 shadow-md border-t-2 border-t-primary"
               >
                 <div className="flex items-center gap-3 mb-5">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
@@ -118,7 +118,7 @@ const Services = () => {
       </section>
 
       {/* For Whom */}
-      <section className="bg-secondary/50 py-24">
+      <section className="bg-secondary/50 pt-24 pb-12">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="max-w-3xl mx-auto text-center">
             <motion.p
@@ -154,7 +154,7 @@ const Services = () => {
 
       {/* CTA */}
       <section className="bg-background overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-7xl px-6 pt-12 pb-24 sm:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, scale: 0.92, y: 40 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
