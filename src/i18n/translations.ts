@@ -40,13 +40,15 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Offer
     "offer.label": "Our services",
-    "offer.title": "Solutions for every stage of your workspace journey.",
+    "offer.title": "Solutions for every stage of your workspace journey — and everything in between.",
     "offer.growth.title": "Growth Strategies",
     "offer.growth.text": "Expanding your team? We find, negotiate, and deliver the workspace that supports your ambitions without the stress.",
     "offer.downsizing.title": "Downsizing Solutions",
     "offer.downsizing.text": "Optimizing your footprint while maintaining culture and productivity. Smart transitions, controlled costs.",
     "offer.lease.title": "Lease Management",
     "offer.lease.text": "Your lease is expiring? We evaluate your options early so deadlines don't dictate the outcome.",
+    "offer.interventions.title": "Small Interventions",
+    "offer.interventions.text": "A broken installation, a contractor you don't want to chase yourself? We take care of it, quickly and without hassle.",
 
     // Social Proof
     "social.label": "Trusted by",
@@ -240,13 +242,15 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Offer
     "offer.label": "Onze diensten",
-    "offer.title": "Oplossingen voor elke fase van uw werkplektraject.",
+    "offer.title": "Oplossingen voor elke fase van uw werkplektraject — en alles daartussen.",
     "offer.growth.title": "Groeistrategieën",
     "offer.growth.text": "Breidt uw team uit? Wij vinden, onderhandelen en leveren de werkplek die uw ambities ondersteunt zonder stress.",
     "offer.downsizing.title": "Downsizing oplossingen",
     "offer.downsizing.text": "Optimaliseer uw footprint met behoud van cultuur en productiviteit. Slimme transities, gecontroleerde kosten.",
     "offer.lease.title": "Leasemanagement",
     "offer.lease.text": "Loopt uw huurcontract af? Wij evalueren uw opties vroegtijdig zodat deadlines het resultaat niet bepalen.",
+    "offer.interventions.title": "Kleine interventies",
+    "offer.interventions.text": "Een defecte installatie, een aannemer die u niet zelf wil opvolgen? Wij regelen het, snel en zonder gedoe.",
 
     // Social Proof
     "social.label": "Vertrouwd door",
@@ -440,13 +444,15 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Offer
     "offer.label": "Nos services",
-    "offer.title": "Des solutions pour chaque étape de votre parcours workspace.",
+    "offer.title": "Des solutions pour chaque étape de votre parcours workspace — et tout ce qu'il y a entre les deux.",
     "offer.growth.title": "Stratégies de croissance",
     "offer.growth.text": "Vous agrandissez votre équipe ? Nous trouvons, négocions et livrons l'espace de travail qui soutient vos ambitions sans stress.",
     "offer.downsizing.title": "Solutions de réduction",
     "offer.downsizing.text": "Optimisez votre empreinte tout en maintenant culture et productivité. Des transitions intelligentes, des coûts maîtrisés.",
     "offer.lease.title": "Gestion de bail",
     "offer.lease.text": "Votre bail expire ? Nous évaluons vos options tôt pour que les délais ne dictent pas le résultat.",
+    "offer.interventions.title": "Petites interventions",
+    "offer.interventions.text": "Une installation défectueuse, un entrepreneur que vous ne souhaitez pas suivre vous-même ? Nous nous en occupons, rapidement et sans tracas.",
 
     // Social Proof
     "social.label": "Ils nous font confiance",
