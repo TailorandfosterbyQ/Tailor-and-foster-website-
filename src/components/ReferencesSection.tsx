@@ -93,7 +93,7 @@ const ReferencesSection = () => {
             {t("references.andMore")}
           </h3>
           <p className="text-center text-sm leading-relaxed text-muted-foreground max-w-4xl mx-auto">
-            {clientList.join(" – ")}
+            {clientList.join(", ")}
           </p>
         </motion.div>
       </div>
