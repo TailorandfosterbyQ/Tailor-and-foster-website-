@@ -256,7 +256,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "about.mission.title": "Wij werken als één team.",
     "about.mission.text": "Organisaties helpen om ruimte, cultuur en prestaties op elkaar af te stemmen door onafhankelijke, op maat gemaakte werkplekstrategieën te leveren die langetermijnwaarde creëren.",
     "about.values.independence": "Onafhankelijkheid",
-    "about.values.independence.desc": "Wij adviseren zonder vooringenomenheid. Elke aanbeveling wordt gevormd door wat het beste dient voor de klant — niet door vooraf bepaalde oplossingen of externe belangen.",
+    "about.values.independence.desc": "Wij kiezen nooit voor het makkelijkste antwoord, maar voor het juiste. Onze onafhankelijkheid is geen marketingclaim maar een werkwijze, geen vooraf bepaalde oplossingen, geen externe belangen.",
     "about.values.intentionality": "Intentionaliteit",
     "about.values.intentionality.desc": "Niets is toevallig. Elke beslissing, van strategie tot ontwerp, wordt genomen met duidelijkheid van doel en meetbare impact.",
     "about.values.tailored": "Excellentie op maat",
