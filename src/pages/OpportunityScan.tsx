@@ -73,6 +73,22 @@ const OpportunityScan = () => {
           transition={{ duration: 0.6 }}
           className="rounded-3xl border border-border bg-card shadow-lg overflow-hidden"
         >
+          {/* Trust badges */}
+          <div className="border-b border-border bg-card/50 px-6 py-5 sm:px-10">
+            <div className="flex flex-wrap justify-center gap-6 sm:gap-10">
+              {[
+                { icon: Handshake, label: t("finalCta.benefit1") },
+                { icon: CalendarCheck, label: t("finalCta.benefit2") },
+                { icon: ShieldCheck, label: t("finalCta.benefit3") },
+              ].map((b, i) => (
+                <div key={i} className="flex items-center gap-2 text-foreground/80">
+                  <b.icon size={18} strokeWidth={2} className="text-primary/70" />
+                  <span className="text-sm font-medium tracking-wide">{b.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div
             className="calendly-inline-widget"
             data-url={CALENDLY_URL}
