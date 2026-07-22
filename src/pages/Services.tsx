@@ -51,7 +51,7 @@ const Services = () => {
           >
             <ServiceIcon size={20} className="text-white/60" />
             <p className="text-sm font-medium uppercase tracking-[0.22em] text-white/60">
-              {t(`services.${serviceType}.hero.label`)}
+              {t(`services.${tKey}.hero.label`)}
             </p>
           </motion.div>
           <motion.h1
@@ -60,7 +60,7 @@ const Services = () => {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="mt-2 max-w-3xl text-[clamp(1.8rem,3.5vw,3.5rem)] leading-[1.15] font-bold font-serif"
           >
-            {t(`services.${serviceType}.hero.title`)}
+            {t(`services.${tKey}.hero.title`)}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -68,7 +68,7 @@ const Services = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="mt-6 max-w-2xl text-lg leading-8 text-white/70"
           >
-            {t(`services.${serviceType}.hero.text`)}
+            {t(`services.${tKey}.hero.text`)}
           </motion.p>
         </div>
       </section>
@@ -83,10 +83,10 @@ const Services = () => {
           transition={{ duration: 0.6 }}
         >
           <p className="text-sm font-medium uppercase tracking-[0.22em] text-primary">
-            {t(`services.${serviceType}.process.label`)}
+            {t(`services.${tKey}.process.label`)}
           </p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl text-foreground">
-            {t(`services.${serviceType}.process.title`)}
+            {t(`services.${tKey}.process.title`)}
           </h2>
         </motion.div>
 
@@ -110,10 +110,10 @@ const Services = () => {
                   <Icon size={20} className="text-primary" />
                 </div>
                 <h3 className="text-lg font-semibold tracking-tight text-foreground">
-                  {t(`services.${serviceType}.step${num}.title`)}
+                  {t(`services.${tKey}.step${num}.title`)}
                 </h3>
                 <p className="mt-3 text-base leading-7 text-muted-foreground">
-                  {t(`services.${serviceType}.step${num}.text`)}
+                  {t(`services.${tKey}.step${num}.text`)}
                 </p>
               </motion.div>
             );
@@ -132,7 +132,7 @@ const Services = () => {
               transition={{ duration: 0.5 }}
               className="text-sm font-medium uppercase tracking-[0.22em] text-primary"
             >
-              {t(`services.${serviceType}.forWhom.label`)}
+              {t(`services.${tKey}.forWhom.label`)}
             </motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
@@ -141,7 +141,7 @@ const Services = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl text-foreground"
             >
-              {t(`services.${serviceType}.forWhom.title`)}
+              {t(`services.${tKey}.forWhom.title`)}
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -150,7 +150,7 @@ const Services = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="mt-6 text-base leading-7 text-muted-foreground"
             >
-              {t(`services.${serviceType}.forWhom.text`)}
+              {t(`services.${tKey}.forWhom.text`)}
             </motion.p>
           </div>
         </div>
