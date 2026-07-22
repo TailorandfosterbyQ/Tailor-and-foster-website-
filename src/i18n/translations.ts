@@ -421,8 +421,9 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Opportunity Scan
     "opportunityScan.hero.title": "Opportunity Scan",
-    "opportunityScan.hero.text": "Wij bieden een gratis Opportunity Scan aan, waarbij we uw huidige kantoorinrichting analyseren en mogelijkheden voor kostenoptimalisatie inschatten. De scan kan ook eerste inzichten bevatten over de benodigde kantoorruimte, het budget en de tijdlijn.",
+    "opportunityScan.hero.text": "Wij bieden een gratis Opportunity Scan aan: we analyseren uw huidige kantoorinrichting, brengen mogelijkheden voor kostenoptimalisatie in kaart, en geven een eerste inschatting van de benodigde ruimte, het budget en de tijdlijn.",
     "opportunityScan.hero.cta": "Selecteer hieronder uw gewenste dag en tijdstip voor een gesprek.",
+    "opportunityScan.hero.practicalDetail": "Het gesprek duurt ongeveer 30 minuten en kan telefonisch, online of op kantoor plaatsvinden. U kiest wat het best past.",
 
     // Footer
     "footer.company": "Tailor & Foster",
