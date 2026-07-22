@@ -98,7 +98,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.growth.hero.title": "Scaling Your Workspace to Match Your Ambitions",
     "services.growth.hero.text": "Rapid growth shouldn't mean rushed decisions. We help expanding organisations find, negotiate, and transition into workspaces that fuel productivity, not hinder it.",
     "services.growth.process.label": "Our approach",
-    "services.growth.process.title": "From growing pains to a future proof workspace.",
+    "services.growth.process.title": "Grow faster, without rushed decisions.",
     "services.growth.step1.title": "Growth Assessment",
     "services.growth.step1.text": "We map your headcount projections, team dynamics, and spatial needs to quantify exactly how much space you'll need and when.",
     "services.growth.step2.title": "Location & Negotiation Strategy",
@@ -139,7 +139,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.lease.step3.text": "Whether you stay or go, we lead negotiations with landlords and manage the transition end to end.",
     "services.lease.forWhom.label": "Is this for you?",
     "services.lease.forWhom.title": "For businesses approaching a lease milestone",
-    "services.lease.forWhom.text": "If your lease expires within 24 months, or you've just received a renewal proposal, now is the time to act. Don't let deadlines dictate your outcome.",
+    "services.lease.forWhom.text": "Whether your lease expires in 6 months or 2 years, or you've just received a renewal proposal: if a lease decision is coming, now is the time to act.",
 
     // Services Overview
     "servicesOverview.hero.label": "Where we step in",
@@ -298,11 +298,11 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.growth.hero.title": "Uw werkplek opschalen naar uw ambities",
     "services.growth.hero.text": "Snelle groei mag geen overhaaste beslissingen betekenen. Wij helpen groeiende organisaties werkplekken te vinden, te onderhandelen en over te stappen die productiviteit stimuleren.",
     "services.growth.process.label": "Onze aanpak",
-    "services.growth.process.title": "Van groeipijnen naar een toekomstbestendige werkplek.",
+    "services.growth.process.title": "Sneller groeien, geen overhaaste keuzes.",
     "services.growth.step1.title": "Groeianalyse",
     "services.growth.step1.text": "We brengen uw personeelsprojecties, teamdynamiek en ruimtelijke behoeften in kaart om precies te bepalen hoeveel ruimte u nodig heeft en wanneer.",
     "services.growth.step2.title": "Locatie & Onderhandelingsstrategie",
-    "services.growth.step2.text": "We zoeken locaties die aansluiten bij uw employer brand, pendelprofielen en budget en onderhandelen voorwaarden die uw flexibiliteit beschermen.",
+    "services.growth.step2.text": "We zoeken locaties die aansluiten bij uw werkgeversmerk, pendelprofielen en budget en onderhandelen voorwaarden die uw flexibiliteit beschermen.",
     "services.growth.step3.title": "Begeleide Transitie",
     "services.growth.step3.text": "Van inrichtingscoördinatie tot verhuismanagement, we overzien elk detail zodat uw team zich kan richten op hun kernwerk.",
     "services.growth.forWhom.label": "Is dit voor u?",
@@ -339,7 +339,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.lease.step3.text": "Of u nu blijft of vertrekt, wij leiden de onderhandelingen met verhuurders en beheren de transitie end to end.",
     "services.lease.forWhom.label": "Is dit voor u?",
     "services.lease.forWhom.title": "Voor bedrijven die een huurmijlpaal naderen",
-    "services.lease.forWhom.text": "Als uw huur binnen 24 maanden afloopt, of u net een verlengingsvoorstel heeft ontvangen, is nu het moment om te handelen.",
+    "services.lease.forWhom.text": "Of uw huur nu over 6 maanden afloopt of over 2 jaar, of u net een verlengingsvoorstel ontving: als een huurbeslissing eraan komt, is nu het moment om te handelen.",
 
     // Services Overview
     "servicesOverview.hero.label": "Waar wij instappen",
@@ -498,7 +498,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.growth.hero.title": "Adaptez votre espace de travail à vos ambitions",
     "services.growth.hero.text": "Une croissance rapide ne doit pas signifier des décisions précipitées. Nous aidons les organisations en expansion à trouver, négocier et s'installer dans des espaces qui stimulent la productivité.",
     "services.growth.process.label": "Notre approche",
-    "services.growth.process.title": "Des douleurs de croissance à un espace pérenne.",
+    "services.growth.process.title": "Grandir plus vite, sans décisions précipitées.",
     "services.growth.step1.title": "Évaluation de croissance",
     "services.growth.step1.text": "Nous cartographions vos projections d'effectifs, la dynamique d'équipe et les besoins spatiaux pour quantifier exactement l'espace nécessaire et quand.",
     "services.growth.step2.title": "Stratégie de localisation & négociation",
@@ -539,7 +539,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.lease.step3.text": "Que vous restiez ou partiez, nous menons les négociations avec les bailleurs et gérons la transition de bout en bout.",
     "services.lease.forWhom.label": "Est ce pour vous ?",
     "services.lease.forWhom.title": "Pour les entreprises approchant une échéance de bail",
-    "services.lease.forWhom.text": "Si votre bail expire dans les 24 mois, ou si vous venez de recevoir une proposition de renouvellement, c'est le moment d'agir.",
+    "services.lease.forWhom.text": "Que votre bail expire dans 6 mois ou dans 2 ans, ou que vous veniez de recevoir une proposition de renouvellement : si une décision de bail approche, c'est le moment d'agir.",
 
     // Services Overview
     "servicesOverview.hero.label": "Quand nous intervenons",
