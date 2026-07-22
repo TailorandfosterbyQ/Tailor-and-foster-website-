@@ -276,11 +276,11 @@ export const translations: Record<Language, Record<string, string>> = {
     "about.team.text": "Onze consultants brengen senior-level ervaring mee bij elke opdracht. Authentiek, hands-on en altijd bereikbaar.",
     "about.whatwedo.label": "Wat wij doen",
     "about.whatwedo.title": "De werkplek als strategie.",
-    "about.whatwedo.p1": "De meeste organisaties stellen hun werkplek niet in vraag. Ze passen zich aan, werken eromheen totdat veranderingen in de manier van werken de beperkingen blootleggen. Teams worden hybride, cultuur vervaagt en prestaties worden minder consistent. Op dat moment is het kantoor niet langer alleen een plek. Het wordt een strategische keuze.",
-    "about.whatwedo.p2": "Bij Tailor & Foster benaderen we het ook zo.",
-    "about.whatwedo.p3": "Wij zien de werkplek als een strategisch instrument dat rechtstreeks beïnvloedt hoe mensen samenwerken, hoe beslissingen worden genomen en hoe organisaties presteren. Wanneer die werkplek met helderheid en intentie wordt vormgegeven, doet ze meer dan een bedrijf huisvesten. Ze helpt talent aan te trekken en te behouden, maakt cultuur tastbaar en ondersteunt consistente prestaties.",
-    "about.whatwedo.p4": "Onze rol is om structuur te brengen in dat proces. We analyseren hoe organisaties werken, bepalen wat de werkplek mogelijk moet maken en vertalen dat naar een heldere strategie en concrete uitvoering. Van het eerste inzicht tot de finale realisatie begeleiden we het volledige traject met onafhankelijk advies en een aanpak op maat.",
-    "about.whatwedo.p5": "Een werplek die voor jou werkt dat is het enige dat telt.",
+    "about.whatwedo.p1": "De meeste organisaties stellen hun werkplek niet in vraag, tot veranderingen in de manier van werken de beperkingen blootleggen. Teams worden hybride, cultuur vervaagt, prestaties worden minder consistent. Op dat moment is het kantoor niet langer alleen een plek. Het wordt een strategische keuze.",
+    "about.whatwedo.p2": "Bij Tailor & Foster benaderen we het ook zo. Wij zien de werkplek als een strategisch instrument dat rechtstreeks beïnvloedt hoe mensen samenwerken, hoe beslissingen worden genomen en hoe organisaties presteren.",
+    "about.whatwedo.p3": "Onze rol is structuur brengen in dat proces: we analyseren hoe organisaties werken, bepalen wat de werkplek mogelijk moet maken, en vertalen dat naar een heldere strategie en concrete uitvoering, van eerste inzicht tot finale realisatie.",
+    "about.whatwedo.p4": "",
+    "about.whatwedo.p5": "",
 
     // Services page — Growth
     "services.growth.hero.label": "Groeistrategieën",
