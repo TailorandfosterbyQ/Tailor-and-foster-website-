@@ -2,7 +2,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
-import servicesHero from "@/assets/services-hero.jpg";
+import opportunityScanHero from "@/assets/opportunity-scan-hero.jpg";
+import { Handshake, CalendarCheck, ShieldCheck } from "lucide-react";
 import { useEffect } from "react";
 
 const CALENDLY_URL = "https://calendly.com/bernard-tailorandfoster/opportunity-scan";
@@ -28,11 +29,11 @@ const OpportunityScan = () => {
       {/* Hero */}
       <section className="relative py-28 lg:py-36 overflow-hidden">
         <img
-          src={servicesHero}
+          src={opportunityScanHero}
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
           width={1920}
-          height={800}
+          height={1080}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--primary))]/85 via-[hsl(var(--primary))]/65 to-[hsl(var(--primary))]/35" />
         <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 text-white">
@@ -60,6 +61,14 @@ const OpportunityScan = () => {
           >
             {t("opportunityScan.hero.cta")}
           </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.45 }}
+            className="mt-3 max-w-2xl text-base leading-7 text-white/60"
+          >
+            {t("opportunityScan.hero.practicalDetail")}
+          </motion.p>
         </div>
       </section>
 
@@ -72,6 +81,22 @@ const OpportunityScan = () => {
           transition={{ duration: 0.6 }}
           className="rounded-3xl border border-border bg-card shadow-lg overflow-hidden"
         >
+          {/* Trust badges */}
+          <div className="border-b border-border bg-card/50 px-6 py-5 sm:px-10">
+            <div className="flex flex-wrap justify-center gap-6 sm:gap-10">
+              {[
+                { icon: Handshake, label: t("finalCta.benefit1") },
+                { icon: CalendarCheck, label: t("finalCta.benefit2") },
+                { icon: ShieldCheck, label: t("finalCta.benefit3") },
+              ].map((b, i) => (
+                <div key={i} className="flex items-center gap-2 text-foreground/80">
+                  <b.icon size={18} strokeWidth={2} className="text-primary/70" />
+                  <span className="text-sm font-medium tracking-wide">{b.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div
             className="calendly-inline-widget"
             data-url={CALENDLY_URL}

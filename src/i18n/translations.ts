@@ -199,8 +199,9 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Opportunity Scan
     "opportunityScan.hero.title": "Opportunity Scan",
-    "opportunityScan.hero.text": "We offer a free Opportunity Scan, in which we analyse your current office fit out and estimate cost optimisation opportunities. The scan can also include some initial insights on the required office space, budget and timeline.",
+    "opportunityScan.hero.text": "We offer a free Opportunity Scan: we analyse your current office fit out, map cost optimisation opportunities, and give an initial estimate of the required space, budget and timeline.",
     "opportunityScan.hero.cta": "Feel free to select your preferred day and time for a call below.",
+    "opportunityScan.hero.practicalDetail": "The call takes about 30 minutes and can be held by phone, online or at our office. You choose what suits you best.",
 
     // Footer
     "footer.company": "Tailor & Foster",
@@ -420,8 +421,9 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Opportunity Scan
     "opportunityScan.hero.title": "Opportunity Scan",
-    "opportunityScan.hero.text": "Wij bieden een gratis Opportunity Scan aan, waarbij we uw huidige kantoorinrichting analyseren en mogelijkheden voor kostenoptimalisatie inschatten. De scan kan ook eerste inzichten bevatten over de benodigde kantoorruimte, het budget en de tijdlijn.",
+    "opportunityScan.hero.text": "Wij bieden een gratis Opportunity Scan aan: we analyseren uw huidige kantoorinrichting, brengen mogelijkheden voor kostenoptimalisatie in kaart, en geven een eerste inschatting van de benodigde ruimte, het budget en de tijdlijn.",
     "opportunityScan.hero.cta": "Selecteer hieronder uw gewenste dag en tijdstip voor een gesprek.",
+    "opportunityScan.hero.practicalDetail": "Het gesprek duurt ongeveer 30 minuten en kan telefonisch, online of op kantoor plaatsvinden. U kiest wat het best past.",
 
     // Footer
     "footer.company": "Tailor & Foster",
@@ -641,8 +643,9 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Opportunity Scan
     "opportunityScan.hero.title": "Opportunity Scan",
-    "opportunityScan.hero.text": "Nous proposons un Opportunity Scan gratuit, dans lequel nous analysons l'aménagement actuel de vos bureaux et estimons les opportunités d'optimisation des coûts. Le scan peut également inclure des premières indications sur l'espace de bureau nécessaire, le budget et le calendrier.",
-    "opportunityScan.hero.cta": "N'hésitez pas à sélectionner ci dessous le jour et l'heure qui vous conviennent pour un appel.",
+    "opportunityScan.hero.text": "Nous proposons un Opportunity Scan gratuit : nous analysons l'aménagement actuel de vos bureaux, cartographions les opportunités d'optimisation des coûts et donnons une première estimation de l'espace nécessaire, du budget et du calendrier.",
+    "opportunityScan.hero.cta": "N'hésitez pas à sélectionner ci-dessous le jour et l'heure qui vous conviennent pour un appel.",
+    "opportunityScan.hero.practicalDetail": "L'appel dure environ 30 minutes et peut se dérouler par téléphone, en ligne ou au bureau. Vous choisissez la formule qui vous convient le mieux.",
 
     // Footer
     "footer.company": "Tailor & Foster",
