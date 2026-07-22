@@ -55,9 +55,12 @@ export const translations: Record<Language, Record<string, string>> = {
     "social.title": "From scale-ups to multinationals, for more than 30 years alongside organisations in transition.",
 
     // Final CTA
-    "finalCta.title": "What is your office challenge?",
+    "finalCta.title": "Every workplace challenge is different — start with a free analysis of yours.",
     "finalCta.text": "Let us evaluate your current workspace setup and uncover opportunities to save time and budget.",
     "finalCta.button": "Start Your Opportunity Scan",
+    "finalCta.benefit1": "No obligation",
+    "finalCta.benefit2": "Response within 48h",
+    "finalCta.benefit3": "Fully confidential",
 
     // About page
     "about.hero.label": "About us",
