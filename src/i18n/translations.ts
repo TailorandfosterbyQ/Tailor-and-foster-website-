@@ -50,7 +50,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Social Proof
     "social.label": "Trusted by",
-    "social.title": "Organisations that rely on our expertise",
+    "social.title": "From scale-ups to multinationals, for more than 30 years alongside organisations in transition.",
 
     // Final CTA
     "finalCta.title": "What is your office challenge?",
@@ -250,7 +250,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Social Proof
     "social.label": "Vertrouwd door",
-    "social.title": "Organisaties die op onze expertise vertrouwen",
+    "social.title": "Van scale-ups tot multinationals, al meer dan 30 jaar aan de zijde van organisaties in verandering.",
 
     // Final CTA
     "finalCta.title": "Wat is uw kantooruitdaging?",
@@ -450,7 +450,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Social Proof
     "social.label": "Ils nous font confiance",
-    "social.title": "Des organisations qui comptent sur notre expertise",
+    "social.title": "Des scale-ups aux multinationales, depuis plus de 30 ans aux côtés d'organisations en transformation.",
 
     // Final CTA
     "finalCta.title": "Prêt pour un Opportunity Scan ?",
