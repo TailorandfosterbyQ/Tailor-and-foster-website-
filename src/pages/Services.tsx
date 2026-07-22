@@ -96,8 +96,8 @@ const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                whileHover={{ y: -6, transition: { type: "spring", stiffness: 400, damping: 17 } }}
-                className="rounded-3xl border border-border bg-card p-8 shadow-sm"
+                whileHover={{ y: -8, boxShadow: "0 20px 40px -12px rgba(0,0,0,0.12)", transition: { type: "spring", stiffness: 400, damping: 17 } }}
+                className="rounded-3xl border border-border bg-card p-8 shadow-md border-t-2 border-t-primary"
               >
                 <div className="flex items-center gap-3 mb-5">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
