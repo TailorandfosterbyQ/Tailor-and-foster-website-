@@ -367,7 +367,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.downsizing.step3.text": "We beheren huuruitstappen, onderverhuuronderhandelingen en ruimteherindelingen met minimale verstoring van uw dagelijkse operaties.",
     "services.downsizing.forWhom.label": "Is dit voor u?",
     "services.downsizing.forWhom.title": "Voor organisaties die hun footprint heroverwegen",
-    "services.downsizing.forWhom.text": "Post fusie integratie, verschuiving naar hybride werk, of simpelweg betalen voor ruimte die u niet meer nodig heeft als uw werkplek niet meer past bij uw realiteit, kunnen wij helpen.",
+    "services.downsizing.forWhom.text": "Post-fusie-integratie, een verschuiving naar hybride werk, of simpelweg betalen voor ruimte die u niet meer nodig heeft: als uw werkplek niet meer past bij uw realiteit, kunnen wij helpen.",
 
     // Services page. Lease
     "services.lease.hero.label": "Leasemanagement",
