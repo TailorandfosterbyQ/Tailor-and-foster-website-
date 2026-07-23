@@ -78,8 +78,10 @@ const Kostencalculator = () => {
   // Gate
   const [gateEmail, setGateEmail] = useState("");
   const [gateCompany, setGateCompany] = useState("");
+  const [gatePhone, setGatePhone] = useState("");
   const [gateSubmitting, setGateSubmitting] = useState(false);
   const [gateUnlocked, setGateUnlocked] = useState(false);
+  const [showGate, setShowGate] = useState(false);
 
   const [form, setForm] = useState({
     name: "",
