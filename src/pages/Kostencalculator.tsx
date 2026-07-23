@@ -173,6 +173,7 @@ const Kostencalculator = () => {
         body: {
           email: gateEmail.trim(),
           company: gateCompany.trim(),
+          phone: gatePhone.trim() || null,
           employees: num(employees),
           surface: num(surface),
           rent: num(rent),
@@ -368,51 +369,163 @@ const Kostencalculator = () => {
             </div>
           </div>
 
-          {/* Results */}
+          {/* Results / Gate */}
           <div className="space-y-6">
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { label: "Totaal over looptijd", value: fmtEuro(results.totalTerm) },
-                { label: "Kost per jaar", value: fmtEuro(results.costPerYear) },
-                { label: "Kost per medewerker / jaar", value: fmtEuro(results.costPerEmployee) },
-                { label: "Kost per maand", value: fmtEuro(results.costPerMonth) },
-              ].map((m) => (
-                <div
-                  key={m.label}
-                  className="rounded-2xl border border-border bg-card p-5 shadow-sm"
-                >
-                  <div className="text-xs uppercase tracking-wider text-foreground/50">
-                    {m.label}
-                  </div>
-                  <div className="mt-2 font-serif text-2xl font-semibold text-primary">
-                    {m.value}
+            {gateUnlocked ? (
+              <>
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { label: "Totaal over looptijd", value: fmtEuro(results.totalTerm) },
+                    { label: "Kost per jaar", value: fmtEuro(results.costPerYear) },
+                    { label: "Kost per medewerker / jaar", value: fmtEuro(results.costPerEmployee) },
+                    { label: "Kost per maand", value: fmtEuro(results.costPerMonth) },
+                  ].map((m) => (
+                    <div
+                      key={m.label}
+                      className="rounded-2xl border border-border bg-card p-5 shadow-sm"
+                    >
+                      <div className="text-xs uppercase tracking-wider text-foreground/50">
+                        {m.label}
+                      </div>
+                      <div className="mt-2 font-serif text-2xl font-semibold text-primary">
+                        {m.value}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+                  <h3 className="font-serif text-lg font-semibold text-primary mb-4">
+                    Kostenverdeling (per jaar)
+                  </h3>
+                  <div className="h-64">
+                    <ResponsiveContainer>
+                      <BarChart data={breakdownData}>
+                        <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                        <XAxis dataKey="name" tick={{ fontSize: 11 }} />
+                        <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => fmtEuro(v)} width={80} />
+                        <Tooltip formatter={(v: number) => fmtEuro(v)} />
+                        <Bar dataKey="value">
+                          {breakdownData.map((d, i) => (
+                            <Cell key={i} fill={d.fill} />
+                          ))}
+                        </Bar>
+                      </BarChart>
+                    </ResponsiveContainer>
                   </div>
                 </div>
-              ))}
-            </div>
-
-            <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-              <h3 className="font-serif text-lg font-semibold text-primary mb-4">
-                Kostenverdeling (per jaar)
-              </h3>
-              <div className="h-64">
-                <ResponsiveContainer>
-                  <BarChart data={breakdownData}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                    <XAxis dataKey="name" tick={{ fontSize: 11 }} />
-                    <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => fmtEuro(v)} width={80} />
-                    <Tooltip formatter={(v: number) => fmtEuro(v)} />
-                    <Bar dataKey="value">
-                      {breakdownData.map((d, i) => (
-                        <Cell key={i} fill={d.fill} />
-                      ))}
-                    </Bar>
-                  </BarChart>
-                </ResponsiveContainer>
+              </>
+            ) : !showGate ? (
+              <div className="rounded-3xl border border-border bg-card p-8 shadow-sm flex flex-col justify-center min-h-[400px]">
+                <div className="flex items-center gap-3 mb-4">
+                  <Lock size={20} className="text-primary" />
+                  <span className="text-xs uppercase tracking-wider text-foreground/50">
+                    Uw resultaat
+                  </span>
+                </div>
+                <h3 className="font-serif text-2xl font-semibold text-primary leading-tight mb-3">
+                  Klaar om uw werkelijke kantoorkosten te zien?
+                </h3>
+                <p className="text-foreground/70 mb-6">
+                  Vul alle velden hiernaast in en bereken uw resultaat.
+                </p>
+                <Button
+                  size="lg"
+                  className="w-full"
+                  disabled={!baseFilled}
+                  onClick={() => setShowGate(true)}
+                >
+                  Bereken mijn resultaat
+                </Button>
+                {!baseFilled && (
+                  <p className="mt-3 text-xs text-center text-foreground/50">
+                    Vul eerst alle velden hiernaast in.
+                  </p>
+                )}
               </div>
-            </div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="rounded-3xl border border-border bg-card p-8 shadow-sm"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <Lock size={20} className="text-primary" />
+                  <span className="text-xs uppercase tracking-wider text-foreground/50">
+                    Laatste stap
+                  </span>
+                </div>
+                <h3 className="font-serif text-2xl font-semibold text-primary leading-tight">
+                  Vul uw gegevens in om uw resultaat te zien.
+                </h3>
+                <form onSubmit={handleGateSubmit} className="mt-6 space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="gate-email">E-mailadres</Label>
+                    <Input
+                      id="gate-email"
+                      type="email"
+                      required
+                      maxLength={320}
+                      value={gateEmail}
+                      onChange={(e) => setGateEmail(e.target.value)}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="gate-company">Bedrijfsnaam</Label>
+                    <Input
+                      id="gate-company"
+                      required
+                      maxLength={200}
+                      value={gateCompany}
+                      onChange={(e) => setGateCompany(e.target.value)}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="gate-phone">Telefoonnummer (optioneel)</Label>
+                    <Input
+                      id="gate-phone"
+                      type="tel"
+                      maxLength={50}
+                      value={gatePhone}
+                      onChange={(e) => setGatePhone(e.target.value)}
+                    />
+                  </div>
+                  <p className="text-[12px] leading-relaxed text-foreground/50">
+                    Uw gegevens worden niet gedeeld met derden en enkel gebruikt om u dit resultaat
+                    te tonen en, indien gewenst, contact op te nemen.
+                  </p>
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="w-full"
+                    disabled={gateSubmitting || !gateEmail || !gateCompany}
+                  >
+                    {gateSubmitting ? "Even geduld..." : "Toon mijn resultaat"}
+                  </Button>
+                  <button
+                    type="button"
+                    onClick={() => setShowGate(false)}
+                    className="w-full text-xs text-foreground/50 hover:text-foreground/80"
+                  >
+                    Terug om gegevens aan te passen
+                  </button>
+                </form>
+              </motion.div>
+            )}
           </div>
         </div>
+
+        {/* Old standalone gate removed — now inline in results column */}
+        {false && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mt-12 rounded-3xl border border-border bg-card p-8 sm:p-10 shadow-sm max-w-2xl mx-auto"
+          ><div/></motion.div>
+        )}
 
         {/* Gate */}
         {!gateUnlocked && (
