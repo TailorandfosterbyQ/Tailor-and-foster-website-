@@ -82,7 +82,8 @@ Deno.serve(async (req) => {
     const summary =
       `Nieuwe kostencalculator-lead\n\n` +
       `Bedrijf: ${d.company}\n` +
-      `E-mail: ${d.email}\n\n` +
+      `E-mail: ${d.email}\n` +
+      `Telefoon: ${d.phone ?? "-"}\n\n` +
       `Medewerkers: ${d.employees ?? "-"}\n` +
       `Oppervlakte: ${d.surface ?? "-"} m²\n` +
       `Regio: ${d.region ?? "-"}\n` +
