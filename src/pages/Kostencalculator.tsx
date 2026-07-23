@@ -19,13 +19,12 @@ import {
   BarChart,
   CartesianGrid,
   Cell,
-  Legend,
   ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Lock } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 
@@ -58,16 +57,29 @@ const fmtNum = (n: number, digits = 1) =>
     isFinite(n) ? n : 0
   );
 
+const num = (v: string): number => {
+  if (v === "" || v === null || v === undefined) return 0;
+  const n = Number(v);
+  return isFinite(n) ? n : 0;
+};
+
 const Kostencalculator = () => {
-  const [employees, setEmployees] = useState(50);
-  const [surface, setSurface] = useState(750);
-  const [rent, setRent] = useState(12500);
+  // Empty starts with placeholders
+  const [employees, setEmployees] = useState("");
+  const [surface, setSurface] = useState("");
+  const [rent, setRent] = useState("");
   const [region, setRegion] = useState<Region>("brussel");
-  const [utilities, setUtilities] = useState(1500);
-  const [services, setServices] = useState(2000);
-  const [fitout, setFitout] = useState(150000);
-  const [term, setTerm] = useState(9);
+  const [utilities, setUtilities] = useState("");
+  const [services, setServices] = useState("");
+  const [fitout, setFitout] = useState("");
+  const [term, setTerm] = useState("");
   const [daysPerWeek, setDaysPerWeek] = useState(3);
+
+  // Gate
+  const [gateEmail, setGateEmail] = useState("");
+  const [gateCompany, setGateCompany] = useState("");
+  const [gateSubmitting, setGateSubmitting] = useState(false);
+  const [gateUnlocked, setGateUnlocked] = useState(false);
 
   const [form, setForm] = useState({
     name: "",
@@ -81,17 +93,25 @@ const Kostencalculator = () => {
   const [success, setSuccess] = useState(false);
 
   const results = useMemo(() => {
-    const yearlyRent = rent * 12;
-    const yearlyUtil = utilities * 12;
-    const yearlySvc = services * 12;
-    const totalTerm = (rent + utilities + services) * 12 * term + fitout;
-    const costPerYear = yearlyRent + yearlyUtil + yearlySvc + fitout / Math.max(term, 1);
-    const costPerEmployee = costPerYear / Math.max(employees, 1);
+    const nEmp = num(employees);
+    const nSurf = num(surface);
+    const nRent = num(rent);
+    const nUtil = num(utilities);
+    const nSvc = num(services);
+    const nFit = num(fitout);
+    const nTerm = num(term);
+
+    const yearlyRent = nRent * 12;
+    const yearlyUtil = nUtil * 12;
+    const yearlySvc = nSvc * 12;
+    const totalTerm = (nRent + nUtil + nSvc) * 12 * nTerm + nFit;
+    const costPerYear = yearlyRent + yearlyUtil + yearlySvc + nFit / Math.max(nTerm, 1);
+    const costPerEmployee = costPerYear / Math.max(nEmp, 1);
     const costPerMonth = costPerYear / 12;
-    const sqmPerEmployee = surface / Math.max(employees, 1);
-    const rentPerSqm = yearlyRent / Math.max(surface, 1);
+    const sqmPerEmployee = nSurf / Math.max(nEmp, 1);
+    const rentPerSqm = yearlyRent / Math.max(nSurf, 1);
     const occupancy = OCCUPANCY_BY_DAYS[daysPerWeek] ?? 0.47;
-    const unusedSqm = surface * (1 - occupancy);
+    const unusedSqm = nSurf * (1 - occupancy);
     const unusedDesks = unusedSqm / 12;
     const unusedCost = unusedDesks * 10000;
 
@@ -118,7 +138,7 @@ const Kostencalculator = () => {
     { name: "Huur", value: results.yearlyRent, fill: "hsl(var(--primary))" },
     { name: "Nutsvoorzieningen", value: results.yearlyUtil, fill: "hsl(var(--primary) / 0.7)" },
     { name: "Diensten", value: results.yearlySvc, fill: "hsl(var(--primary) / 0.5)" },
-    { name: "Inrichting/jaar", value: fitout / Math.max(term, 1), fill: "hsl(var(--primary) / 0.3)" },
+    { name: "Inrichting/jaar", value: num(fitout) / Math.max(num(term), 1), fill: "hsl(var(--primary) / 0.3)" },
   ];
 
   const sqmBenchData = [
@@ -132,6 +152,50 @@ const Kostencalculator = () => {
     { name: `${bench.label} laag`, value: bench.low },
     { name: `${bench.label} hoog`, value: bench.high },
   ];
+
+  const baseFilled =
+    employees !== "" &&
+    surface !== "" &&
+    rent !== "" &&
+    utilities !== "" &&
+    services !== "" &&
+    fitout !== "" &&
+    term !== "";
+
+  const handleGateSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!gateEmail || !gateCompany) return;
+    setGateSubmitting(true);
+    try {
+      const { error } = await supabase.functions.invoke("submit-calculator-lead", {
+        body: {
+          email: gateEmail.trim(),
+          company: gateCompany.trim(),
+          employees: num(employees),
+          surface: num(surface),
+          rent: num(rent),
+          region,
+          utilities: num(utilities),
+          services: num(services),
+          fitout: num(fitout),
+          term: num(term),
+          days_per_week: daysPerWeek,
+          cost_per_year: results.costPerYear,
+          cost_per_employee: results.costPerEmployee,
+          total_term: results.totalTerm,
+          unused_sqm: results.unusedSqm,
+          unused_cost: results.unusedCost,
+        },
+      });
+      if (error) throw error;
+      setGateUnlocked(true);
+    } catch (err) {
+      console.error(err);
+      toast({ title: "Er ging iets mis. Probeer opnieuw.", variant: "destructive" });
+    } finally {
+      setGateSubmitting(false);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -202,8 +266,9 @@ const Kostencalculator = () => {
                   <Input
                     type="number"
                     min={1}
+                    placeholder="bv. 30"
                     value={employees}
-                    onChange={(e) => setEmployees(Number(e.target.value))}
+                    onChange={(e) => setEmployees(e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
@@ -211,8 +276,9 @@ const Kostencalculator = () => {
                   <Input
                     type="number"
                     min={0}
+                    placeholder="bv. 450"
                     value={surface}
-                    onChange={(e) => setSurface(Number(e.target.value))}
+                    onChange={(e) => setSurface(e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
@@ -220,8 +286,9 @@ const Kostencalculator = () => {
                   <Input
                     type="number"
                     min={0}
+                    placeholder="bv. 8000"
                     value={rent}
-                    onChange={(e) => setRent(Number(e.target.value))}
+                    onChange={(e) => setRent(e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
@@ -242,8 +309,9 @@ const Kostencalculator = () => {
                   <Input
                     type="number"
                     min={0}
+                    placeholder="bv. 900"
                     value={utilities}
-                    onChange={(e) => setUtilities(Number(e.target.value))}
+                    onChange={(e) => setUtilities(e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
@@ -251,8 +319,9 @@ const Kostencalculator = () => {
                   <Input
                     type="number"
                     min={0}
+                    placeholder="bv. 1200"
                     value={services}
-                    onChange={(e) => setServices(Number(e.target.value))}
+                    onChange={(e) => setServices(e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
@@ -260,8 +329,9 @@ const Kostencalculator = () => {
                   <Input
                     type="number"
                     min={0}
+                    placeholder="bv. 100000"
                     value={fitout}
-                    onChange={(e) => setFitout(Number(e.target.value))}
+                    onChange={(e) => setFitout(e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
@@ -270,8 +340,9 @@ const Kostencalculator = () => {
                     type="number"
                     min={1}
                     max={15}
+                    placeholder="bv. 9"
                     value={term}
-                    onChange={(e) => setTerm(Number(e.target.value))}
+                    onChange={(e) => setTerm(e.target.value)}
                   />
                 </div>
               </div>
@@ -341,66 +412,132 @@ const Kostencalculator = () => {
           </div>
         </div>
 
-        {/* Benchmarks */}
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-            <h3 className="font-serif text-lg font-semibold text-primary mb-1">
-              m² per medewerker vs. markt
-            </h3>
-            <p className="text-sm text-foreground/60 mb-4">
-              Hybride kantoren: 7-10 m². Traditioneel: 10-15 m².
-            </p>
-            <div className="h-56">
-              <ResponsiveContainer>
-                <BarChart data={sqmBenchData} layout="vertical">
-                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                  <XAxis type="number" tick={{ fontSize: 11 }} />
-                  <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} width={140} />
-                  <Tooltip formatter={(v: number) => `${v} m²`} />
-                  <Bar dataKey="value" fill="hsl(var(--primary))" />
-                </BarChart>
-              </ResponsiveContainer>
+        {/* Gate */}
+        {!gateUnlocked && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mt-12 rounded-3xl border border-border bg-card p-8 sm:p-10 shadow-sm max-w-2xl mx-auto"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <Lock size={20} className="text-primary" />
+              <span className="text-xs uppercase tracking-wider text-foreground/50">
+                Volledig resultaat
+              </span>
             </div>
-          </div>
-
-          <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-            <h3 className="font-serif text-lg font-semibold text-primary mb-1">
-              Huur per m²/jaar vs. {bench.label}
+            <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-primary leading-tight">
+              Vul uw gegevens in om uw volledige benchmarkvergelijking en besparingspotentieel te zien.
             </h3>
-            <p className="text-sm text-foreground/60 mb-4">
-              Regionale bandbreedte: €{bench.low}-€{bench.high}/m²/jaar.
-            </p>
-            <div className="h-56">
-              <ResponsiveContainer>
-                <BarChart data={rentBenchData} layout="vertical">
-                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                  <XAxis type="number" tick={{ fontSize: 11 }} />
-                  <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} width={140} />
-                  <Tooltip formatter={(v: number) => `€${v}`} />
-                  <Bar dataKey="value" fill="hsl(var(--primary))" />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-          </div>
-        </div>
+            <form onSubmit={handleGateSubmit} className="mt-6 space-y-4">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="space-y-2">
+                  <Label htmlFor="gate-email">E-mailadres</Label>
+                  <Input
+                    id="gate-email"
+                    type="email"
+                    required
+                    maxLength={320}
+                    value={gateEmail}
+                    onChange={(e) => setGateEmail(e.target.value)}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="gate-company">Bedrijfsnaam</Label>
+                  <Input
+                    id="gate-company"
+                    required
+                    maxLength={200}
+                    value={gateCompany}
+                    onChange={(e) => setGateCompany(e.target.value)}
+                  />
+                </div>
+              </div>
+              <p className="text-[12px] leading-relaxed text-foreground/50">
+                Uw gegevens worden niet gedeeld met derden en enkel gebruikt om u dit resultaat te
+                tonen en, indien gewenst, contact op te nemen.
+              </p>
+              <Button
+                type="submit"
+                size="lg"
+                className="w-full"
+                disabled={gateSubmitting || !gateEmail || !gateCompany || !baseFilled}
+              >
+                {gateSubmitting ? "Even geduld..." : "Toon mijn resultaat"}
+              </Button>
+              {!baseFilled && (
+                <p className="text-xs text-center text-foreground/50">
+                  Vul eerst alle velden hierboven in.
+                </p>
+              )}
+            </form>
+          </motion.div>
+        )}
 
-        {/* Highlight */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-10 rounded-3xl bg-primary/10 border border-primary/20 p-8 sm:p-10"
-        >
-          <p className="font-serif text-xl sm:text-2xl leading-relaxed text-primary">
-            Bij een geschatte bezettingsgraad van{" "}
-            <span className="font-bold">{Math.round(results.occupancy * 100)}%</span> staat naar
-            schatting <span className="font-bold">{fmtNum(results.unusedSqm, 0)} m²</span> van uw
-            kantoor structureel leeg. Dat komt overeen met een kost van ongeveer{" "}
-            <span className="font-bold">{fmtEuro(results.unusedCost)}</span> per jaar aan
-            onbenutte ruimte.
-          </p>
-        </motion.div>
+        {/* Benchmarks + insight — gated */}
+        {gateUnlocked && (
+          <>
+            <div className="mt-10 grid gap-6 lg:grid-cols-2">
+              <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+                <h3 className="font-serif text-lg font-semibold text-primary mb-1">
+                  m² per medewerker vs. markt
+                </h3>
+                <p className="text-sm text-foreground/60 mb-4">
+                  Hybride kantoren: 7-10 m². Traditioneel: 10-15 m².
+                </p>
+                <div className="h-56">
+                  <ResponsiveContainer>
+                    <BarChart data={sqmBenchData} layout="vertical">
+                      <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                      <XAxis type="number" tick={{ fontSize: 11 }} />
+                      <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} width={140} />
+                      <Tooltip formatter={(v: number) => `${v} m²`} />
+                      <Bar dataKey="value" fill="hsl(var(--primary))" />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+                <h3 className="font-serif text-lg font-semibold text-primary mb-1">
+                  Huur per m²/jaar vs. {bench.label}
+                </h3>
+                <p className="text-sm text-foreground/60 mb-4">
+                  Regionale bandbreedte: €{bench.low}-€{bench.high}/m²/jaar.
+                </p>
+                <div className="h-56">
+                  <ResponsiveContainer>
+                    <BarChart data={rentBenchData} layout="vertical">
+                      <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                      <XAxis type="number" tick={{ fontSize: 11 }} />
+                      <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} width={140} />
+                      <Tooltip formatter={(v: number) => `€${v}`} />
+                      <Bar dataKey="value" fill="hsl(var(--primary))" />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mt-10 rounded-3xl bg-primary/10 border border-primary/20 p-8 sm:p-10"
+            >
+              <p className="font-serif text-xl sm:text-2xl leading-relaxed text-primary">
+                Bij een geschatte bezettingsgraad van{" "}
+                <span className="font-bold">{Math.round(results.occupancy * 100)}%</span> staat naar
+                schatting <span className="font-bold">{fmtNum(results.unusedSqm, 0)} m²</span> van uw
+                kantoor structureel leeg. Dat komt overeen met een kost van ongeveer{" "}
+                <span className="font-bold">{fmtEuro(results.unusedCost)}</span> per jaar aan
+                onbenutte ruimte.
+              </p>
+            </motion.div>
+          </>
+        )}
       </section>
 
       {/* Contact form */}

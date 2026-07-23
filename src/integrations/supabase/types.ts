@@ -14,6 +14,69 @@ export type Database = {
   }
   public: {
     Tables: {
+      calculator_leads: {
+        Row: {
+          company: string
+          cost_per_employee: number | null
+          cost_per_year: number | null
+          created_at: string
+          days_per_week: number | null
+          email: string
+          employees: number | null
+          fitout: number | null
+          id: string
+          region: string | null
+          rent: number | null
+          services: number | null
+          surface: number | null
+          term: number | null
+          total_term: number | null
+          unused_cost: number | null
+          unused_sqm: number | null
+          utilities: number | null
+        }
+        Insert: {
+          company: string
+          cost_per_employee?: number | null
+          cost_per_year?: number | null
+          created_at?: string
+          days_per_week?: number | null
+          email: string
+          employees?: number | null
+          fitout?: number | null
+          id?: string
+          region?: string | null
+          rent?: number | null
+          services?: number | null
+          surface?: number | null
+          term?: number | null
+          total_term?: number | null
+          unused_cost?: number | null
+          unused_sqm?: number | null
+          utilities?: number | null
+        }
+        Update: {
+          company?: string
+          cost_per_employee?: number | null
+          cost_per_year?: number | null
+          created_at?: string
+          days_per_week?: number | null
+          email?: string
+          employees?: number | null
+          fitout?: number | null
+          id?: string
+          region?: string | null
+          rent?: number | null
+          services?: number | null
+          surface?: number | null
+          term?: number | null
+          total_term?: number | null
+          unused_cost?: number | null
+          unused_sqm?: number | null
+          utilities?: number | null
+        }
+        Relationships: []
+      }
       opportunity_scan_submissions: {
         Row: {
           company: string
