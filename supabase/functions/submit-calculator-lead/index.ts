@@ -109,7 +109,7 @@ Deno.serve(async (req) => {
               name: "(kostencalculator lead)",
               company: d.company,
               email: d.email,
-              phone: "-",
+              phone: d.phone ?? "-",
               topic: "Kostencalculator",
               message: summary,
             },
