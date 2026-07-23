@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import {
@@ -24,12 +23,12 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { CheckCircle2, Lock } from "lucide-react";
+import { CheckCircle2, Lock, Mail, CalendarClock } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
+import { useNavigate } from "react-router-dom";
 
 type Region = "brussel" | "gent-antwerpen" | "overige";
-type Topic = "growth" | "downsizing" | "lease" | "interventions" | "other";
 
 const OCCUPANCY_BY_DAYS: Record<number, number> = {
   1: 0.32,
@@ -64,7 +63,17 @@ const num = (v: string): number => {
 };
 
 const Kostencalculator = () => {
-  // Empty starts with placeholders
+  const navigate = useNavigate();
+
+  // Gate first
+  const [gateEmail, setGateEmail] = useState("");
+  const [gateCompany, setGateCompany] = useState("");
+  const [gatePhone, setGatePhone] = useState("");
+  const [gateSubmitting, setGateSubmitting] = useState(false);
+  const [gateUnlocked, setGateUnlocked] = useState(false);
+  const [leadId, setLeadId] = useState<string | null>(null);
+
+  // Calculator inputs
   const [employees, setEmployees] = useState("");
   const [surface, setSurface] = useState("");
   const [rent, setRent] = useState("");
@@ -75,24 +84,9 @@ const Kostencalculator = () => {
   const [term, setTerm] = useState("");
   const [daysPerWeek, setDaysPerWeek] = useState(3);
 
-  // Gate
-  const [gateEmail, setGateEmail] = useState("");
-  const [gateCompany, setGateCompany] = useState("");
-  const [gatePhone, setGatePhone] = useState("");
-  const [gateSubmitting, setGateSubmitting] = useState(false);
-  const [gateUnlocked, setGateUnlocked] = useState(false);
-  const [showGate, setShowGate] = useState(false);
-
-  const [form, setForm] = useState({
-    name: "",
-    company: "",
-    email: "",
-    phone: "",
-    topic: "" as Topic | "",
-    message: "",
-  });
-  const [submitting, setSubmitting] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const [emailActionDone, setEmailActionDone] = useState(false);
+  const [emailActionBusy, setEmailActionBusy] = useState(false);
+  const [planActionBusy, setPlanActionBusy] = useState(false);
 
   const results = useMemo(() => {
     const nEmp = num(employees);
@@ -155,42 +149,39 @@ const Kostencalculator = () => {
     { name: `${bench.label} hoog`, value: bench.high },
   ];
 
-  const baseFilled =
-    employees !== "" &&
-    surface !== "" &&
-    rent !== "" &&
-    utilities !== "" &&
-    services !== "" &&
-    fitout !== "" &&
-    term !== "";
+  const calcPayload = () => ({
+    employees: num(employees),
+    surface: num(surface),
+    rent: num(rent),
+    region,
+    utilities: num(utilities),
+    services: num(services),
+    fitout: num(fitout),
+    term: num(term),
+    days_per_week: daysPerWeek,
+    cost_per_year: results.costPerYear,
+    cost_per_employee: results.costPerEmployee,
+    total_term: results.totalTerm,
+    unused_sqm: results.unusedSqm,
+    unused_cost: results.unusedCost,
+  });
 
   const handleGateSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!gateEmail || !gateCompany) return;
     setGateSubmitting(true);
     try {
-      const { error } = await supabase.functions.invoke("submit-calculator-lead", {
+      const { data, error } = await supabase.functions.invoke("submit-calculator-lead", {
         body: {
+          mode: "gate",
           email: gateEmail.trim(),
           company: gateCompany.trim(),
           phone: gatePhone.trim() || null,
-          employees: num(employees),
-          surface: num(surface),
-          rent: num(rent),
-          region,
-          utilities: num(utilities),
-          services: num(services),
-          fitout: num(fitout),
-          term: num(term),
-          days_per_week: daysPerWeek,
-          cost_per_year: results.costPerYear,
-          cost_per_employee: results.costPerEmployee,
-          total_term: results.totalTerm,
-          unused_sqm: results.unusedSqm,
-          unused_cost: results.unusedCost,
+          ...calcPayload(),
         },
       });
       if (error) throw error;
+      setLeadId((data as { id?: string })?.id ?? null);
       setGateUnlocked(true);
     } catch (err) {
       console.error(err);
@@ -200,35 +191,44 @@ const Kostencalculator = () => {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.topic) return;
-    setSubmitting(true);
+  const invokeAction = async (action: "email_result" | "plan_scan") => {
+    if (!leadId) return;
+    const { error } = await supabase.functions.invoke("submit-calculator-lead", {
+      body: {
+        mode: "action",
+        id: leadId,
+        action,
+        ...calcPayload(),
+      },
+    });
+    if (error) throw error;
+  };
+
+  const handleEmailResult = async () => {
+    setEmailActionBusy(true);
     try {
-      const { error } = await supabase.functions.invoke("submit-opportunity-scan", {
-        body: {
-          name: form.name.trim(),
-          company: form.company.trim(),
-          email: form.email.trim(),
-          phone: form.phone.trim(),
-          topic: form.topic,
-          message:
-            (form.message ? form.message.trim() + "\n\n" : "") +
-            `[Kostencalculator resultaat]\n` +
-            `Medewerkers: ${employees}, Oppervlakte: ${surface} m², Regio: ${bench.label}\n` +
-            `Totaal over looptijd: ${fmtEuro(results.totalTerm)}\n` +
-            `Kost per jaar: ${fmtEuro(results.costPerYear)}\n` +
-            `Kost per medewerker/jaar: ${fmtEuro(results.costPerEmployee)}\n` +
-            `Onbenutte ruimte: ${fmtNum(results.unusedSqm, 0)} m² (${fmtEuro(results.unusedCost)}/jaar)`,
-        },
-      });
-      if (error) throw error;
-      setSuccess(true);
+      await invokeAction("email_result");
+      setEmailActionDone(true);
+      toast({ title: `Verzonden naar ${gateEmail}.` });
     } catch (err) {
       console.error(err);
       toast({ title: "Er ging iets mis. Probeer opnieuw.", variant: "destructive" });
     } finally {
-      setSubmitting(false);
+      setEmailActionBusy(false);
+    }
+  };
+
+  const handlePlanScan = async () => {
+    setPlanActionBusy(true);
+    try {
+      await invokeAction("plan_scan");
+      navigate("/opportunity-scan");
+    } catch (err) {
+      console.error(err);
+      // Navigate anyway so user can still book
+      navigate("/opportunity-scan");
+    } finally {
+      setPlanActionBusy(false);
     }
   };
 
@@ -254,125 +254,190 @@ const Kostencalculator = () => {
         </div>
       </section>
 
-      {/* Calculator */}
-      <section className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
-        <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
-          {/* Inputs */}
-          <div className="rounded-3xl border border-border bg-card p-8 shadow-sm">
-            <h2 className="font-serif text-2xl font-semibold text-primary mb-6">
-              Uw gegevens
-            </h2>
-            <div className="space-y-5">
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <Label>Aantal medewerkers</Label>
-                  <Input
-                    type="number"
-                    min={1}
-                    placeholder="bv. 30"
-                    value={employees}
-                    onChange={(e) => setEmployees(e.target.value)}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>Kantooroppervlakte (m²)</Label>
-                  <Input
-                    type="number"
-                    min={0}
-                    placeholder="bv. 450"
-                    value={surface}
-                    onChange={(e) => setSurface(e.target.value)}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>Maandelijkse huur (€)</Label>
-                  <Input
-                    type="number"
-                    min={0}
-                    placeholder="bv. 8000"
-                    value={rent}
-                    onChange={(e) => setRent(e.target.value)}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>Regio</Label>
-                  <Select value={region} onValueChange={(v) => setRegion(v as Region)}>
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="brussel">Brussel</SelectItem>
-                      <SelectItem value="gent-antwerpen">Gent/Antwerpen</SelectItem>
-                      <SelectItem value="overige">Overige regio</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div className="space-y-2">
-                  <Label>Maandelijkse nutsvoorzieningen (€)</Label>
-                  <Input
-                    type="number"
-                    min={0}
-                    placeholder="bv. 900"
-                    value={utilities}
-                    onChange={(e) => setUtilities(e.target.value)}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>Maandelijkse diensten (€)</Label>
-                  <Input
-                    type="number"
-                    min={0}
-                    placeholder="bv. 1200"
-                    value={services}
-                    onChange={(e) => setServices(e.target.value)}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>Eenmalige inrichtingskost (€)</Label>
-                  <Input
-                    type="number"
-                    min={0}
-                    placeholder="bv. 100000"
-                    value={fitout}
-                    onChange={(e) => setFitout(e.target.value)}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>Looptijd huurcontract (jaren)</Label>
-                  <Input
-                    type="number"
-                    min={1}
-                    max={15}
-                    placeholder="bv. 9"
-                    value={term}
-                    onChange={(e) => setTerm(e.target.value)}
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-3 pt-2">
-                <div className="flex justify-between">
-                  <Label>Gemiddeld aantal kantoordagen per medewerker per week</Label>
-                  <span className="text-sm font-semibold text-primary">{daysPerWeek}</span>
-                </div>
-                <Slider
-                  min={1}
-                  max={5}
-                  step={1}
-                  value={[daysPerWeek]}
-                  onValueChange={(v) => setDaysPerWeek(v[0])}
-                />
-                <div className="flex justify-between text-xs text-foreground/50">
-                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-                </div>
-              </div>
+      {!gateUnlocked ? (
+        /* Gate first */
+        <section className="mx-auto max-w-xl px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="rounded-3xl border border-border bg-card p-8 sm:p-10 shadow-sm"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <Lock size={20} className="text-primary" />
+              <span className="text-xs uppercase tracking-wider text-foreground/50">
+                Toegang tot de calculator
+              </span>
             </div>
-          </div>
+            <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-primary leading-tight">
+              Vul uw gegevens in om de calculator te starten.
+            </h2>
+            <form onSubmit={handleGateSubmit} className="mt-6 space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="gate-email">E-mailadres</Label>
+                <Input
+                  id="gate-email"
+                  type="email"
+                  required
+                  maxLength={320}
+                  value={gateEmail}
+                  onChange={(e) => setGateEmail(e.target.value)}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="gate-company">Bedrijfsnaam</Label>
+                <Input
+                  id="gate-company"
+                  required
+                  maxLength={200}
+                  value={gateCompany}
+                  onChange={(e) => setGateCompany(e.target.value)}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="gate-phone">Telefoonnummer (optioneel)</Label>
+                <Input
+                  id="gate-phone"
+                  type="tel"
+                  maxLength={50}
+                  value={gatePhone}
+                  onChange={(e) => setGatePhone(e.target.value)}
+                />
+              </div>
+              <p className="text-[12px] leading-relaxed text-foreground/50">
+                Uw gegevens worden niet gedeeld met derden en enkel gebruikt om u dit resultaat te
+                tonen en, indien gewenst, contact op te nemen.
+              </p>
+              <Button
+                type="submit"
+                size="lg"
+                className="w-full"
+                disabled={gateSubmitting || !gateEmail || !gateCompany}
+              >
+                {gateSubmitting ? "Even geduld..." : "Start de calculator"}
+              </Button>
+            </form>
+          </motion.div>
+        </section>
+      ) : (
+        <>
+          {/* Calculator + live results */}
+          <section className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
+            <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
+              {/* Inputs */}
+              <div className="rounded-3xl border border-border bg-card p-8 shadow-sm">
+                <h2 className="font-serif text-2xl font-semibold text-primary mb-6">
+                  Uw gegevens
+                </h2>
+                <div className="space-y-5">
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div className="space-y-2">
+                      <Label>Aantal medewerkers</Label>
+                      <Input
+                        type="number"
+                        min={1}
+                        placeholder="bv. 30"
+                        value={employees}
+                        onChange={(e) => setEmployees(e.target.value)}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label>Kantooroppervlakte (m²)</Label>
+                      <Input
+                        type="number"
+                        min={0}
+                        placeholder="bv. 450"
+                        value={surface}
+                        onChange={(e) => setSurface(e.target.value)}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label>Maandelijkse huur (€)</Label>
+                      <Input
+                        type="number"
+                        min={0}
+                        placeholder="bv. 8000"
+                        value={rent}
+                        onChange={(e) => setRent(e.target.value)}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label>Regio</Label>
+                      <Select value={region} onValueChange={(v) => setRegion(v as Region)}>
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="brussel">Brussel</SelectItem>
+                          <SelectItem value="gent-antwerpen">Gent/Antwerpen</SelectItem>
+                          <SelectItem value="overige">Overige regio</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="space-y-2">
+                      <Label>Maandelijkse nutsvoorzieningen (€)</Label>
+                      <Input
+                        type="number"
+                        min={0}
+                        placeholder="bv. 900"
+                        value={utilities}
+                        onChange={(e) => setUtilities(e.target.value)}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label>Maandelijkse diensten (€)</Label>
+                      <Input
+                        type="number"
+                        min={0}
+                        placeholder="bv. 1200"
+                        value={services}
+                        onChange={(e) => setServices(e.target.value)}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label>Eenmalige inrichtingskost (€)</Label>
+                      <Input
+                        type="number"
+                        min={0}
+                        placeholder="bv. 100000"
+                        value={fitout}
+                        onChange={(e) => setFitout(e.target.value)}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label>Looptijd huurcontract (jaren)</Label>
+                      <Input
+                        type="number"
+                        min={1}
+                        max={15}
+                        placeholder="bv. 9"
+                        value={term}
+                        onChange={(e) => setTerm(e.target.value)}
+                      />
+                    </div>
+                  </div>
 
-          {/* Results / Gate */}
-          <div className="space-y-6">
-            {gateUnlocked ? (
-              <>
+                  <div className="space-y-3 pt-2">
+                    <div className="flex justify-between">
+                      <Label>Gemiddeld aantal kantoordagen per medewerker per week</Label>
+                      <span className="text-sm font-semibold text-primary">{daysPerWeek}</span>
+                    </div>
+                    <Slider
+                      min={1}
+                      max={5}
+                      step={1}
+                      value={[daysPerWeek]}
+                      onValueChange={(v) => setDaysPerWeek(v[0])}
+                    />
+                    <div className="flex justify-between text-xs text-foreground/50">
+                      <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Results — always visible */}
+              <div className="space-y-6">
                 <div className="grid grid-cols-2 gap-4">
                   {[
                     { label: "Totaal over looptijd", value: fmtEuro(results.totalTerm) },
@@ -414,112 +479,10 @@ const Kostencalculator = () => {
                     </ResponsiveContainer>
                   </div>
                 </div>
-              </>
-            ) : !showGate ? (
-              <div className="rounded-3xl border border-border bg-card p-8 shadow-sm flex flex-col justify-center min-h-[400px]">
-                <div className="flex items-center gap-3 mb-4">
-                  <Lock size={20} className="text-primary" />
-                  <span className="text-xs uppercase tracking-wider text-foreground/50">
-                    Uw resultaat
-                  </span>
-                </div>
-                <h3 className="font-serif text-2xl font-semibold text-primary leading-tight mb-3">
-                  Klaar om uw werkelijke kantoorkosten te zien?
-                </h3>
-                <p className="text-foreground/70 mb-6">
-                  Vul alle velden hiernaast in en bereken uw resultaat.
-                </p>
-                <Button
-                  size="lg"
-                  className="w-full"
-                  disabled={!baseFilled}
-                  onClick={() => setShowGate(true)}
-                >
-                  Bereken mijn resultaat
-                </Button>
-                {!baseFilled && (
-                  <p className="mt-3 text-xs text-center text-foreground/50">
-                    Vul eerst alle velden hiernaast in.
-                  </p>
-                )}
               </div>
-            ) : (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="rounded-3xl border border-border bg-card p-8 shadow-sm"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <Lock size={20} className="text-primary" />
-                  <span className="text-xs uppercase tracking-wider text-foreground/50">
-                    Laatste stap
-                  </span>
-                </div>
-                <h3 className="font-serif text-2xl font-semibold text-primary leading-tight">
-                  Vul uw gegevens in om uw resultaat te zien.
-                </h3>
-                <form onSubmit={handleGateSubmit} className="mt-6 space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="gate-email">E-mailadres</Label>
-                    <Input
-                      id="gate-email"
-                      type="email"
-                      required
-                      maxLength={320}
-                      value={gateEmail}
-                      onChange={(e) => setGateEmail(e.target.value)}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="gate-company">Bedrijfsnaam</Label>
-                    <Input
-                      id="gate-company"
-                      required
-                      maxLength={200}
-                      value={gateCompany}
-                      onChange={(e) => setGateCompany(e.target.value)}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="gate-phone">Telefoonnummer (optioneel)</Label>
-                    <Input
-                      id="gate-phone"
-                      type="tel"
-                      maxLength={50}
-                      value={gatePhone}
-                      onChange={(e) => setGatePhone(e.target.value)}
-                    />
-                  </div>
-                  <p className="text-[12px] leading-relaxed text-foreground/50">
-                    Uw gegevens worden niet gedeeld met derden en enkel gebruikt om u dit resultaat
-                    te tonen en, indien gewenst, contact op te nemen.
-                  </p>
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full"
-                    disabled={gateSubmitting || !gateEmail || !gateCompany}
-                  >
-                    {gateSubmitting ? "Even geduld..." : "Toon mijn resultaat"}
-                  </Button>
-                  <button
-                    type="button"
-                    onClick={() => setShowGate(false)}
-                    className="w-full text-xs text-foreground/50 hover:text-foreground/80"
-                  >
-                    Terug om gegevens aan te passen
-                  </button>
-                </form>
-              </motion.div>
-            )}
-          </div>
-        </div>
+            </div>
 
-
-        {/* Benchmarks + insight — gated */}
-        {gateUnlocked && (
-          <>
+            {/* Benchmarks */}
             <div className="mt-10 grid gap-6 lg:grid-cols-2">
               <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
                 <h3 className="font-serif text-lg font-semibold text-primary mb-1">
@@ -578,115 +541,73 @@ const Kostencalculator = () => {
                 onbenutte ruimte.
               </p>
             </motion.div>
-          </>
-        )}
-      </section>
+          </section>
 
-      {/* Contact form */}
-      <section className="bg-secondary/40 py-16 lg:py-20">
-        <div className="mx-auto max-w-3xl px-6 sm:px-8 lg:px-12">
-          <div className="text-center mb-8">
-            <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-primary">
-              Wilt u dit resultaat bespreken?
-            </h2>
-            <p className="mt-4 text-foreground/70">
-              Vraag een gratis Opportunity Scan aan. We nemen contact met u op binnen 48 uur.
-            </p>
-          </div>
+          {/* Lightweight follow-up actions */}
+          <section className="bg-secondary/40 py-16 lg:py-20">
+            <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12">
+              <div className="grid gap-6 md:grid-cols-2">
+                <div className="rounded-3xl border border-border bg-card p-8 shadow-sm flex flex-col">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Mail size={22} className="text-primary" />
+                    <span className="text-xs uppercase tracking-wider text-foreground/50">
+                      Per e-mail
+                    </span>
+                  </div>
+                  <h3 className="font-serif text-xl font-semibold text-primary leading-tight">
+                    Wilt u dit resultaat per e-mail ontvangen?
+                  </h3>
+                  <p className="mt-3 text-sm text-foreground/70">
+                    We sturen uw persoonlijke kostenoverzicht naar{" "}
+                    <span className="font-medium text-foreground/90">{gateEmail}</span>.
+                  </p>
+                  <div className="mt-auto pt-6">
+                    {emailActionDone ? (
+                      <div className="flex items-center gap-2 text-sm text-primary">
+                        <CheckCircle2 size={18} />
+                        Verzonden naar uw e-mail.
+                      </div>
+                    ) : (
+                      <Button
+                        onClick={handleEmailResult}
+                        disabled={emailActionBusy}
+                        className="w-full"
+                      >
+                        {emailActionBusy ? "Bezig..." : "Stuur naar mijn e-mail"}
+                      </Button>
+                    )}
+                  </div>
+                </div>
 
-          <div className="rounded-3xl border border-border bg-card p-8 shadow-lg sm:p-10">
-            {success ? (
-              <div className="flex flex-col items-center py-10 text-center">
-                <CheckCircle2 size={48} className="text-primary mb-4" />
-                <p className="text-lg text-foreground/90 max-w-md">
-                  Bedankt. We contacteren u binnen 48 uur voor een moment dat u past.
-                </p>
+                <div className="rounded-3xl border border-border bg-card p-8 shadow-sm flex flex-col">
+                  <div className="flex items-center gap-3 mb-4">
+                    <CalendarClock size={22} className="text-primary" />
+                    <span className="text-xs uppercase tracking-wider text-foreground/50">
+                      In gesprek
+                    </span>
+                  </div>
+                  <h3 className="font-serif text-xl font-semibold text-primary leading-tight">
+                    Wilt u dit in meer detail bespreken?
+                  </h3>
+                  <p className="mt-3 text-sm text-foreground/70">
+                    Plan een gratis Opportunity Scan van 30 minuten. We nemen uw resultaat mee.
+                  </p>
+                  <div className="mt-auto pt-6">
+                    <Button
+                      onClick={handlePlanScan}
+                      disabled={planActionBusy}
+                      variant="outline"
+                      className="w-full"
+                    >
+                      {planActionBusy ? "Bezig..." : "Plan een Opportunity Scan"}
+                    </Button>
+                  </div>
+                </div>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <div className="space-y-2">
-                    <Label htmlFor="k-name">Naam</Label>
-                    <Input
-                      id="k-name"
-                      required
-                      maxLength={200}
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="k-company">Bedrijfsnaam</Label>
-                    <Input
-                      id="k-company"
-                      required
-                      maxLength={200}
-                      value={form.company}
-                      onChange={(e) => setForm({ ...form, company: e.target.value })}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="k-email">E-mailadres</Label>
-                    <Input
-                      id="k-email"
-                      type="email"
-                      required
-                      maxLength={320}
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="k-phone">Telefoonnummer</Label>
-                    <Input
-                      id="k-phone"
-                      type="tel"
-                      required
-                      maxLength={50}
-                      value={form.phone}
-                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="k-topic">Welke dienst?</Label>
-                  <Select
-                    value={form.topic}
-                    onValueChange={(v) => setForm({ ...form, topic: v as Topic })}
-                  >
-                    <SelectTrigger id="k-topic">
-                      <SelectValue placeholder="Selecteer een onderwerp" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="growth">Groeistrategieën</SelectItem>
-                      <SelectItem value="downsizing">Ruimtereductie</SelectItem>
-                      <SelectItem value="lease">Leasemanagement</SelectItem>
-                      <SelectItem value="interventions">Kleine interventies</SelectItem>
-                      <SelectItem value="other">Iets anders</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="k-message">Toelichting (optioneel)</Label>
-                  <Textarea
-                    id="k-message"
-                    rows={4}
-                    maxLength={2000}
-                    value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  />
-                </div>
-
-                <Button type="submit" size="lg" className="w-full" disabled={submitting || !form.topic}>
-                  {submitting ? "Bezig met verzenden..." : "Vraag Opportunity Scan aan"}
-                </Button>
-              </form>
-            )}
-          </div>
-        </div>
-      </section>
+            </div>
+          </section>
+        </>
+      )}
 
       <Footer />
     </div>
