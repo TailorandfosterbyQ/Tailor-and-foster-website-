@@ -10,6 +10,7 @@ const NOTIFY_RECIPIENTS = [
 const BodySchema = z.object({
   email: z.string().trim().email().max(320),
   company: z.string().trim().min(1).max(200),
+  phone: z.string().trim().max(50).optional().nullable(),
   employees: z.number().int().nonnegative().optional().nullable(),
   surface: z.number().nonnegative().optional().nullable(),
   rent: z.number().nonnegative().optional().nullable(),
