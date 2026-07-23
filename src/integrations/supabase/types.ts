@@ -16,6 +16,7 @@ export type Database = {
     Tables: {
       calculator_leads: {
         Row: {
+          action_taken: string | null
           company: string
           cost_per_employee: number | null
           cost_per_year: number | null
@@ -37,6 +38,7 @@ export type Database = {
           utilities: number | null
         }
         Insert: {
+          action_taken?: string | null
           company: string
           cost_per_employee?: number | null
           cost_per_year?: number | null
@@ -58,6 +60,7 @@ export type Database = {
           utilities?: number | null
         }
         Update: {
+          action_taken?: string | null
           company?: string
           cost_per_employee?: number | null
           cost_per_year?: number | null

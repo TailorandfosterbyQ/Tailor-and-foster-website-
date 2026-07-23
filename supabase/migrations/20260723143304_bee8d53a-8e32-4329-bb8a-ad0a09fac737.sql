@@ -1,0 +1,1 @@
+ALTER TABLE public.calculator_leads ADD COLUMN IF NOT EXISTS action_taken text;
