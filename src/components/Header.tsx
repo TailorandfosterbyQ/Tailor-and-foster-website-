@@ -159,6 +159,16 @@ const Header = () => {
             )}
           </div>
           <Link
+            to="/kostencalculator"
+            className={`font-logo tracking-[0.15em] uppercase font-semibold transition-colors duration-300 text-[11px] ${
+              location.pathname === '/kostencalculator'
+                ? 'text-primary'
+                : 'text-primary/60 hover:text-primary'
+            }`}
+          >
+            Kostencalculator
+          </Link>
+          <Link
             to="/opportunity-scan"
             className="ml-4 border border-primary/80 rounded-full font-logo font-semibold tracking-[0.12em] uppercase text-primary px-4 py-2 hover:bg-primary hover:text-white transition-colors duration-300 text-[10px] whitespace-nowrap"
           >
@@ -253,6 +263,13 @@ const Header = () => {
               </Link>
             ))}
           </div>
+          <Link
+            to="/kostencalculator"
+            onClick={() => setMobileOpen(false)}
+            className="block py-3 font-logo text-sm tracking-[0.15em] uppercase font-semibold text-primary/70 hover:text-primary"
+          >
+            Kostencalculator
+          </Link>
           <Link
             to="/opportunity-scan"
             onClick={() => setMobileOpen(false)}
