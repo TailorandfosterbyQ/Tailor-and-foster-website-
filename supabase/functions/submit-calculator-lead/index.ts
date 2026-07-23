@@ -52,6 +52,7 @@ Deno.serve(async (req) => {
       .insert({
         email: d.email,
         company: d.company,
+        phone: d.phone ?? null,
         employees: d.employees ?? null,
         surface: d.surface ?? null,
         rent: d.rent ?? null,
