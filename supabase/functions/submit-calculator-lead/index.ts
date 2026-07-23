@@ -7,10 +7,7 @@ const NOTIFY_RECIPIENTS = [
   "Bernard.decort@tailorandfoster.com",
 ];
 
-const BodySchema = z.object({
-  email: z.string().trim().email().max(320),
-  company: z.string().trim().min(1).max(200),
-  phone: z.string().trim().max(50).optional().nullable(),
+const CalcSchema = z.object({
   employees: z.number().int().nonnegative().optional().nullable(),
   surface: z.number().nonnegative().optional().nullable(),
   rent: z.number().nonnegative().optional().nullable(),
@@ -27,6 +24,45 @@ const BodySchema = z.object({
   unused_cost: z.number().optional().nullable(),
 });
 
+const GateBody = CalcSchema.extend({
+  mode: z.literal("gate"),
+  email: z.string().trim().email().max(320),
+  company: z.string().trim().min(1).max(200),
+  phone: z.string().trim().max(50).optional().nullable(),
+});
+
+const ActionBody = CalcSchema.extend({
+  mode: z.literal("action"),
+  id: z.string().uuid(),
+  action: z.enum(["email_result", "plan_scan"]),
+});
+
+const BodySchema = z.discriminatedUnion("mode", [GateBody, ActionBody]);
+
+const fmt = (n: number | null | undefined) =>
+  n === null || n === undefined ? "-" : Math.round(n).toString();
+
+function summary(d: z.infer<typeof CalcSchema> & { company?: string; email?: string; phone?: string | null }) {
+  return (
+    `Bedrijf: ${d.company ?? "-"}\n` +
+    `E-mail: ${d.email ?? "-"}\n` +
+    `Telefoon: ${d.phone ?? "-"}\n\n` +
+    `Medewerkers: ${d.employees ?? "-"}\n` +
+    `Oppervlakte: ${d.surface ?? "-"} m²\n` +
+    `Regio: ${d.region ?? "-"}\n` +
+    `Maandhuur: €${d.rent ?? "-"}\n` +
+    `Nutsvoorzieningen: €${d.utilities ?? "-"}\n` +
+    `Diensten: €${d.services ?? "-"}\n` +
+    `Inrichtingskost: €${d.fitout ?? "-"}\n` +
+    `Looptijd: ${d.term ?? "-"} jaar\n` +
+    `Kantoordagen/week: ${d.days_per_week ?? "-"}\n\n` +
+    `Kost/jaar: €${fmt(d.cost_per_year)}\n` +
+    `Kost/medewerker/jaar: €${fmt(d.cost_per_employee)}\n` +
+    `Totaal over looptijd: €${fmt(d.total_term)}\n` +
+    `Onbenutte ruimte: ${fmt(d.unused_sqm)} m² (€${fmt(d.unused_cost)}/jaar)`
+  );
+}
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
@@ -36,95 +72,171 @@ Deno.serve(async (req) => {
     const parsed = BodySchema.safeParse(await req.json());
     if (!parsed.success) {
       return new Response(
-        JSON.stringify({ error: parsed.error.flatten().fieldErrors }),
+        JSON.stringify({ error: parsed.error.flatten() }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } },
       );
     }
-    const d = parsed.data;
+    const body = parsed.data;
 
     const supabase = createClient(
       Deno.env.get("SUPABASE_URL")!,
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
     );
 
-    const { data: inserted, error: insertError } = await supabase
+    if (body.mode === "gate") {
+      const { data: inserted, error } = await supabase
+        .from("calculator_leads")
+        .insert({
+          email: body.email,
+          company: body.company,
+          phone: body.phone ?? null,
+          employees: body.employees ?? null,
+          surface: body.surface ?? null,
+          rent: body.rent ?? null,
+          region: body.region ?? null,
+          utilities: body.utilities ?? null,
+          services: body.services ?? null,
+          fitout: body.fitout ?? null,
+          term: body.term ?? null,
+          days_per_week: body.days_per_week ?? null,
+          cost_per_year: body.cost_per_year ?? null,
+          cost_per_employee: body.cost_per_employee ?? null,
+          total_term: body.total_term ?? null,
+          unused_sqm: body.unused_sqm ?? null,
+          unused_cost: body.unused_cost ?? null,
+        })
+        .select("id")
+        .single();
+
+      if (error) {
+        console.error("Insert failed:", error);
+        return new Response(
+          JSON.stringify({ error: "Kon lead niet opslaan." }),
+          { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } },
+        );
+      }
+
+      const msg =
+        `Nieuwe kostencalculator-lead (gate gepasseerd)\n\n` +
+        summary({ ...body });
+
+      await Promise.allSettled(
+        NOTIFY_RECIPIENTS.map((recipient) =>
+          supabase.functions.invoke("send-transactional-email", {
+            body: {
+              templateName: "opportunity-scan-notification",
+              recipientEmail: recipient,
+              idempotencyKey: `calc-gate-${inserted.id}-${recipient}`,
+              templateData: {
+                name: "(kostencalculator gate)",
+                company: body.company,
+                email: body.email,
+                phone: body.phone ?? "-",
+                topic: "Kostencalculator — gate",
+                message: msg,
+              },
+            },
+          }),
+        ),
+      );
+
+      return new Response(JSON.stringify({ ok: true, id: inserted.id }), {
+        status: 200,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    // action mode
+    const { data: updated, error: updateError } = await supabase
       .from("calculator_leads")
-      .insert({
-        email: d.email,
-        company: d.company,
-        phone: d.phone ?? null,
-        employees: d.employees ?? null,
-        surface: d.surface ?? null,
-        rent: d.rent ?? null,
-        region: d.region ?? null,
-        utilities: d.utilities ?? null,
-        services: d.services ?? null,
-        fitout: d.fitout ?? null,
-        term: d.term ?? null,
-        days_per_week: d.days_per_week ?? null,
-        cost_per_year: d.cost_per_year ?? null,
-        cost_per_employee: d.cost_per_employee ?? null,
-        total_term: d.total_term ?? null,
-        unused_sqm: d.unused_sqm ?? null,
-        unused_cost: d.unused_cost ?? null,
+      .update({
+        employees: body.employees ?? null,
+        surface: body.surface ?? null,
+        rent: body.rent ?? null,
+        region: body.region ?? null,
+        utilities: body.utilities ?? null,
+        services: body.services ?? null,
+        fitout: body.fitout ?? null,
+        term: body.term ?? null,
+        days_per_week: body.days_per_week ?? null,
+        cost_per_year: body.cost_per_year ?? null,
+        cost_per_employee: body.cost_per_employee ?? null,
+        total_term: body.total_term ?? null,
+        unused_sqm: body.unused_sqm ?? null,
+        unused_cost: body.unused_cost ?? null,
+        action_taken: body.action,
       })
-      .select("id")
+      .eq("id", body.id)
+      .select("id, email, company, phone")
       .single();
 
-    if (insertError) {
-      console.error("Insert failed:", insertError);
+    if (updateError || !updated) {
+      console.error("Update failed:", updateError);
       return new Response(
-        JSON.stringify({ error: "Kon lead niet opslaan." }),
+        JSON.stringify({ error: "Kon lead niet updaten." }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } },
       );
     }
 
-    const summary =
-      `Nieuwe kostencalculator-lead\n\n` +
-      `Bedrijf: ${d.company}\n` +
-      `E-mail: ${d.email}\n` +
-      `Telefoon: ${d.phone ?? "-"}\n\n` +
-      `Medewerkers: ${d.employees ?? "-"}\n` +
-      `Oppervlakte: ${d.surface ?? "-"} m²\n` +
-      `Regio: ${d.region ?? "-"}\n` +
-      `Maandhuur: €${d.rent ?? "-"}\n` +
-      `Nutsvoorzieningen: €${d.utilities ?? "-"}\n` +
-      `Diensten: €${d.services ?? "-"}\n` +
-      `Inrichtingskost: €${d.fitout ?? "-"}\n` +
-      `Looptijd: ${d.term ?? "-"} jaar\n` +
-      `Kantoordagen/week: ${d.days_per_week ?? "-"}\n\n` +
-      `Kost/jaar: €${Math.round(d.cost_per_year ?? 0)}\n` +
-      `Kost/medewerker/jaar: €${Math.round(d.cost_per_employee ?? 0)}\n` +
-      `Totaal over looptijd: €${Math.round(d.total_term ?? 0)}\n` +
-      `Onbenutte ruimte: ${Math.round(d.unused_sqm ?? 0)} m² (€${Math.round(d.unused_cost ?? 0)}/jaar)`;
+    const actionLabel =
+      body.action === "email_result" ? "vroeg resultaat per e-mail" : "vraagt Opportunity Scan aan";
 
-    const emailResults = await Promise.allSettled(
-      NOTIFY_RECIPIENTS.map((recipient) =>
+    const notify =
+      `Kostencalculator vervolgactie: ${actionLabel}\n\n` +
+      summary({
+        ...body,
+        company: updated.company,
+        email: updated.email,
+        phone: updated.phone,
+      });
+
+    const tasks: Promise<unknown>[] = NOTIFY_RECIPIENTS.map((recipient) =>
+      supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "opportunity-scan-notification",
+          recipientEmail: recipient,
+          idempotencyKey: `calc-action-${body.action}-${updated.id}-${recipient}`,
+          templateData: {
+            name: "(kostencalculator vervolg)",
+            company: updated.company,
+            email: updated.email,
+            phone: updated.phone ?? "-",
+            topic: `Kostencalculator — ${actionLabel}`,
+            message: notify,
+          },
+        },
+      }),
+    );
+
+    // If the user asked for the result by email, also send it to them.
+    if (body.action === "email_result" && updated.email) {
+      tasks.push(
         supabase.functions.invoke("send-transactional-email", {
           body: {
             templateName: "opportunity-scan-notification",
-            recipientEmail: recipient,
-            idempotencyKey: `calc-lead-${inserted.id}-${recipient}`,
+            recipientEmail: updated.email,
+            idempotencyKey: `calc-result-${updated.id}`,
             templateData: {
-              name: "(kostencalculator lead)",
-              company: d.company,
-              email: d.email,
-              phone: d.phone ?? "-",
-              topic: "Kostencalculator",
-              message: summary,
+              name: updated.company,
+              company: updated.company,
+              email: updated.email,
+              phone: updated.phone ?? "-",
+              topic: "Uw kostencalculator resultaat",
+              message:
+                `Bedankt voor uw interesse. Hieronder uw persoonlijke kostenoverzicht:\n\n` +
+                summary({
+                  ...body,
+                  company: updated.company,
+                  email: updated.email,
+                  phone: updated.phone,
+                }),
             },
           },
         }),
-      ),
-    );
+      );
+    }
 
-    emailResults.forEach((r, i) => {
-      if (r.status === "rejected") {
-        console.warn(`Email notify failed for ${NOTIFY_RECIPIENTS[i]}:`, r.reason);
-      } else if ((r.value as { error?: unknown }).error) {
-        console.warn(`Email notify error for ${NOTIFY_RECIPIENTS[i]}:`, (r.value as { error?: unknown }).error);
-      }
-    });
+    await Promise.allSettled(tasks);
 
     return new Response(JSON.stringify({ ok: true }), {
       status: 200,
