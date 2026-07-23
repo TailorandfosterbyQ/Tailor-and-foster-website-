@@ -10,6 +10,7 @@ import Services from "./pages/Services.tsx";
 import ServicesOverview from "./pages/ServicesOverview.tsx";
 import OpportunityScan from "./pages/OpportunityScan.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
