@@ -5,6 +5,7 @@ import WhatWeDoSection from "@/components/WhatWeDoSection";
 import USPsSection from "@/components/USPsSection";
 import OfferSection from "@/components/OfferSection";
 import SocialProofSection from "@/components/SocialProofSection";
+import CostCalculatorTile from "@/components/CostCalculatorTile";
 import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
 
@@ -18,6 +19,7 @@ const Index = () => {
       <USPsSection />
       <OfferSection />
       <SocialProofSection />
+      <CostCalculatorTile />
       <FinalCTASection />
       <Footer />
     </div>
