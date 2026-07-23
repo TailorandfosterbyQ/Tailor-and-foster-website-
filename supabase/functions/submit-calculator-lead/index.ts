@@ -10,6 +10,7 @@ const NOTIFY_RECIPIENTS = [
 const BodySchema = z.object({
   email: z.string().trim().email().max(320),
   company: z.string().trim().min(1).max(200),
+  phone: z.string().trim().max(50).optional().nullable(),
   employees: z.number().int().nonnegative().optional().nullable(),
   surface: z.number().nonnegative().optional().nullable(),
   rent: z.number().nonnegative().optional().nullable(),
@@ -51,6 +52,7 @@ Deno.serve(async (req) => {
       .insert({
         email: d.email,
         company: d.company,
+        phone: d.phone ?? null,
         employees: d.employees ?? null,
         surface: d.surface ?? null,
         rent: d.rent ?? null,
@@ -80,7 +82,8 @@ Deno.serve(async (req) => {
     const summary =
       `Nieuwe kostencalculator-lead\n\n` +
       `Bedrijf: ${d.company}\n` +
-      `E-mail: ${d.email}\n\n` +
+      `E-mail: ${d.email}\n` +
+      `Telefoon: ${d.phone ?? "-"}\n\n` +
       `Medewerkers: ${d.employees ?? "-"}\n` +
       `Oppervlakte: ${d.surface ?? "-"} m²\n` +
       `Regio: ${d.region ?? "-"}\n` +
@@ -106,7 +109,7 @@ Deno.serve(async (req) => {
               name: "(kostencalculator lead)",
               company: d.company,
               email: d.email,
-              phone: "-",
+              phone: d.phone ?? "-",
               topic: "Kostencalculator",
               message: summary,
             },

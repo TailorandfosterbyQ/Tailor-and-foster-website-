@@ -25,6 +25,7 @@ export type Database = {
           employees: number | null
           fitout: number | null
           id: string
+          phone: string | null
           region: string | null
           rent: number | null
           services: number | null
@@ -45,6 +46,7 @@ export type Database = {
           employees?: number | null
           fitout?: number | null
           id?: string
+          phone?: string | null
           region?: string | null
           rent?: number | null
           services?: number | null
@@ -65,6 +67,7 @@ export type Database = {
           employees?: number | null
           fitout?: number | null
           id?: string
+          phone?: string | null
           region?: string | null
           rent?: number | null
           services?: number | null
