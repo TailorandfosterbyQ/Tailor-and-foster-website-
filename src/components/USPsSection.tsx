@@ -1,4 +1,4 @@
-import { Shield, Clock, Knight, DollarSign } from 'lucide-react';
+import { Shield, Clock, ChessKnight, DollarSign } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/i18n/LanguageContext';
 
