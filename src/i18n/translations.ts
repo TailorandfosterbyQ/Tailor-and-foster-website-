@@ -279,6 +279,20 @@ export const translations: Record<Language, Record<string, string>> = {
     "whatwedo.p1": "De werkplek bepaalt hoe mensen presteren, hoe cultuur wordt beleefd en hoe organisaties groeien.",
     "whatwedo.p2": "Bij Tailor & Foster definiëren en realiseren we werkomgevingen die dat versterken, van strategie tot uitvoering.",
 
+    // How we work
+    "howwework.label": "Hoe we werken",
+    "howwework.title": "Van eerste inzicht tot dagelijks gebruik.",
+    "howwework.analysis.title": "Analyse",
+    "howwework.analysis.text": "Samen met u brengen we uw huidige werkplek en vastgoedsituatie in kaart.",
+    "howwework.strategy.title": "Strategie",
+    "howwework.strategy.text": "We bepalen hoe locatie en gebouw bijdragen aan uw bedrijf — aan uw naam, uw identiteit, uw positie op de markt. Daaruit volgt de koers: huidig gebouw, of nieuw gebouw.",
+    "howwework.design.title": "Ontwerp",
+    "howwework.design.text": "We vertalen die strategie naar een werkplek waarin uw cultuur naar boven komt, en die het werk van uw mensen ondersteunt.",
+    "howwework.execution.title": "Uitvoering",
+    "howwework.execution.text": "We zoeken, vergelijken en coördineren de juiste aannemers en leveranciers, begeleiden de verhuis, en bewaken elk detail tot de oplevering.",
+    "howwework.aftercare.title": "Nazorg",
+    "howwework.aftercare.text": "Ook na de oplevering blijven we betrokken bij uw werkplek en vastgoedsituatie.",
+
     // USPs
     "usps.label": "Waarom wij",
     "usps.title": "Wat ons onderscheidt",
