@@ -52,8 +52,8 @@ export const translations: Record<Language, Record<string, string>> = {
     "usps.independent.text": "No commissions, no supplier fees. Every recommendation is yours alone to benefit from.",
     "usps.disruption.title": "Minimal disruption",
     "usps.disruption.text": "We run the project so it takes as little time as possible away from your core business.",
-    "usps.senior.title": "Senior guidance",
-    "usps.senior.text": "One senior point of contact, from kick-off to delivery.",
+    "usps.strategyExecution.title": "Strategy & execution",
+    "usps.strategyExecution.text": "We think strategically from your first question, and execute ourselves through to after delivery.",
     "usps.financial.title": "Financial return",
     "usps.financial.text": "We manage your budget with full transparency, always with the lowest total cost in mind.",
 
