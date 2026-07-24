@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion';
-import { Search, Target, Pencil, Wrench, Headset } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Search, Target, Pencil, Wrench, Headset, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 
 const steps = [
@@ -12,6 +13,11 @@ const steps = [
 
 const HowWeWorkSection = () => {
   const { t } = useLanguage();
+  const [openKey, setOpenKey] = useState<string | null>(null);
+
+  const toggle = (key: string) => {
+    setOpenKey((prev) => (prev === key ? null : key));
+  };
 
   return (
     <section id="howwework" className="bg-background py-24 lg:py-32 overflow-hidden">
@@ -37,6 +43,7 @@ const HowWeWorkSection = () => {
           <div className="grid grid-cols-5 gap-8">
             {steps.map((step, i) => {
               const Icon = step.icon;
+              const isOpen = openKey === step.key;
               return (
                 <motion.div
                   key={step.key}
@@ -51,17 +58,48 @@ const HowWeWorkSection = () => {
                       <Icon size={24} />
                     </div>
                   </div>
-                  <div className="mt-6">
-                    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-primary/60">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <h3 className="mt-2 text-lg font-semibold tracking-tight text-foreground font-serif">
-                      {t(`howwework.${step.key}.title`)}
-                    </h3>
+                  <button
+                    type="button"
+                    onClick={() => toggle(step.key)}
+                    className="mt-6 w-full group cursor-pointer text-left"
+                    aria-expanded={isOpen}
+                  >
+                    <div className="flex items-center justify-center gap-2">
+                      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-primary/60">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                    </div>
+                    <div className="mt-2 flex items-center justify-center gap-2">
+                      <h3 className="text-lg font-semibold tracking-tight text-foreground font-serif">
+                        {t(`howwework.${step.key}.title`)}
+                      </h3>
+                      <motion.div
+                        animate={{ rotate: isOpen ? 180 : 0 }}
+                        transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                        className="text-primary/70 group-hover:text-primary"
+                      >
+                        <ChevronDown size={16} strokeWidth={2.5} />
+                      </motion.div>
+                    </div>
                     <p className="mt-3 text-sm leading-6 text-muted-foreground">
                       {t(`howwework.${step.key}.text`)}
                     </p>
-                  </div>
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                          className="overflow-hidden"
+                        >
+                          <p className="mt-3 text-sm leading-6 text-primary/80">
+                            {t(`howwework.${step.key}.expand`)}
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </button>
                 </motion.div>
               );
             })}
@@ -74,6 +112,7 @@ const HowWeWorkSection = () => {
           <div className="space-y-8">
             {steps.map((step, i) => {
               const Icon = step.icon;
+              const isOpen = openKey === step.key;
               return (
                 <motion.div
                   key={step.key}
@@ -88,17 +127,46 @@ const HowWeWorkSection = () => {
                       <Icon size={20} />
                     </div>
                   </div>
-                  <div className="pt-1">
+                  <button
+                    type="button"
+                    onClick={() => toggle(step.key)}
+                    className="flex-1 text-left group cursor-pointer"
+                    aria-expanded={isOpen}
+                  >
                     <span className="text-xs font-semibold uppercase tracking-[0.18em] text-primary/60">
                       {String(i + 1).padStart(2, '0')}
                     </span>
-                    <h3 className="mt-1 text-lg font-semibold tracking-tight text-foreground font-serif">
-                      {t(`howwework.${step.key}.title`)}
-                    </h3>
+                    <div className="mt-1 flex items-center gap-2">
+                      <h3 className="text-lg font-semibold tracking-tight text-foreground font-serif">
+                        {t(`howwework.${step.key}.title`)}
+                      </h3>
+                      <motion.div
+                        animate={{ rotate: isOpen ? 180 : 0 }}
+                        transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                        className="text-primary/70 group-hover:text-primary"
+                      >
+                        <ChevronDown size={16} strokeWidth={2.5} />
+                      </motion.div>
+                    </div>
                     <p className="mt-2 text-sm leading-6 text-muted-foreground">
                       {t(`howwework.${step.key}.text`)}
                     </p>
-                  </div>
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                          className="overflow-hidden"
+                        >
+                          <p className="mt-3 text-sm leading-6 text-primary/80">
+                            {t(`howwework.${step.key}.expand`)}
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </button>
                 </motion.div>
               );
             })}
