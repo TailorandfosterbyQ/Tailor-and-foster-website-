@@ -85,9 +85,10 @@ const Kostencalculator = () => {
   const [term, setTerm] = useState("");
   const [daysPerWeek, setDaysPerWeek] = useState(3);
 
-  const [emailActionDone, setEmailActionDone] = useState(false);
-  const [emailActionBusy, setEmailActionBusy] = useState(false);
-  const [planActionBusy, setPlanActionBusy] = useState(false);
+  const [wantsEmail, setWantsEmail] = useState(false);
+  const [wantsScan, setWantsScan] = useState(false);
+  const [confirmBusy, setConfirmBusy] = useState(false);
+  const [confirmDone, setConfirmDone] = useState(false);
 
   const results = useMemo(() => {
     const nEmp = num(employees);
