@@ -23,7 +23,8 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { CheckCircle2, Lock, Mail, CalendarClock } from "lucide-react";
+import { CheckCircle2, Lock, ListChecks } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
@@ -84,9 +85,10 @@ const Kostencalculator = () => {
   const [term, setTerm] = useState("");
   const [daysPerWeek, setDaysPerWeek] = useState(3);
 
-  const [emailActionDone, setEmailActionDone] = useState(false);
-  const [emailActionBusy, setEmailActionBusy] = useState(false);
-  const [planActionBusy, setPlanActionBusy] = useState(false);
+  const [wantsEmail, setWantsEmail] = useState(false);
+  const [wantsScan, setWantsScan] = useState(false);
+  const [confirmBusy, setConfirmBusy] = useState(false);
+  const [confirmDone, setConfirmDone] = useState(false);
 
   const results = useMemo(() => {
     const nEmp = num(employees);
@@ -191,44 +193,34 @@ const Kostencalculator = () => {
     }
   };
 
-  const invokeAction = async (action: "email_result" | "plan_scan") => {
+  const handleConfirm = async () => {
     if (!leadId) return;
-    const { error } = await supabase.functions.invoke("submit-calculator-lead", {
-      body: {
-        mode: "action",
-        id: leadId,
-        action,
-        ...calcPayload(),
-      },
-    });
-    if (error) throw error;
-  };
-
-  const handleEmailResult = async () => {
-    setEmailActionBusy(true);
+    setConfirmBusy(true);
     try {
-      await invokeAction("email_result");
-      setEmailActionDone(true);
-      toast({ title: `Verzonden naar ${gateEmail}.` });
+      const { error } = await supabase.functions.invoke("submit-calculator-lead", {
+        body: {
+          mode: "confirm",
+          id: leadId,
+          wants_email: wantsEmail,
+          wants_scan: wantsScan,
+          ...calcPayload(),
+        },
+      });
+      if (error) throw error;
+      setConfirmDone(true);
+      if (wantsEmail) {
+        toast({ title: `Verzonden naar ${gateEmail}.` });
+      } else {
+        toast({ title: "Bevestigd. Bedankt." });
+      }
+      if (wantsScan) {
+        setTimeout(() => navigate("/opportunity-scan"), 800);
+      }
     } catch (err) {
       console.error(err);
       toast({ title: "Er ging iets mis. Probeer opnieuw.", variant: "destructive" });
     } finally {
-      setEmailActionBusy(false);
-    }
-  };
-
-  const handlePlanScan = async () => {
-    setPlanActionBusy(true);
-    try {
-      await invokeAction("plan_scan");
-      navigate("/opportunity-scan");
-    } catch (err) {
-      console.error(err);
-      // Navigate anyway so user can still book
-      navigate("/opportunity-scan");
-    } finally {
-      setPlanActionBusy(false);
+      setConfirmBusy(false);
     }
   };
 
@@ -543,69 +535,78 @@ const Kostencalculator = () => {
             </motion.div>
           </section>
 
-          {/* Lightweight follow-up actions */}
+          {/* Combined follow-up action */}
           <section className="bg-secondary/40 py-16 lg:py-20">
-            <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12">
-              <div className="grid gap-6 md:grid-cols-2">
-                <div className="rounded-3xl border border-border bg-card p-8 shadow-sm flex flex-col">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Mail size={22} className="text-primary" />
-                    <span className="text-xs uppercase tracking-wider text-foreground/50">
-                      Per e-mail
-                    </span>
-                  </div>
-                  <h3 className="font-serif text-xl font-semibold text-primary leading-tight">
-                    Wilt u dit resultaat per e-mail ontvangen?
-                  </h3>
-                  <p className="mt-3 text-sm text-foreground/70">
-                    We sturen uw persoonlijke kostenoverzicht naar{" "}
-                    <span className="font-medium text-foreground/90">{gateEmail}</span>.
-                  </p>
-                  <div className="mt-auto pt-6">
-                    {emailActionDone ? (
-                      <div className="flex items-center gap-2 text-sm text-primary">
-                        <CheckCircle2 size={18} />
-                        Verzonden naar uw e-mail.
-                      </div>
-                    ) : (
-                      <Button
-                        onClick={handleEmailResult}
-                        disabled={emailActionBusy}
-                        className="w-full"
-                      >
-                        {emailActionBusy ? "Bezig..." : "Stuur naar mijn e-mail"}
-                      </Button>
-                    )}
-                  </div>
+            <div className="mx-auto max-w-2xl px-6 sm:px-8 lg:px-12">
+              <div className="rounded-3xl border border-border bg-card p-8 sm:p-10 shadow-sm">
+                <div className="flex items-center gap-3 mb-4">
+                  <ListChecks size={22} className="text-primary" />
+                  <span className="text-xs uppercase tracking-wider text-foreground/50">
+                    Vervolgacties
+                  </span>
                 </div>
+                <h3 className="font-serif text-2xl font-semibold text-primary leading-tight">
+                  Wat wilt u nu doen?
+                </h3>
 
-                <div className="rounded-3xl border border-border bg-card p-8 shadow-sm flex flex-col">
-                  <div className="flex items-center gap-3 mb-4">
-                    <CalendarClock size={22} className="text-primary" />
-                    <span className="text-xs uppercase tracking-wider text-foreground/50">
-                      In gesprek
+                {confirmDone ? (
+                  <div className="mt-6 flex items-start gap-3 text-sm text-primary">
+                    <CheckCircle2 size={20} className="mt-0.5 shrink-0" />
+                    <span>
+                      Bedankt, uw keuze is bevestigd
+                      {wantsEmail ? ` en het resultaat werd verzonden naar ${gateEmail}` : ""}.
+                      {wantsScan ? " We nemen zo snel mogelijk contact op." : ""}
                     </span>
                   </div>
-                  <h3 className="font-serif text-xl font-semibold text-primary leading-tight">
-                    Wilt u dit in meer detail bespreken?
-                  </h3>
-                  <p className="mt-3 text-sm text-foreground/70">
-                    Plan een gratis Opportunity Scan van 30 minuten. We nemen uw resultaat mee.
-                  </p>
-                  <div className="mt-auto pt-6">
-                    <Button
-                      onClick={handlePlanScan}
-                      disabled={planActionBusy}
-                      variant="outline"
-                      className="w-full"
-                    >
-                      {planActionBusy ? "Bezig..." : "Plan een Opportunity Scan"}
-                    </Button>
-                  </div>
-                </div>
+                ) : (
+                  <>
+                    <div className="mt-6 space-y-4">
+                      <label className="flex items-start gap-3 cursor-pointer">
+                        <Checkbox
+                          checked={wantsEmail}
+                          onCheckedChange={(v) => setWantsEmail(v === true)}
+                          className="mt-1"
+                        />
+                        <span className="text-sm text-foreground/80 leading-relaxed">
+                          Stuur mij dit resultaat per e-mail
+                          <span className="block text-xs text-foreground/50 mt-1">
+                            We sturen uw kostenoverzicht naar{" "}
+                            <span className="font-medium text-foreground/70">{gateEmail}</span>.
+                          </span>
+                        </span>
+                      </label>
+
+                      <label className="flex items-start gap-3 cursor-pointer">
+                        <Checkbox
+                          checked={wantsScan}
+                          onCheckedChange={(v) => setWantsScan(v === true)}
+                          className="mt-1"
+                        />
+                        <span className="text-sm text-foreground/80 leading-relaxed">
+                          Ik wil hierover gecontacteerd worden voor een Opportunity Scan
+                          <span className="block text-xs text-foreground/50 mt-1">
+                            We gebruiken uw eerder ingevulde gegevens. Geen nieuw formulier nodig.
+                          </span>
+                        </span>
+                      </label>
+                    </div>
+
+                    <div className="mt-8">
+                      <Button
+                        onClick={handleConfirm}
+                        disabled={confirmBusy}
+                        size="lg"
+                        className="w-full sm:w-auto"
+                      >
+                        {confirmBusy ? "Bezig..." : "Bevestigen"}
+                      </Button>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </section>
+
         </>
       )}
 
