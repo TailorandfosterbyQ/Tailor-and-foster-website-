@@ -310,8 +310,8 @@ export const translations: Record<Language, Record<string, string>> = {
     "usps.independent.text": "Geen commissies of vergoedingen van leveranciers. Elke aanbeveling is uitsluitend in uw belang.",
     "usps.disruption.title": "Minimale verstoring",
     "usps.disruption.text": "Wij beheren het project zodat het minimale tijd vraagt van uw kernactiviteiten.",
-    "usps.senior.title": "Senior begeleiding",
-    "usps.senior.text": "Eén senior aanspreekpunt, van start tot oplevering van uw project.",
+    "usps.strategyExecution.title": "Strategie én uitvoering",
+    "usps.strategyExecution.text": "Wij denken strategisch mee vanaf de eerste vraag, en voeren zelf uit tot na de oplevering.",
     "usps.financial.title": "Financieel rendement",
     "usps.financial.text": "Wij beheren uw budget met volledige transparantie, gericht op de laagst mogelijke totale kost.",
 
@@ -568,8 +568,8 @@ export const translations: Record<Language, Record<string, string>> = {
     "usps.independent.text": "Aucune commission, aucun honoraire de fournisseur. Chaque recommandation est faite dans votre seul intérêt.",
     "usps.disruption.title": "Perturbation minimale",
     "usps.disruption.text": "Nous pilotons le projet pour qu'il pèse le moins possible sur votre activité principale.",
-    "usps.senior.title": "Accompagnement senior",
-    "usps.senior.text": "Un interlocuteur senior unique, du lancement à la livraison.",
+    "usps.strategyExecution.title": "Stratégie et exécution",
+    "usps.strategyExecution.text": "Nous pensons stratégiquement dès votre première question, et exécutons nous-mêmes jusqu'après la livraison.",
     "usps.financial.title": "Rendement financier",
     "usps.financial.text": "Nous gérons votre budget en toute transparence, avec pour cap le coût total le plus bas.",
 
