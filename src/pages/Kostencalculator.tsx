@@ -193,44 +193,34 @@ const Kostencalculator = () => {
     }
   };
 
-  const invokeAction = async (action: "email_result" | "plan_scan") => {
+  const handleConfirm = async () => {
     if (!leadId) return;
-    const { error } = await supabase.functions.invoke("submit-calculator-lead", {
-      body: {
-        mode: "action",
-        id: leadId,
-        action,
-        ...calcPayload(),
-      },
-    });
-    if (error) throw error;
-  };
-
-  const handleEmailResult = async () => {
-    setEmailActionBusy(true);
+    setConfirmBusy(true);
     try {
-      await invokeAction("email_result");
-      setEmailActionDone(true);
-      toast({ title: `Verzonden naar ${gateEmail}.` });
+      const { error } = await supabase.functions.invoke("submit-calculator-lead", {
+        body: {
+          mode: "confirm",
+          id: leadId,
+          wants_email: wantsEmail,
+          wants_scan: wantsScan,
+          ...calcPayload(),
+        },
+      });
+      if (error) throw error;
+      setConfirmDone(true);
+      if (wantsEmail) {
+        toast({ title: `Verzonden naar ${gateEmail}.` });
+      } else {
+        toast({ title: "Bevestigd. Bedankt." });
+      }
+      if (wantsScan) {
+        setTimeout(() => navigate("/opportunity-scan"), 800);
+      }
     } catch (err) {
       console.error(err);
       toast({ title: "Er ging iets mis. Probeer opnieuw.", variant: "destructive" });
     } finally {
-      setEmailActionBusy(false);
-    }
-  };
-
-  const handlePlanScan = async () => {
-    setPlanActionBusy(true);
-    try {
-      await invokeAction("plan_scan");
-      navigate("/opportunity-scan");
-    } catch (err) {
-      console.error(err);
-      // Navigate anyway so user can still book
-      navigate("/opportunity-scan");
-    } finally {
-      setPlanActionBusy(false);
+      setConfirmBusy(false);
     }
   };
 
