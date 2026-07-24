@@ -153,7 +153,119 @@ Deno.serve(async (req) => {
       });
     }
 
-    // action mode
+    if (body.mode === "confirm") {
+      const choices: string[] = [];
+      if (body.wants_email) choices.push("email_result");
+      if (body.wants_scan) choices.push("plan_scan");
+      const actionTaken = choices.length ? choices.join(",") : "none";
+
+      const { data: updated, error: updateError } = await supabase
+        .from("calculator_leads")
+        .update({
+          employees: body.employees ?? null,
+          surface: body.surface ?? null,
+          rent: body.rent ?? null,
+          region: body.region ?? null,
+          utilities: body.utilities ?? null,
+          services: body.services ?? null,
+          fitout: body.fitout ?? null,
+          term: body.term ?? null,
+          days_per_week: body.days_per_week ?? null,
+          cost_per_year: body.cost_per_year ?? null,
+          cost_per_employee: body.cost_per_employee ?? null,
+          total_term: body.total_term ?? null,
+          unused_sqm: body.unused_sqm ?? null,
+          unused_cost: body.unused_cost ?? null,
+          action_taken: actionTaken,
+        })
+        .eq("id", body.id)
+        .select("id, email, company, phone")
+        .single();
+
+      if (updateError || !updated) {
+        console.error("Confirm update failed:", updateError);
+        return new Response(
+          JSON.stringify({ error: "Kon lead niet updaten." }),
+          { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } },
+        );
+      }
+
+      const choicesLabel =
+        choices.length === 0
+          ? "geen vervolgactie gekozen"
+          : [
+              body.wants_email ? "wil resultaat per e-mail" : null,
+              body.wants_scan ? "wil gecontacteerd worden voor Opportunity Scan" : null,
+            ]
+              .filter(Boolean)
+              .join(" + ");
+
+      const notify =
+        `Kostencalculator bevestiging: ${choicesLabel}\n\n` +
+        `Gekozen opties:\n` +
+        `- Resultaat per e-mail: ${body.wants_email ? "JA" : "nee"}\n` +
+        `- Opportunity Scan contact: ${body.wants_scan ? "JA" : "nee"}\n\n` +
+        summary({
+          ...body,
+          company: updated.company,
+          email: updated.email,
+          phone: updated.phone,
+        });
+
+      const tasks: Promise<unknown>[] = NOTIFY_RECIPIENTS.map((recipient) =>
+        supabase.functions.invoke("send-transactional-email", {
+          body: {
+            templateName: "opportunity-scan-notification",
+            recipientEmail: recipient,
+            idempotencyKey: `calc-confirm-${updated.id}-${recipient}`,
+            templateData: {
+              name: "(kostencalculator bevestiging)",
+              company: updated.company,
+              email: updated.email,
+              phone: updated.phone ?? "-",
+              topic: `Kostencalculator — ${choicesLabel}`,
+              message: notify,
+            },
+          },
+        }),
+      );
+
+      if (body.wants_email && updated.email) {
+        tasks.push(
+          supabase.functions.invoke("send-transactional-email", {
+            body: {
+              templateName: "opportunity-scan-notification",
+              recipientEmail: updated.email,
+              idempotencyKey: `calc-confirm-result-${updated.id}`,
+              templateData: {
+                name: updated.company,
+                company: updated.company,
+                email: updated.email,
+                phone: updated.phone ?? "-",
+                topic: "Uw kostencalculator resultaat",
+                message:
+                  `Bedankt voor uw interesse. Hieronder uw persoonlijke kostenoverzicht:\n\n` +
+                  summary({
+                    ...body,
+                    company: updated.company,
+                    email: updated.email,
+                    phone: updated.phone,
+                  }),
+              },
+            },
+          }),
+        );
+      }
+
+      await Promise.allSettled(tasks);
+
+      return new Response(JSON.stringify({ ok: true }), {
+        status: 200,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    // action mode (legacy single-action support)
     const { data: updated, error: updateError } = await supabase
       .from("calculator_leads")
       .update({
