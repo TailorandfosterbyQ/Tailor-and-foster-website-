@@ -532,6 +532,20 @@ export const translations: Record<Language, Record<string, string>> = {
     "whatwedo.p1": "Le lieu de travail façonne la performance des équipes, la culture vécue et la croissance des organisations.",
     "whatwedo.p2": "Chez Tailor & Foster, nous définissons et concrétisons des environnements de travail qui soutiennent cela, de la stratégie à l'exécution.",
 
+    // How we work
+    "howwework.label": "Comment nous travaillons",
+    "howwework.title": "De la première analyse à l'usage quotidien.",
+    "howwework.analysis.title": "Analyse",
+    "howwework.analysis.text": "Nous cartographions avec vous votre lieu de travail actuel et votre situation immobilière.",
+    "howwework.strategy.title": "Stratégie",
+    "howwework.strategy.text": "Nous définissons comment l'emplacement et le bâtiment contribuent à votre entreprise — à votre nom, à votre identité, à votre position sur le marché. De là, la direction est fixée : bâtiment actuel ou nouveau bâtiment.",
+    "howwework.design.title": "Conception",
+    "howwework.design.text": "Nous traduisons cette stratégie en un lieu de travail où votre culture s'exprime et où le travail de vos équipes est soutenu.",
+    "howwework.execution.title": "Exécution",
+    "howwework.execution.text": "Nous recherchons, comparons et coordonnons les bons entrepreneurs et fournisseurs, accompagnons le déménagement et contrôlons chaque détail jusqu'à la livraison.",
+    "howwework.aftercare.title": "Suivi",
+    "howwework.aftercare.text": "Même après la livraison, nous restons impliqués dans votre situation de lieu de travail et immobilière.",
+
     // USPs
     "usps.label": "Pourquoi nous",
     "usps.title": "Ce qui nous distingue",
