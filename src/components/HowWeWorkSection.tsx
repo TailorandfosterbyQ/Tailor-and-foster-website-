@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
-import { Search, Compass, Pencil, Cog, ShieldCheck } from 'lucide-react';
+import { Search, Target, Pencil, Wrench, Headset } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 
 const steps = [
   { icon: Search, key: 'analysis' },
-  { icon: Compass, key: 'strategy' },
+  { icon: Target, key: 'strategy' },
   { icon: Pencil, key: 'design' },
-  { icon: Cog, key: 'execution' },
-  { icon: ShieldCheck, key: 'aftercare' },
+  { icon: Wrench, key: 'execution' },
+  { icon: Headset, key: 'aftercare' },
 ];
 
 const HowWeWorkSection = () => {
