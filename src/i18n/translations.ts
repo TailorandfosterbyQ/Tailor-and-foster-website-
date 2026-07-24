@@ -26,6 +26,20 @@ export const translations: Record<Language, Record<string, string>> = {
     "whatwedo.p1": "The workplace shapes how people perform, how culture is felt, and how organisations grow.",
     "whatwedo.p2": "At Tailor & Foster, we define and deliver work environments that make that possible — from strategy to execution.",
 
+    // How we work
+    "howwework.label": "How we work",
+    "howwework.title": "From first insight to daily use.",
+    "howwework.analysis.title": "Analysis",
+    "howwework.analysis.text": "We map your current workplace and real estate situation together with you.",
+    "howwework.strategy.title": "Strategy",
+    "howwework.strategy.text": "We determine how location and building contribute to your company — to your name, your identity, your position in the market. From there, the course is set: current building, or new building.",
+    "howwework.design.title": "Design",
+    "howwework.design.text": "We translate that strategy into a workplace where your culture surfaces, and where the work of your people is supported.",
+    "howwework.execution.title": "Execution",
+    "howwework.execution.text": "We search, compare and coordinate the right contractors and suppliers, guide the move, and monitor every detail until delivery.",
+    "howwework.aftercare.title": "Aftercare",
+    "howwework.aftercare.text": "Even after delivery, we remain involved in your workplace and real estate situation.",
+
     // USPs
     "usps.label": "Why us",
     "usps.title": "What sets us apart",
@@ -265,6 +279,20 @@ export const translations: Record<Language, Record<string, string>> = {
     "whatwedo.p1": "De werkplek bepaalt hoe mensen presteren, hoe cultuur wordt beleefd en hoe organisaties groeien.",
     "whatwedo.p2": "Bij Tailor & Foster definiëren en realiseren we werkomgevingen die dat versterken, van strategie tot uitvoering.",
 
+    // How we work
+    "howwework.label": "Hoe we werken",
+    "howwework.title": "Van eerste inzicht tot dagelijks gebruik.",
+    "howwework.analysis.title": "Analyse",
+    "howwework.analysis.text": "Samen met u brengen we uw huidige werkplek en vastgoedsituatie in kaart.",
+    "howwework.strategy.title": "Strategie",
+    "howwework.strategy.text": "We bepalen hoe locatie en gebouw bijdragen aan uw bedrijf — aan uw naam, uw identiteit, uw positie op de markt. Daaruit volgt de koers: huidig gebouw, of nieuw gebouw.",
+    "howwework.design.title": "Ontwerp",
+    "howwework.design.text": "We vertalen die strategie naar een werkplek waarin uw cultuur naar boven komt, en die het werk van uw mensen ondersteunt.",
+    "howwework.execution.title": "Uitvoering",
+    "howwework.execution.text": "We zoeken, vergelijken en coördineren de juiste aannemers en leveranciers, begeleiden de verhuis, en bewaken elk detail tot de oplevering.",
+    "howwework.aftercare.title": "Nazorg",
+    "howwework.aftercare.text": "Ook na de oplevering blijven we betrokken bij uw werkplek en vastgoedsituatie.",
+
     // USPs
     "usps.label": "Waarom wij",
     "usps.title": "Wat ons onderscheidt",
@@ -503,6 +531,20 @@ export const translations: Record<Language, Record<string, string>> = {
     "whatwedo.title": "Le lieu de travail comme atout stratégique.",
     "whatwedo.p1": "Le lieu de travail façonne la performance des équipes, la culture vécue et la croissance des organisations.",
     "whatwedo.p2": "Chez Tailor & Foster, nous définissons et concrétisons des environnements de travail qui soutiennent cela, de la stratégie à l'exécution.",
+
+    // How we work
+    "howwework.label": "Comment nous travaillons",
+    "howwework.title": "De la première analyse à l'usage quotidien.",
+    "howwework.analysis.title": "Analyse",
+    "howwework.analysis.text": "Nous cartographions avec vous votre lieu de travail actuel et votre situation immobilière.",
+    "howwework.strategy.title": "Stratégie",
+    "howwework.strategy.text": "Nous définissons comment l'emplacement et le bâtiment contribuent à votre entreprise — à votre nom, à votre identité, à votre position sur le marché. De là, la direction est fixée : bâtiment actuel ou nouveau bâtiment.",
+    "howwework.design.title": "Conception",
+    "howwework.design.text": "Nous traduisons cette stratégie en un lieu de travail où votre culture s'exprime et où le travail de vos équipes est soutenu.",
+    "howwework.execution.title": "Exécution",
+    "howwework.execution.text": "Nous recherchons, comparons et coordonnons les bons entrepreneurs et fournisseurs, accompagnons le déménagement et contrôlons chaque détail jusqu'à la livraison.",
+    "howwework.aftercare.title": "Suivi",
+    "howwework.aftercare.text": "Même après la livraison, nous restons impliqués dans votre situation de lieu de travail et immobilière.",
 
     // USPs
     "usps.label": "Pourquoi nous",
