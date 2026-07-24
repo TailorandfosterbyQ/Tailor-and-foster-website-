@@ -1,11 +1,30 @@
-import { Shield, Clock, ChessKnight, DollarSign } from 'lucide-react';
+import { Shield, Clock, DollarSign } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/i18n/LanguageContext';
+
+const KnightIcon = (props: { size?: number; className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={props.size ?? 24}
+    height={props.size ?? 24}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={props.className}
+  >
+    <path d="M15.5 21h-7a2 2 0 0 1-2-2v-1.5a.5.5 0 0 0-.5-.5H4v-2h2a2 2 0 0 1 2-2h1.5c.83 0 1.5-.67 1.5-1.5V9c0-2.2-1.8-4-4-4h-.5C5.5 5 4 4 4 3s2-2 4.5-2c2 0 3.5 1.5 4.5 3 .8 1.2 1.5 2 3 2.5 2.5.8 4 2.5 4 5.5v1c0 2.2-1.8 4-4 4h-1.5a.5.5 0 0 0-.5.5V19a2 2 0 0 1-2 2Z" />
+    <path d="M6 12h2" />
+    <circle cx="16" cy="8" r="1" />
+  </svg>
+);
 
 const usps = [
   { icon: Shield, key: "independent", accent: "from-blue-500/20 to-cyan-500/20" },
   { icon: Clock, key: "disruption", accent: "from-amber-500/20 to-orange-500/20" },
-  { icon: Knight, key: "strategyExecution", accent: "from-emerald-500/20 to-teal-500/20" },
+  { icon: KnightIcon, key: "strategyExecution", accent: "from-emerald-500/20 to-teal-500/20" },
   { icon: DollarSign, key: "financial", accent: "from-violet-500/20 to-purple-500/20" },
 ];
 
