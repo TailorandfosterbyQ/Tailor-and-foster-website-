@@ -26,6 +26,20 @@ export const translations: Record<Language, Record<string, string>> = {
     "whatwedo.p1": "The workplace shapes how people perform, how culture is felt, and how organisations grow.",
     "whatwedo.p2": "At Tailor & Foster, we define and deliver work environments that make that possible — from strategy to execution.",
 
+    // How we work
+    "howwework.label": "How we work",
+    "howwework.title": "From first insight to daily use.",
+    "howwework.analysis.title": "Analysis",
+    "howwework.analysis.text": "We map your current workplace and real estate situation together with you.",
+    "howwework.strategy.title": "Strategy",
+    "howwework.strategy.text": "We determine how location and building contribute to your company — to your name, your identity, your position in the market. From there, the course is set: current building, or new building.",
+    "howwework.design.title": "Design",
+    "howwework.design.text": "We translate that strategy into a workplace where your culture surfaces, and where the work of your people is supported.",
+    "howwework.execution.title": "Execution",
+    "howwework.execution.text": "We search, compare and coordinate the right contractors and suppliers, guide the move, and monitor every detail until delivery.",
+    "howwework.aftercare.title": "Aftercare",
+    "howwework.aftercare.text": "Even after delivery, we remain involved in your workplace and real estate situation.",
+
     // USPs
     "usps.label": "Why us",
     "usps.title": "What sets us apart",
