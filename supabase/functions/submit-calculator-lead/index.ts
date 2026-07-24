@@ -37,7 +37,14 @@ const ActionBody = CalcSchema.extend({
   action: z.enum(["email_result", "plan_scan"]),
 });
 
-const BodySchema = z.discriminatedUnion("mode", [GateBody, ActionBody]);
+const ConfirmBody = CalcSchema.extend({
+  mode: z.literal("confirm"),
+  id: z.string().uuid(),
+  wants_email: z.boolean(),
+  wants_scan: z.boolean(),
+});
+
+const BodySchema = z.discriminatedUnion("mode", [GateBody, ActionBody, ConfirmBody]);
 
 const fmt = (n: number | null | undefined) =>
   n === null || n === undefined ? "-" : Math.round(n).toString();
