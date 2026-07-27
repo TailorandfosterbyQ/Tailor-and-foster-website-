@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import { motion } from 'framer-motion';
 import { Search, Map, Users, ArrowRight, TrendingUp, TrendingDown, FileText, Wrench, Phone, ClipboardCheck } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -10,10 +11,10 @@ import servicesHeroLease from '@/assets/services-hero-lease.jpg';
 import servicesHeroInterventions from '@/assets/services-hero-interventions.jpg';
 
 const serviceConfig = {
-  growth: { icon: TrendingUp, accent: "from-emerald-600 to-emerald-800", image: servicesHeroGrowth, translationKey: "growth", stepIcons: [Search, Map, Users] },
-  downsizing: { icon: TrendingDown, accent: "from-amber-600 to-amber-800", image: servicesHeroDownsizing, translationKey: "downsizing", stepIcons: [Search, Map, Users] },
-  lease: { icon: FileText, accent: "from-sky-600 to-sky-800", image: servicesHeroLease, translationKey: "lease", stepIcons: [Search, Map, Users] },
-  "kleine-interventies": { icon: Wrench, accent: "from-slate-600 to-slate-800", image: servicesHeroInterventions, translationKey: "interventions", stepIcons: [Phone, Wrench, ClipboardCheck] },
+  growth: { icon: TrendingUp, image: servicesHeroGrowth, translationKey: "growth", stepIcons: [Search, Map, Users] },
+  downsizing: { icon: TrendingDown, image: servicesHeroDownsizing, translationKey: "downsizing", stepIcons: [Search, Map, Users] },
+  lease: { icon: FileText, image: servicesHeroLease, translationKey: "lease", stepIcons: [Search, Map, Users] },
+  "kleine-interventies": { icon: Wrench, image: servicesHeroInterventions, translationKey: "interventions", stepIcons: [Phone, Wrench, ClipboardCheck] },
 } as const;
 
 type ServiceType = keyof typeof serviceConfig;
@@ -32,46 +33,13 @@ const Services = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* Hero with image */}
-      <section className="relative py-28 lg:py-36 overflow-hidden">
-        <img
-          src={config.image}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover"
-          width={1920}
-          height={800}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0F4C82]/80 via-[#0F4C82]/60 to-[#0F4C82]/30" />
-        <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 text-white">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center gap-3 mb-4"
-          >
-            <ServiceIcon size={20} className="text-white/60" />
-            <p className="text-sm font-medium uppercase tracking-[0.22em] text-white/60">
-              {t(`services.${tKey}.hero.label`)}
-            </p>
-          </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-2 max-w-3xl text-[clamp(1.8rem,3.5vw,3.5rem)] leading-[1.15] font-bold font-serif"
-          >
-            {t(`services.${tKey}.hero.title`)}
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-6 max-w-2xl text-lg leading-8 text-white/70"
-          >
-            {t(`services.${tKey}.hero.text`)}
-          </motion.p>
-        </div>
-      </section>
+      <PageHero
+        image={config.image}
+        icon={ServiceIcon}
+        eyebrow={t(`services.${tKey}.hero.label`)}
+        title={t(`services.${tKey}.hero.title`)}
+        text={t(`services.${tKey}.hero.text`)}
+      />
 
       {/* Process steps */}
       <section className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12">
@@ -173,7 +141,7 @@ const Services = () => {
             >
               <Link
                 to="/opportunity-scan"
-                className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-medium text-primary shadow-lg group"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-medium text-primary shadow-lg ring-offset-background transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 group"
               >
                 {t("services.cta")}
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />

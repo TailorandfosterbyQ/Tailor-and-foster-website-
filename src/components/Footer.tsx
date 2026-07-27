@@ -33,14 +33,14 @@ const Footer = () => {
             <h3 className="font-logo text-2xl sm:text-3xl mb-4">
               {t('footer.company')}
             </h3>
-            <p className="text-sm text-primary-foreground/60 leading-relaxed max-w-xs">
+            <p className="text-sm text-primary-foreground/80 leading-relaxed max-w-xs">
               {t('footer.tagline')}
             </p>
           </div>
 
           {/* Contact */}
           <div className="lg:pr-8">
-            <h4 className="text-[11px] font-semibold tracking-[0.15em] uppercase mb-5 text-primary-foreground/40">
+            <h4 className="text-[11px] font-semibold tracking-[0.15em] uppercase mb-5 text-primary-foreground/70">
               {t('footer.contact')}
             </h4>
             <ul className="space-y-5">
@@ -68,7 +68,7 @@ const Footer = () => {
 
           {/* Offices */}
           <div className="lg:pl-8">
-            <h4 className="text-[11px] font-semibold tracking-[0.15em] uppercase mb-5 text-primary-foreground/40">
+            <h4 className="text-[11px] font-semibold tracking-[0.15em] uppercase mb-5 text-primary-foreground/70">
               {t('footer.offices')}
             </h4>
             <ul className="space-y-3">
@@ -83,7 +83,7 @@ const Footer = () => {
 
           {/* Navigation */}
           <div>
-            <h4 className="text-[11px] font-semibold tracking-[0.15em] uppercase mb-5 text-primary-foreground/40">
+            <h4 className="text-[11px] font-semibold tracking-[0.15em] uppercase mb-5 text-primary-foreground/70">
               {t('footer.navigation')}
             </h4>
             <ul className="space-y-3">
@@ -103,19 +103,19 @@ const Footer = () => {
 
         {/* Bottom bar */}
         <div className="border-t border-primary-foreground/10 mt-14 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs tracking-[0.1em] uppercase text-primary-foreground/40">
+          <p className="text-xs tracking-[0.1em] uppercase text-primary-foreground/70">
             &copy; {new Date().getFullYear()} Tailor & Foster. {t('footer.rights')}
           </p>
           <div className="flex gap-6">
             <a
               href="#"
-              className="text-xs tracking-[0.1em] uppercase text-primary-foreground/40 hover:text-primary-foreground transition-colors duration-200"
+              className="text-xs tracking-[0.1em] uppercase text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-200"
             >
               {t('footer.privacy')}
             </a>
             <a
               href="#"
-              className="text-xs tracking-[0.1em] uppercase text-primary-foreground/40 hover:text-primary-foreground transition-colors duration-200"
+              className="text-xs tracking-[0.1em] uppercase text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-200"
             >
               {t('footer.cookies')}
             </a>

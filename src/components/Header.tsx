@@ -55,7 +55,6 @@ const Header = () => {
     { label: t("about.whatwedo.label"), href: "/about#whatwedo" },
     { label: t("about.mission.label"), href: "/about#mission" },
     { label: t("about.figures.label"), href: "/about#figures" },
-    { label: t("about.team.label"), href: "/about#team" },
   ];
 
   const serviceItems = [
@@ -90,7 +89,7 @@ const Header = () => {
               className={`font-logo tracking-[0.15em] uppercase font-semibold transition-colors duration-300 text-[11px] ${
                 isActive(item.href)
                   ? 'text-primary'
-                  : 'text-primary/60 hover:text-primary'
+                  : 'text-muted-foreground hover:text-primary'
               }`}
             >
               {item.label}
@@ -101,17 +100,20 @@ const Header = () => {
           <div ref={aboutRef} className="relative">
             <button
               onClick={() => setAboutOpen(!aboutOpen)}
+              aria-expanded={aboutOpen}
+              aria-haspopup="true"
+              aria-controls="about-dropdown"
               className={`flex items-center gap-1 font-logo tracking-[0.15em] uppercase font-semibold transition-colors duration-300 text-[11px] ${
                 location.pathname === '/about'
                   ? 'text-primary'
-                  : 'text-primary/60 hover:text-primary'
+                  : 'text-muted-foreground hover:text-primary'
               }`}
             >
               {t("nav.about")}
               <ChevronDown size={12} className={`transition-transform duration-200 ${aboutOpen ? 'rotate-180' : ''}`} />
             </button>
             {aboutOpen && (
-              <div className="absolute left-0 top-full mt-3 bg-white border border-border rounded-xl shadow-xl py-2 min-w-[220px] overflow-hidden">
+              <div id="about-dropdown" className="absolute left-0 top-full mt-3 bg-white border border-border rounded-xl shadow-xl py-2 min-w-[220px] overflow-hidden">
                 {aboutItems.map((item) => (
                   <Link
                     key={item.href}
@@ -130,17 +132,20 @@ const Header = () => {
           <div ref={servicesRef} className="relative">
             <button
               onClick={() => setServicesOpen(!servicesOpen)}
+              aria-expanded={servicesOpen}
+              aria-haspopup="true"
+              aria-controls="services-dropdown"
               className={`flex items-center gap-1 font-logo tracking-[0.15em] uppercase font-semibold transition-colors duration-300 text-[11px] ${
                 location.pathname.startsWith('/services')
                   ? 'text-primary'
-                  : 'text-primary/60 hover:text-primary'
+                  : 'text-muted-foreground hover:text-primary'
               }`}
             >
               {t("nav.services")}
               <ChevronDown size={12} className={`transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
             </button>
             {servicesOpen && (
-              <div className="absolute left-0 top-full mt-3 bg-white border border-border rounded-xl shadow-xl py-2 min-w-[220px] overflow-hidden">
+              <div id="services-dropdown" className="absolute left-0 top-full mt-3 bg-white border border-border rounded-xl shadow-xl py-2 min-w-[220px] overflow-hidden">
                 {serviceItems.map((item) => (
                   <Link
                     key={item.href}
@@ -163,7 +168,7 @@ const Header = () => {
             className={`font-logo tracking-[0.15em] uppercase font-semibold transition-colors duration-300 text-[11px] ${
               location.pathname === '/kostencalculator'
                 ? 'text-primary'
-                : 'text-primary/60 hover:text-primary'
+                : 'text-muted-foreground hover:text-primary'
             }`}
           >
             Kostencalculator
@@ -178,14 +183,17 @@ const Header = () => {
           <div ref={langRef} className="relative ml-3 border-l border-primary/15 pl-3">
             <button
               onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-1.5 text-[11px] font-semibold tracking-wider text-primary/50 hover:text-primary transition-colors duration-200 px-2 py-1.5 rounded"
+              aria-expanded={langOpen}
+              aria-haspopup="listbox"
+              aria-controls="language-dropdown"
+              className="flex items-center gap-1.5 text-[11px] font-semibold tracking-wider text-muted-foreground hover:text-primary transition-colors duration-200 px-2 py-1.5 rounded"
             >
               <Globe size={13} />
               {currentLabel}
               <ChevronDown size={11} className={`transition-transform duration-200 ${langOpen ? 'rotate-180' : ''}`} />
             </button>
             {langOpen && (
-              <div className="absolute right-0 top-full mt-2 bg-white border border-primary/10 rounded-lg shadow-xl py-1 min-w-[80px] overflow-hidden">
+              <div id="language-dropdown" role="listbox" className="absolute right-0 top-full mt-2 bg-white border border-primary/10 rounded-lg shadow-xl py-1 min-w-[80px] overflow-hidden">
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
@@ -193,7 +201,7 @@ const Header = () => {
                     className={`block w-full text-left px-4 py-2 text-[11px] font-semibold tracking-wider transition-colors duration-150 ${
                       language === lang.code
                         ? 'bg-primary/10 text-primary'
-                        : 'text-primary/40 hover:bg-primary/5 hover:text-primary'
+                        : 'text-muted-foreground hover:bg-primary/5 hover:text-primary'
                     }`}
                   >
                     {lang.label}
@@ -223,14 +231,14 @@ const Header = () => {
               className={`block py-3 font-logo text-sm tracking-[0.15em] uppercase font-semibold transition-colors ${
                 isActive(item.href)
                   ? 'text-primary'
-                  : 'text-primary/70 hover:text-primary'
+                  : 'text-muted-foreground hover:text-primary'
               }`}
             >
               {item.label}
             </Link>
           ))}
           <div className="py-2">
-            <span className="block py-3 font-logo text-sm tracking-[0.15em] uppercase font-semibold text-primary/40">
+            <span className="block py-3 font-logo text-sm tracking-[0.15em] uppercase font-semibold text-muted-foreground">
               {t("nav.about")}
             </span>
             {aboutItems.map((item) => (
@@ -238,14 +246,14 @@ const Header = () => {
                 key={item.href}
                 to={item.href}
                 onClick={() => setMobileOpen(false)}
-                className="block py-2 pl-4 font-logo text-sm tracking-[0.1em] font-medium transition-colors text-primary/60 hover:text-primary"
+                className="block py-2 pl-4 font-logo text-sm tracking-[0.1em] font-medium transition-colors text-muted-foreground hover:text-primary"
               >
                 {item.label}
               </Link>
             ))}
           </div>
           <div className="py-2">
-            <span className="block py-3 font-logo text-sm tracking-[0.15em] uppercase font-semibold text-primary/40">
+            <span className="block py-3 font-logo text-sm tracking-[0.15em] uppercase font-semibold text-muted-foreground">
               {t("nav.services")}
             </span>
             {serviceItems.map((item) => (
@@ -256,7 +264,7 @@ const Header = () => {
                 className={`block py-2 pl-4 font-logo text-sm tracking-[0.1em] font-medium transition-colors ${
                   location.pathname === item.href
                     ? 'text-primary'
-                    : 'text-primary/60 hover:text-primary'
+                    : 'text-muted-foreground hover:text-primary'
                 }`}
               >
                 {item.label}
@@ -266,7 +274,7 @@ const Header = () => {
           <Link
             to="/kostencalculator"
             onClick={() => setMobileOpen(false)}
-            className="block py-3 font-logo text-sm tracking-[0.15em] uppercase font-semibold text-primary/70 hover:text-primary"
+            className="block py-3 font-logo text-sm tracking-[0.15em] uppercase font-semibold text-muted-foreground hover:text-primary"
           >
             Kostencalculator
           </Link>
@@ -279,7 +287,7 @@ const Header = () => {
           </Link>
 
           <div className="flex items-center gap-2 mt-4 pt-4 border-t border-primary/10">
-            <Globe size={14} className="text-primary/40" />
+            <Globe size={14} className="text-muted-foreground" />
             {languages.map((lang) => (
               <button
                 key={lang.code}
@@ -287,7 +295,7 @@ const Header = () => {
                 className={`text-sm font-semibold tracking-wider px-3 py-1.5 rounded transition-colors duration-200 ${
                   language === lang.code
                     ? 'bg-primary/10 text-primary'
-                    : 'text-primary/40 hover:text-primary'
+                    : 'text-muted-foreground hover:text-primary'
                 }`}
               >
                 {lang.label}

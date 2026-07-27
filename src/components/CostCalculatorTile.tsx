@@ -28,7 +28,7 @@ const CostCalculatorTile = () => {
           </div>
           <Link
             to="/kostencalculator"
-            className="inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 text-base font-medium text-white shadow-lg hover:shadow-xl transition-all group whitespace-nowrap"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-lg ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 group whitespace-nowrap"
           >
             Start de calculator
             <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />

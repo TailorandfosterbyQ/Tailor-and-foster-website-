@@ -36,6 +36,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     } catch {
       // ignore
     }
+    document.documentElement.lang = language;
   }, [language]);
 
   const t = (key: string): string => {

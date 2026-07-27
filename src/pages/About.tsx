@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import { motion } from 'framer-motion';
 import { MapPin, Award, CheckCircle } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -68,27 +69,12 @@ const About = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* Hero */}
-      <section className="bg-primary text-primary-foreground py-28 lg:py-36">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-sm font-medium uppercase tracking-[0.22em] text-primary-foreground/60"
-          >
-            {t("about.hero.label")}
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-4 max-w-4xl text-[clamp(1.8rem,3.5vw,3.5rem)] leading-[1.15] font-bold font-serif"
-          >
-            {t("about.hero.title")}
-          </motion.h1>
-        </div>
-      </section>
+      <PageHero
+        variant="solid"
+        eyebrow={t("about.hero.label")}
+        title={t("about.hero.title")}
+        titleMaxWidth="max-w-4xl"
+      />
 
       {/* What We Do */}
       <section id="whatwedo" className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12 scroll-mt-24">

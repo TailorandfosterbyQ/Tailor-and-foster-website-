@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { ChevronDown, ArrowRight } from 'lucide-react';
@@ -22,43 +23,12 @@ const ServicesOverview = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* Hero */}
-      <section className="relative py-28 lg:py-36 overflow-hidden">
-        <img
-          src={servicesHero}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover"
-          width={1920}
-          height={800}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0F4C82]/80 via-[#0F4C82]/60 to-[#0F4C82]/30" />
-        <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 text-white">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-sm font-medium uppercase tracking-[0.22em] text-white/60"
-          >
-            {t("servicesOverview.hero.label")}
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-4 max-w-3xl text-[clamp(1.8rem,3.5vw,3.5rem)] leading-[1.15] font-bold font-serif"
-          >
-            {t("servicesOverview.hero.title")}
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-6 max-w-2xl text-lg leading-8 text-white/70"
-          >
-            {t("servicesOverview.hero.text")}
-          </motion.p>
-        </div>
-      </section>
+      <PageHero
+        image={servicesHero}
+        eyebrow={t("servicesOverview.hero.label")}
+        title={t("servicesOverview.hero.title")}
+        text={t("servicesOverview.hero.text")}
+      />
 
       {/* Situation Cards */}
       <section className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12">
@@ -91,6 +61,8 @@ const ServicesOverview = () => {
               >
                 <button
                   onClick={() => toggle(i)}
+                  aria-expanded={isOpen}
+                  aria-controls={`situation-panel-${key}`}
                   className="w-full text-left p-7 cursor-pointer group"
                 >
                   <div className="flex items-start gap-4">
@@ -119,6 +91,7 @@ const ServicesOverview = () => {
                 <AnimatePresence>
                   {isOpen && (
                     <motion.div
+                      id={`situation-panel-${key}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
@@ -161,7 +134,7 @@ const ServicesOverview = () => {
             >
               <Link
                 to="/opportunity-scan"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-lg group"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-lg ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 group"
               >
                 {t("hero.cta.primary")}
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
