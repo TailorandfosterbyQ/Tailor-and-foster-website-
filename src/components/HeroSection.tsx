@@ -17,13 +17,13 @@ const HeroSection = () => {
     <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden text-white">
       <motion.img
         src={heroWorkspace}
-        alt="Modern workspace"
+        alt=""
         className="absolute inset-0 w-full h-full object-cover"
         style={{ y: imgY }}
         width={1920}
         height={1080}
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0F4C82]/75 via-[#0F4C82]/55 to-[#0F4C82]/30" />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/75 via-primary/55 to-primary/30" />
       <motion.div
         className="relative mx-auto max-w-7xl w-full px-6 sm:px-8 lg:px-12 pb-20 pt-32 lg:pb-28"
         style={{ y: textY, opacity }}
