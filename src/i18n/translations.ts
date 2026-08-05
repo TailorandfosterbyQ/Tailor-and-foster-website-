@@ -11,8 +11,15 @@ export const translations: Record<Language, Record<string, string>> = {
     "nav.letsTalk": "Opportunity Scan",
 
     // Hero
+    "hero.kicker": "FOR ORGANISATIONS IN MOTION",
     "hero.title": "Workplace advisory for growing companies.",
-    "hero.subtitle": "Growing, scaling back, or approaching the end of a lease? We offer fully independent real estate advice — built to protect your time and your budget.",
+    "hero.title.prefix": "Workplace strategy for those who",
+    "hero.rotating.1": "grow",
+    "hero.rotating.2": "downsize",
+    "hero.rotating.3": "merge",
+    "hero.rotating.4": "face a lease end",
+    "hero.rotating.5": "deal with vacancy",
+    "hero.subtitle": "We provide strategy and project management, fully independent.",
     "hero.cta.primary": "Start your Opportunity Scan",
     "hero.cta.secondary": "Learn more",
 
@@ -269,8 +276,15 @@ export const translations: Record<Language, Record<string, string>> = {
     "nav.letsTalk": "Opportunity Scan",
 
     // Hero
+    "hero.kicker": "VOOR ORGANISATIES IN BEWEGING",
     "hero.title": "Werkplekadvies voor groeiende ondernemingen.",
-    "hero.subtitle": "Groeit uw organisatie, overweegt u te downsizen, of nadert het einde van uw huurcontract? Wij bieden 100% onafhankelijk vastgoedadvies om uw tijd en budget te beschermen.",
+    "hero.title.prefix": "Werkplekstrategie voor wie",
+    "hero.rotating.1": "groeit",
+    "hero.rotating.2": "krimpt",
+    "hero.rotating.3": "fuseert",
+    "hero.rotating.4": "de huur ziet aflopen",
+    "hero.rotating.5": "kampt met leegstand",
+    "hero.subtitle": "Wij bieden strategie en projectmanagement, volledig onafhankelijk.",
     "hero.cta.primary": "Start uw Opportunity Scan",
     "hero.cta.secondary": "Meer weten",
 
@@ -527,8 +541,15 @@ export const translations: Record<Language, Record<string, string>> = {
     "nav.letsTalk": "Opportunity Scan",
 
     // Hero
+    "hero.kicker": "POUR LES ORGANISATIONS EN MOUVEMENT",
     "hero.title": "Conseil en espace de travail pour entreprises en croissance.",
-    "hero.subtitle": "En croissance, en repli, ou proche d'une fin de bail ? Nous offrons un conseil immobilier totalement indépendant, pensé pour protéger votre temps et votre budget.",
+    "hero.title.prefix": "Stratégie d'espace de travail pour ceux qui",
+    "hero.rotating.1": "grandissent",
+    "hero.rotating.2": "réduisent",
+    "hero.rotating.3": "fusionnent",
+    "hero.rotating.4": "arrivent en fin de bail",
+    "hero.rotating.5": "font face à la vacance",
+    "hero.subtitle": "Nous offrons stratégie et gestion de projet, en toute indépendance.",
     "hero.cta.primary": "Démarrez votre Opportunity Scan",
     "hero.cta.secondary": "En savoir plus",
 
