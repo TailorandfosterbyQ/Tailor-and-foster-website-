@@ -278,8 +278,8 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Hero
     "hero.kicker": "VOOR ORGANISATIES IN BEWEGING",
-    "hero.title": "Werkplekadvies voor groeiende ondernemingen.",
-    "hero.title.prefix": "Werkplekstrategie voor wie",
+    "hero.title": "Kantooradvies voor groeiende ondernemingen.",
+    "hero.title.prefix": "Kantoorstrategie voor wie",
     "hero.rotating.1": "groeit",
     "hero.rotating.2": "krimpt",
     "hero.rotating.3": "fuseert",
@@ -295,8 +295,8 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // What We Do
     "whatwedo.label": "",
-    "whatwedo.title": "De werkplek als strategische troef.",
-    "whatwedo.p1": "De werkplek bepaalt hoe mensen presteren, hoe cultuur wordt beleefd en hoe organisaties groeien.",
+    "whatwedo.title": "Het kantoor als strategische troef.",
+    "whatwedo.p1": "Het kantoor bepaalt hoe mensen presteren, hoe cultuur wordt beleefd en hoe organisaties groeien.",
     "whatwedo.p2": "Bij Tailor & Foster definiëren en realiseren we werkomgevingen die dat versterken, van strategie tot uitvoering.",
     "whatwedo.cta": "Vervolg →",
 
@@ -304,19 +304,19 @@ export const translations: Record<Language, Record<string, string>> = {
     "howwework.label": "Hoe we werken",
     "howwework.title": "Hoe wij te werk gaan.",
     "howwework.analysis.title": "Analyse",
-    "howwework.analysis.text": "Samen met u brengen we uw huidige werkplek en vastgoedsituatie in kaart.",
+    "howwework.analysis.text": "Samen met u brengen we uw huidige kantoor en vastgoedsituatie in kaart.",
     "howwework.analysis.expand": "We kijken naar uw personeelsgroei, de huidige bezetting van uw kantoor, en de technische en contractuele staat van uw gebouw.",
     "howwework.strategy.title": "Strategie",
     "howwework.strategy.text": "We bepalen hoe uw locatie bijdraagt aan uw bedrijf, en zetten de koers uit.",
     "howwework.strategy.expand": "We wegen uw opties af — blijven en optimaliseren, of verhuizen op basis van kosten, timing en wat het beste bij uw organisatie past.",
     "howwework.design.title": "Ontwerp",
-    "howwework.design.text": "We vertalen die strategie naar een werkplek die uw cultuur toont en uw mensen ondersteunt.",
+    "howwework.design.text": "We vertalen die strategie naar een kantoor dat uw cultuur toont en uw mensen ondersteunt.",
     "howwework.design.expand": "Van indeling tot materiaalkeuze: elke beslissing wordt getoetst aan hoe uw mensen er elke dag mee werken.",
     "howwework.execution.title": "Uitvoering",
     "howwework.execution.text": "We zoeken en coördineren de juiste partners, begeleiden de verhuis, en bewaken elk detail.",
     "howwework.execution.expand": "We onderhandelen met aannemers en leveranciers, bewaken het budget, en zorgen dat de timing van de verhuis klopt met uw planning.",
     "howwework.aftercare.title": "Nazorg",
-    "howwework.aftercare.text": "Ook na de oplevering blijven we betrokken bij uw werkplek en vastgoedsituatie.",
+    "howwework.aftercare.text": "Ook na de oplevering blijven we betrokken bij uw kantoor en vastgoedsituatie.",
     "howwework.aftercare.expand": "Een vraag, een aanpassing, een klein probleem, we blijven bereikbaar nadat het project is opgeleverd.",
 
     // USPs
@@ -333,9 +333,9 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Offer
     "offer.label": "Onze diensten",
-    "offer.title": "Oplossingen voor elke fase van uw werkplektraject, en alles daartussen.",
+    "offer.title": "Oplossingen voor elke fase van uw kantoortraject, en alles daartussen.",
     "offer.growth.title": "Groeistrategieën",
-    "offer.growth.text": "Breidt uw team uit? Wij vinden, onderhandelen en leveren de werkplek die uw ambities ondersteunt zonder stress.",
+    "offer.growth.text": "Breidt uw team uit? Wij vinden, onderhandelen en leveren het kantoor dat uw ambities ondersteunt zonder stress.",
     "offer.downsizing.title": "Downsizing oplossingen",
     "offer.downsizing.text": "Optimaliseer uw footprint met behoud van cultuur en productiviteit. Slimme transities, gecontroleerde kosten.",
     "offer.lease.title": "Leasemanagement",
@@ -348,8 +348,8 @@ export const translations: Record<Language, Record<string, string>> = {
     "social.title": "Van scale-ups tot multinationals, al meer dan 30 jaar aan de zijde van organisaties in verandering.",
 
     // Final CTA
-    "finalCta.title": "Elke werkplekuitdaging is anders. Start met een gratis analyse van de uwe.",
-    "finalCta.text": "Laat ons uw huidige werkpleksituatie evalueren en ontdek kansen om tijd en budget te besparen.",
+    "finalCta.title": "Elke kantooruitdaging is anders. Start met een gratis analyse van de uwe.",
+    "finalCta.text": "Laat ons uw huidige kantoorsituatie evalueren en ontdek kansen om tijd en budget te besparen.",
     "finalCta.button": "Start uw Opportunity Scan",
     "finalCta.benefit1": "Vrijblijvend",
     "finalCta.benefit2": "Binnen 48u reactie",
@@ -357,10 +357,10 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // About page
     "about.hero.label": "Over ons",
-    "about.hero.title": "Een unieke groep experts gewijd aan op maat gemaakte werkplekinnovatie.",
+    "about.hero.title": "Een unieke groep experts gewijd aan op maat gemaakte kantoorinnovatie.",
     "about.mission.label": "Missie & Waarden",
     "about.mission.title": "Wij werken als één team.",
-    "about.mission.text": "Organisaties helpen om ruimte, cultuur en prestaties op elkaar af te stemmen door onafhankelijke, op maat gemaakte werkplekstrategieën te leveren die langetermijnwaarde creëren.",
+    "about.mission.text": "Organisaties helpen om ruimte, cultuur en prestaties op elkaar af te stemmen door onafhankelijke, op maat gemaakte kantoorstrategieën te leveren die langetermijnwaarde creëren.",
     "about.values.independence": "Onafhankelijkheid",
     "about.values.independence.desc": "Wij kiezen nooit voor het makkelijkste antwoord, maar voor het juiste. Onze onafhankelijkheid is geen marketingclaim maar een werkwijze, geen vooraf bepaalde oplossingen, geen externe belangen.",
     "about.values.intentionality": "Intentionaliteit",
@@ -372,29 +372,29 @@ export const translations: Record<Language, Record<string, string>> = {
     "about.values.execution": "Naadloze uitvoering",
     "about.values.execution.desc": "Ideeën zijn pas waardevol wanneer ze gerealiseerd worden. Wij zorgen ervoor dat elke strategie vertaald wordt naar omgevingen die werken in de praktijk, niet alleen op papier.",
     "about.values.longterm": "Langetermijnwaarde",
-    "about.values.longterm.desc": "Wij ontwerpen voor wat komt. Onze focus ligt op het creëren van werkplekken die relevant blijven naarmate organisaties evolueren.",
+    "about.values.longterm.desc": "Wij ontwerpen voor wat komt. Onze focus ligt op het creëren van kantoren die relevant blijven naarmate organisaties evolueren.",
     "about.figures.label": "Kerncijfers",
     "about.figures.cities.title": "Aanwezig in Brussel en Gent",
     "about.figures.cities.desc": "Direct bereikbaar, geen afstand tussen advies en uitvoering.",
     "about.figures.experience.title": "31 jaar ervaring",
     "about.figures.experience.desc": "Rechtstreeks betrokken bij elk project, geen wisselende teams.",
-    "about.figures.projects.title": "100+ werkplektransities",
+    "about.figures.projects.title": "100+ kantoortransities",
     "about.figures.projects.desc": "Succesvol opgeleverd, van eerste analyse tot volledige uitvoering.",
     "about.team.label": "Ons team",
     "about.team.title": "Mensen kopen van mensen.",
     "about.team.text": "Onze consultants brengen senior level ervaring mee bij elke opdracht. Authentiek, hands on en altijd bereikbaar.",
     "about.whatwedo.label": "Wat wij doen",
-    "about.whatwedo.title": "De werkplek als strategie.",
-    "about.whatwedo.p1": "De meeste organisaties stellen hun werkplek niet in vraag, tot veranderingen in de manier van werken de beperkingen blootleggen. Teams worden hybride, cultuur vervaagt, prestaties worden minder consistent. Op dat moment is het kantoor niet langer alleen een plek. Het wordt een strategische keuze.",
-    "about.whatwedo.p2": "Bij Tailor & Foster benaderen we het ook zo. Wij zien de werkplek als een strategisch instrument dat rechtstreeks beïnvloedt hoe mensen samenwerken, hoe beslissingen worden genomen en hoe organisaties presteren.",
-    "about.whatwedo.p3": "Onze rol is structuur brengen in dat proces: we analyseren hoe organisaties werken, bepalen wat de werkplek mogelijk moet maken, en vertalen dat naar een heldere strategie en concrete uitvoering, van eerste inzicht tot finale realisatie.",
+    "about.whatwedo.title": "Het kantoor als strategie.",
+    "about.whatwedo.p1": "De meeste organisaties stellen hun kantoor niet in vraag, tot veranderingen in de manier van werken de beperkingen blootleggen. Teams worden hybride, cultuur vervaagt, prestaties worden minder consistent. Op dat moment is het kantoor niet langer alleen een plek. Het wordt een strategische keuze.",
+    "about.whatwedo.p2": "Bij Tailor & Foster benaderen we het ook zo. Wij zien het kantoor als een strategisch instrument dat rechtstreeks beïnvloedt hoe mensen samenwerken, hoe beslissingen worden genomen en hoe organisaties presteren.",
+    "about.whatwedo.p3": "Onze rol is structuur brengen in dat proces: we analyseren hoe organisaties werken, bepalen wat het kantoor mogelijk moet maken, en vertalen dat naar een heldere strategie en concrete uitvoering, van eerste inzicht tot finale realisatie.",
     "about.whatwedo.p4": "",
     "about.whatwedo.p5": "",
 
     // Services page. Growth
     "services.growth.hero.label": "Groeistrategieën",
-    "services.growth.hero.title": "Uw werkplek opschalen naar uw ambities",
-    "services.growth.hero.text": "Snelle groei mag geen overhaaste beslissingen betekenen. Wij helpen groeiende organisaties werkplekken te vinden, te onderhandelen en over te stappen die productiviteit stimuleren.",
+    "services.growth.hero.title": "Uw kantoor opschalen naar uw ambities",
+    "services.growth.hero.text": "Snelle groei mag geen overhaaste beslissingen betekenen. Wij helpen groeiende organisaties kantoren te vinden, te onderhandelen en over te stappen die productiviteit stimuleren.",
     "services.growth.process.label": "Onze aanpak",
     "services.growth.process.title": "Sneller groeien, geen overhaaste keuzes.",
     "services.growth.step1.title": "Groeianalyse",
@@ -405,11 +405,11 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.growth.step3.text": "Van inrichtingscoördinatie tot verhuismanagement, we overzien elk detail zodat uw team zich kan richten op hun kernwerk.",
     "services.growth.forWhom.label": "Is dit voor u?",
     "services.growth.forWhom.title": "Gebouwd voor bedrijven in groei",
-    "services.growth.forWhom.text": "Of u nu 10 of 200 mensen aanwerft, een tweede kantoor opent of consolideert naar een groter hoofdkantoor als groei uw werkplekbeslissingen aanstuurt, is deze dienst voor u.",
+    "services.growth.forWhom.text": "Of u nu 10 of 200 mensen aanwerft, een tweede kantoor opent of consolideert naar een groter hoofdkantoor als groei uw kantoorbeslissingen aanstuurt, is deze dienst voor u.",
 
     // Services page. Downsizing
     "services.downsizing.hero.label": "Downsizing oplossingen",
-    "services.downsizing.hero.title": "Optimaliseer uw werkplek zonder te verliezen wat telt",
+    "services.downsizing.hero.title": "Optimaliseer uw kantoor zonder te verliezen wat telt",
     "services.downsizing.hero.text": "Uw footprint verkleinen betekent niet uw standaarden verlagen. Wij helpen u ruimte te optimaliseren, voorwaarden te heronderhandelen en de cultuur te behouden die uw team waardeert.",
     "services.downsizing.process.label": "Onze aanpak",
     "services.downsizing.process.title": "Een slimmere footprint, geen kleinere ambitie.",
@@ -421,12 +421,12 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.downsizing.step3.text": "We beheren huuruitstappen, onderverhuuronderhandelingen en ruimteherindelingen met minimale verstoring van uw dagelijkse operaties.",
     "services.downsizing.forWhom.label": "Is dit voor u?",
     "services.downsizing.forWhom.title": "Voor organisaties die hun footprint heroverwegen",
-    "services.downsizing.forWhom.text": "Post-fusie-integratie, een verschuiving naar hybride werk, of simpelweg betalen voor ruimte die u niet meer nodig heeft: als uw werkplek niet meer past bij uw realiteit, kunnen wij helpen.",
+    "services.downsizing.forWhom.text": "Post-fusie-integratie, een verschuiving naar hybride werk, of simpelweg betalen voor ruimte die u niet meer nodig heeft: als uw kantoor niet meer past bij uw realiteit, kunnen wij helpen.",
 
     // Services page. Lease
     "services.lease.hero.label": "Leasemanagement",
     "services.lease.hero.title": "Maak van uw huurverval een strategische kans",
-    "services.lease.hero.text": "Een huurverval is meer dan een administratieve deadline. Het is een kans om te heronderhandelen, te verhuizen of uw werkplek te herdenken.",
+    "services.lease.hero.text": "Een huurverval is meer dan een administratieve deadline. Het is een kans om te heronderhandelen, te verhuizen of uw kantoor te herdenken.",
     "services.lease.process.label": "Onze aanpak",
     "services.lease.process.title": "Proactieve huurstrategie, geen last minute paniek.",
     "services.lease.step1.title": "Vroegtijdige Huurreview",
@@ -457,7 +457,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Services Overview
     "servicesOverview.hero.label": "Waar wij instappen",
-    "servicesOverview.hero.title": "Elke werkplekuitdaging heeft een vertrekpunt. Dit zijn de meest voorkomende.",
+    "servicesOverview.hero.title": "Elke kantooruitdaging heeft een vertrekpunt. Dit zijn de meest voorkomende.",
     "servicesOverview.hero.text": "Wij werken met organisaties op cruciale momenten wanneer ruimte, strategie en operaties op elkaar moeten worden afgestemd.",
     "servicesOverview.cards.label": "Situaties",
     "servicesOverview.cards.title": "Herkent u uw situatie?",
@@ -469,7 +469,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "servicesOverview.relocation.detail": "Wij beheren het volledige traject, van locatiestrategie en onderhandeling tot ontwerp en finale oplevering. Eén team, één proces, één aanspreekpunt van begin tot eind.",
     "servicesOverview.mismatch.title": "Uw ruimte weerspiegelt niet meer hoe mensen werken",
     "servicesOverview.mismatch.summary": "Op papier werkt het. In de praktijk is het inefficiënt en onderbenut.",
-    "servicesOverview.mismatch.detail": "Wij analyseren hoe uw organisatie werkt en vertalen dat naar een werkplekstrategie en ontwerp dat in de praktijk werkt. Via bezettingsdata, interviews en ruimtelijke analyse leggen we de echte knelpunten bloot.",
+    "servicesOverview.mismatch.detail": "Wij analyseren hoe uw organisatie werkt en vertalen dat naar een kantoorstrategie en ontwerp dat in de praktijk werkt. Via bezettingsdata, interviews en ruimtelijke analyse leggen we de echte knelpunten bloot.",
     "servicesOverview.clarity.title": "U heeft duidelijkheid nodig voor de volgende stap",
     "servicesOverview.clarity.summary": "Voor u zich vastlegt, heeft u de juiste inzichten en richting nodig.",
     "servicesOverview.clarity.detail": "Wij bieden onafhankelijk advies, scenarioanalyse en een helder stappenplan. Geen bias, geen verborgen agenda enkel een gestructureerde aanpak om met vertrouwen te beslissen.",
@@ -485,7 +485,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "servicesOverview.no_resources.title": "U mist interne capaciteit om het proces te beheren",
     "servicesOverview.no_resources.summary": "U heeft een ervaren partner nodig die leidt zonder complexiteit toe te voegen.",
     "servicesOverview.no_resources.detail": "Wij fungeren als één aanspreekpunt en coördineren strategie, ontwerp en uitvoering van begin tot eind. Uw intern team blijft gefocust op de business.",
-    "servicesOverview.closing": "In elk van deze momenten is de vraag niet alleen wat de volgende stap is maar hoe de werkplek kan ondersteunen wat daarna komt.",
+    "servicesOverview.closing": "In elk van deze momenten is de vraag niet alleen wat de volgende stap is maar hoe het kantoor kan ondersteunen wat daarna komt.",
 
     // Services generic
     "services.cta": "Vraag een consultatie aan",
@@ -515,7 +515,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Footer
     "footer.company": "Tailor & Foster",
-    "footer.tagline": "Onafhankelijk werkplekadvies sinds 1995.",
+    "footer.tagline": "Onafhankelijk kantooradvies sinds 1995.",
     "footer.contact": "Contact",
     "footer.contact.person1.name": "Bernard De Cort",
     "footer.contact.person1.email": "bernard.decort@tailorandfoster.com",
