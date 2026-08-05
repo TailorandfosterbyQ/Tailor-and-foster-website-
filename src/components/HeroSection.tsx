@@ -1,7 +1,7 @@
 import { ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 import heroWorkspace from '@/assets/hero-workspace.jpg';
 import { useLanguage } from '@/i18n/LanguageContext';
 
