@@ -298,6 +298,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "whatwedo.title": "De werkplek als strategische troef.",
     "whatwedo.p1": "De werkplek bepaalt hoe mensen presteren, hoe cultuur wordt beleefd en hoe organisaties groeien.",
     "whatwedo.p2": "Bij Tailor & Foster definiëren en realiseren we werkomgevingen die dat versterken, van strategie tot uitvoering.",
+    "whatwedo.cta": "Vervolg →",
 
     // How we work
     "howwework.label": "Hoe we werken",
