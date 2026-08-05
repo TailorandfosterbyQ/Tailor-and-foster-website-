@@ -43,7 +43,7 @@ const ContactSection = () => {
             whileTap={{ scale: 0.97 }}
           >
             <Link
-              to="/opportunity-scan"
+              to="/kostencalculator"
               className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-medium text-primary shadow-lg group"
             >
               {t("contact.cta")}

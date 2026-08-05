@@ -43,7 +43,7 @@ const FinalCTASection = () => {
               whileTap={{ scale: 0.97 }}
             >
               <Link
-                to="/opportunity-scan"
+                to="/kostencalculator"
                 className="inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-base font-medium text-primary shadow-lg group"
               >
                 {t("finalCta.button")}

@@ -8,7 +8,6 @@ import Index from "./pages/Index.tsx";
 import About from "./pages/About.tsx";
 import Services from "./pages/Services.tsx";
 import ServicesOverview from "./pages/ServicesOverview.tsx";
-import OpportunityScan from "./pages/OpportunityScan.tsx";
 import Kostencalculator from "./pages/Kostencalculator.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ScrollToTop from "./components/ScrollToTop";
@@ -29,7 +28,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/services/:type" element={<Services />} />
           <Route path="/services" element={<ServicesOverview />} />
-          <Route path="/opportunity-scan" element={<OpportunityScan />} />
+          <Route path="/kostencalculator" element={<OpportunityScan />} />
           <Route path="/kostencalculator" element={<Kostencalculator />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
