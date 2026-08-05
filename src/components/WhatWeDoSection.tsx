@@ -34,6 +34,20 @@ const WhatWeDoSection = () => {
                 {t("whatwedo.p2")}
               </p>
             </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="mt-8"
+            >
+              <Link
+                to="/about#whatwedo"
+                className="inline-flex items-center gap-2 rounded-full border border-foreground/10 bg-white/80 px-7 py-3.5 text-sm font-medium text-foreground backdrop-blur-sm transition-colors hover:bg-white hover:border-foreground/20"
+              >
+                {t("whatwedo.cta")}
+              </Link>
+            </motion.div>
           </div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
