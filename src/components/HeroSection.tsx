@@ -48,22 +48,24 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col justify-center min-h-[3.3em] sm:min-h-[2.2em] text-[clamp(1.8rem,4.2vw,4.5rem)] leading-[1.1] tracking-tight text-white font-bold font-serif max-w-4xl"
+          className="flex items-center min-h-[3.3em] sm:min-h-[2.2em] text-[clamp(1.8rem,4.2vw,4.5rem)] leading-[1.1] tracking-tight text-white font-bold font-serif max-w-4xl"
         >
-          {t("hero.title.prefix")}{' '}
-          <span className="inline-flex flex-wrap items-baseline overflow-hidden align-bottom">
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.span
-                key={index}
-                initial={{ y: "100%", opacity: 0 }}
-                animate={{ y: "0%", opacity: 1 }}
-                exit={{ y: "-100%", opacity: 0 }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="inline-block whitespace-normal"
-              >
-                {rotating[index]}.
-              </motion.span>
-            </AnimatePresence>
+          <span className="block">
+            {t("hero.title.prefix")}{' '}
+            <span className="inline-flex flex-wrap items-baseline overflow-hidden align-bottom">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.span
+                  key={index}
+                  initial={{ y: "100%", opacity: 0 }}
+                  animate={{ y: "0%", opacity: 1 }}
+                  exit={{ y: "-100%", opacity: 0 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  className="inline-block whitespace-normal"
+                >
+                  {rotating[index]}.
+                </motion.span>
+              </AnimatePresence>
+            </span>
           </span>
         </motion.h1>
         <motion.p
