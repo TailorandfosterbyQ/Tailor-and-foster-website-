@@ -27,7 +27,6 @@ import { CheckCircle2, Lock, ListChecks } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
-import { useNavigate } from "react-router-dom";
 
 type Region = "brussel" | "gent-antwerpen" | "overige";
 
@@ -64,7 +63,6 @@ const num = (v: string): number => {
 };
 
 const Kostencalculator = () => {
-  const navigate = useNavigate();
 
   // Gate first
   const [gateEmail, setGateEmail] = useState("");
