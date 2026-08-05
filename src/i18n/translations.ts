@@ -564,6 +564,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "whatwedo.title": "Le lieu de travail comme atout stratégique.",
     "whatwedo.p1": "Le lieu de travail façonne la performance des équipes, la culture vécue et la croissance des organisations.",
     "whatwedo.p2": "Chez Tailor & Foster, nous définissons et concrétisons des environnements de travail qui soutiennent cela, de la stratégie à l'exécution.",
+    "whatwedo.cta": "Suite →",
 
     // How we work
     "howwework.label": "Comment nous travaillons",
