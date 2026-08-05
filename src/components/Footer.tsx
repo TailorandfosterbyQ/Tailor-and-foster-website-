@@ -8,7 +8,7 @@ const Footer = () => {
     { label: t('nav.home'), href: '/' },
     { label: t('nav.about'), href: '/about' },
     { label: t('nav.services'), href: '/services' },
-    { label: t('nav.letsTalk'), href: '/opportunity-scan' },
+    { label: t('nav.letsTalk'), href: '/kostencalculator' },
   ];
 
   const contactPeople = [

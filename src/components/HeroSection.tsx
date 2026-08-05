@@ -85,7 +85,7 @@ const HeroSection = () => {
           <motion.div whileHover={{ y: -3, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className="relative">
             <span className="absolute inset-0 rounded-full bg-transparent shadow-[0_12px_40px_rgba(255,255,255,0.45)] animate-cta-shadow pointer-events-none" />
             <Link
-              to="/opportunity-scan"
+              to="/kostencalculator"
               className="relative z-10 rounded-full bg-white px-7 py-3.5 text-sm font-medium text-primary shadow-lg hover:shadow-xl inline-block"
             >
               {t("hero.cta.primary")}

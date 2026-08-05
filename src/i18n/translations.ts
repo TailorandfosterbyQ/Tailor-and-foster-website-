@@ -8,7 +8,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "nav.services": "Services",
     "nav.references": "References",
     "nav.contact": "Contact",
-    "nav.letsTalk": "Opportunity Scan",
+    "nav.letsTalk": "Office Benchmark",
 
     // Hero
     "hero.kicker": "FOR ORGANISATIONS IN MOTION",
@@ -274,7 +274,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "nav.services": "Diensten",
     "nav.references": "Referenties",
     "nav.contact": "Contact",
-    "nav.letsTalk": "Opportunity Scan",
+    "nav.letsTalk": "Office Benchmark",
 
     // Hero
     "hero.kicker": "VOOR ORGANISATIES IN BEWEGING",
@@ -540,7 +540,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "nav.services": "Services",
     "nav.references": "Références",
     "nav.contact": "Contact",
-    "nav.letsTalk": "Opportunity Scan",
+    "nav.letsTalk": "Office Benchmark",
 
     // Hero
     "hero.kicker": "POUR LES ORGANISATIONS EN MOUVEMENT",

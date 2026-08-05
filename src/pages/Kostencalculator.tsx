@@ -214,7 +214,7 @@ const Kostencalculator = () => {
         toast({ title: "Bevestigd. Bedankt." });
       }
       if (wantsScan) {
-        setTimeout(() => navigate("/opportunity-scan"), 800);
+        setTimeout(() => navigate("/kostencalculator"), 800);
       }
     } catch (err) {
       console.error(err);
