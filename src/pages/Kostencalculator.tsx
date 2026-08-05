@@ -213,9 +213,6 @@ const Kostencalculator = () => {
       } else {
         toast({ title: "Bevestigd. Bedankt." });
       }
-      if (wantsScan) {
-        setTimeout(() => navigate("/kostencalculator"), 800);
-      }
     } catch (err) {
       console.error(err);
       toast({ title: "Er ging iets mis. Probeer opnieuw.", variant: "destructive" });
