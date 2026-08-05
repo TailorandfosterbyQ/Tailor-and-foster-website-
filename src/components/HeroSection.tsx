@@ -1,7 +1,7 @@
 import { ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 import heroWorkspace from '@/assets/hero-workspace.jpg';
 import { useLanguage } from '@/i18n/LanguageContext';
 
@@ -12,6 +12,14 @@ const HeroSection = () => {
   const imgY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+
+  const rotating = [1, 2, 3, 4, 5].map((n) => t(`hero.rotating.${n}`));
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setIndex((i) => (i + 1) % rotating.length), 2600);
+    return () => clearInterval(id);
+  }, [rotating.length]);
 
   return (
     <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden text-white">
@@ -28,13 +36,35 @@ const HeroSection = () => {
         className="relative mx-auto max-w-7xl w-full px-6 sm:px-8 lg:px-12 pb-20 pt-32 lg:pb-28"
         style={{ y: textY, opacity }}
       >
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-5 text-sm font-medium uppercase tracking-[0.22em] text-white/60"
+        >
+          {t("hero.kicker")}
+        </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-[clamp(1.8rem,4.2vw,4.5rem)] leading-[1.1] tracking-tight text-white font-bold font-serif max-w-4xl"
         >
-          {t("hero.title")}
+          {t("hero.title.prefix")}{' '}
+          <span className="inline-flex flex-wrap items-baseline overflow-hidden align-bottom">
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.span
+                key={index}
+                initial={{ y: "100%", opacity: 0 }}
+                animate={{ y: "0%", opacity: 1 }}
+                exit={{ y: "-100%", opacity: 0 }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="inline-block whitespace-normal"
+              >
+                {rotating[index]}.
+              </motion.span>
+            </AnimatePresence>
+          </span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 30 }}
