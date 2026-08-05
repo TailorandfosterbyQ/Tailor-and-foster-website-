@@ -48,7 +48,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-[clamp(1.8rem,4.2vw,4.5rem)] leading-[1.1] tracking-tight text-white font-bold font-serif max-w-4xl"
+          className="flex flex-col justify-center min-h-[3.3em] sm:min-h-[2.2em] text-[clamp(1.8rem,4.2vw,4.5rem)] leading-[1.1] tracking-tight text-white font-bold font-serif max-w-4xl"
         >
           {t("hero.title.prefix")}{' '}
           <span className="inline-flex flex-wrap items-baseline overflow-hidden align-bottom">
