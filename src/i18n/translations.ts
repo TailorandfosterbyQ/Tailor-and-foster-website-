@@ -32,6 +32,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "whatwedo.title": "The workplace as a strategic asset.",
     "whatwedo.p1": "The workplace shapes how people perform, how culture is felt, and how organisations grow.",
     "whatwedo.p2": "At Tailor & Foster, we define and deliver work environments that make that possible — from strategy to execution.",
+    "whatwedo.cta": "Continue →",
 
     // How we work
     "howwework.label": "How we work",
@@ -297,6 +298,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "whatwedo.title": "De werkplek als strategische troef.",
     "whatwedo.p1": "De werkplek bepaalt hoe mensen presteren, hoe cultuur wordt beleefd en hoe organisaties groeien.",
     "whatwedo.p2": "Bij Tailor & Foster definiëren en realiseren we werkomgevingen die dat versterken, van strategie tot uitvoering.",
+    "whatwedo.cta": "Vervolg →",
 
     // How we work
     "howwework.label": "Hoe we werken",
@@ -562,6 +564,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "whatwedo.title": "Le lieu de travail comme atout stratégique.",
     "whatwedo.p1": "Le lieu de travail façonne la performance des équipes, la culture vécue et la croissance des organisations.",
     "whatwedo.p2": "Chez Tailor & Foster, nous définissons et concrétisons des environnements de travail qui soutiennent cela, de la stratégie à l'exécution.",
+    "whatwedo.cta": "Suite →",
 
     // How we work
     "howwework.label": "Comment nous travaillons",
