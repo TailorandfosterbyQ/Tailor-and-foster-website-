@@ -285,7 +285,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "hero.rotating.3": "fuseert",
     "hero.rotating.4": "de huur ziet aflopen",
     "hero.rotating.5": "kampt met leegstand",
-    "hero.subtitle": "Wij bieden strategie en projectmanagement, volledig onafhankelijk.",
+    "hero.subtitle": "Wij bieden advies en projectmanagement, volledig onafhankelijk.",
     "hero.cta.primary": "Start uw Opportunity Scan",
     "hero.cta.secondary": "Meer weten",
 
